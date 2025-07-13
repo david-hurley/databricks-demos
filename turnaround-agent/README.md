@@ -38,5 +38,18 @@ The system follows this flow:
 
 2. Navigate to the `turnaround-agent` folder and open `00-setup`, follow the instructions in the Notebook
 
-3. Test the tools, system prompts, and models in the Databricks Playground
-4. Export a Agent notebook template
+3. We are going to prototype in the Playground. This lets us test various models, system prompts, and get an idea how the tools perform. From the Playground we will export the code to create `agent.py`, this exported code can also be found as `01-agent-creation`. 
+
+- If using the Free Edition choose `Meta Llama 3.1 405B Instruct`. 
+- Select `Tools` dropdown and add the 3 Unity Catalog functions that were created and registered in `00-setup`. 
+- Also add the vector search index created in `00-setup`. 
+
+  ![Tool Selection Playground](./artifacts/tool_addition_playground.png)
+
+- Add the below system prompt
+
+  ```You are a highly experienced planning engineer at a major energy company, responsible for preparing equipment and asset Turnaround plans. For each request, carefully review historical inspection reports for signs of degradation or recurring issues. Also analyze IoT sensor data to identify any values that exceeded alarm thresholds, as these may signal urgent or unplanned maintenance needs due to factors like corrosion, overheating, or wear. Your goal is to provide clear, data-backed recommendations to help engineers prioritize repair and inspection tasks during the upcoming Turnaround.```
+
+4. Ask the Playground Agent for help, try `Help me plan for Turnaround for Plant A and equipment heat exchangers`. You will see the Agent decide which tools to use and start reasoning. 
+
+5. Once you are happy with testing you can select `Create Agent Notebook`. This will create a Notebook named `driver` in a new folder. Move this to your Gitfolder, you can use `01-agent-creation` for now.
