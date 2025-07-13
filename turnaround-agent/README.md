@@ -5,14 +5,14 @@
 ##### What is Turnaround
 In industry, a turnaround refers to a planned, periodic shutdown of a plant or industrial facility to perform maintenance, inspections, repairs, and upgrades. It is a critical process aimed at ensuring safety, compliance, and operational efficiency, often involving large teams and significant logistical coordination.
 
-##### Cost of Turnaround
+##### Turnaround is a High Cost Activity
 Turnarounds are often the highest-cost activity because they require halting production, deploying large specialized workforces, and executing complex tasks within tight timeframes. The combination of lost revenue from downtime and high expenditures on labor, equipment, and materials drives up the overall cost significantly.
 
 
-##### Cost Risks of Turnaround
+##### Cost Overruns Are Common
 The risk of cost overrun is high in turnarounds due to the complexity and unpredictability of discovering additional issues once equipment is opened or inspected. Tight schedules, dependency on contractor performance, and coordination across multiple teams amplify the chance of delays and budget escalation.
 
-##### Cost Reduction Through Better Planning
+##### Reducing Cost Overruns Through Better Planning
 Accurate planning before a turnaround is critical to minimize downtime and therefore reduce cost overrun. 
 - Historical inspection and repair reports help identify and prioritize high-risk assets
 - IoT sensor data between last turnaround and now can help highlight operating conditions which may have accelerated equipment detioration, such as temperatures above design conditions leading to increased corrosion. 
@@ -52,4 +52,6 @@ The system follows this flow:
 
 4. Ask the Playground Agent for help, try `Help me plan for Turnaround for Plant A and equipment heat exchangers`. You will see the Agent decide which tools to use and start reasoning. 
 
-5. Once you are happy with testing you can select `Create Agent Notebook`. This will create a Notebook named `driver` in a new folder. Move this to your Gitfolder, you can use `01-agent-creation` for now.
+5. Once you are happy with testing you can select `Create Agent Notebook`. This will create a Notebook named `driver` in a new folder. Move this to your Gitfolder. You can also use `01-agent-creation` for now.
+
+6. If using the existing `01-agent-creation` Notebook you will need to update the `catalog` and `schema` throughout.
