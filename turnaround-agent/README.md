@@ -1,24 +1,42 @@
-### Problem
-Any company that is in a "heavy" industry (i.e. one where materials or energy is produced) must periodically take assets offline for equipment inspection, repair, and replacement. This is typically referred to as Turnaround. 
+# Turnaround Solution Accelerator
 
-Companies that conduct Turnarounds know that this is often the highest cost activity. This is because repairs/replacement can be expensive and excess downtime of assets means loss revenue. 
+### Overview
 
-To avoid large cost overruns, companies want to be as accurate in planning for Turnaround as possible. This means understanding what the state of equipment will be prior to going offline such that equipment and parts are procured in advance and trades are scheduled. 
+##### What is Turnaround
+In industry, a turnaround refers to a planned, periodic shutdown of a plant or industrial facility to perform maintenance, inspections, repairs, and upgrades. It is a critical process aimed at ensuring safety, compliance, and operational efficiency, often involving large teams and significant logistical coordination.
 
-One major challenge in planning for Turnaround is being able to understand any adverse operating conditions that a piece of equipment encountered between the last Turnaround and now. For example, previous inspection reports may make no mention of concerns around a piece of equipment but if the temperature of that equipment exceeded design conditions following last Turnaround there may be repairs needed. This can lead to costly unplanned repairs if not considered. 
+##### Cost of Turnaround
+Turnarounds are often the highest-cost activity because they require halting production, deploying large specialized workforces, and executing complex tasks within tight timeframes. The combination of lost revenue from downtime and high expenditures on labor, equipment, and materials drives up the overall cost significantly.
 
-### Turnaround Demo
-This demo shows how to create, deploy, and evaluate a single-agent system using the Mosaic AI Agent Framework.
 
-The flow is the following:
-1. A engineer asks for help planning for the upcoming Turnaround at a specific plant and for a specific piece of equipment
-2. The agent has access to two tools - a vector search index of past inspection reports and data from sensors on each piece of equipment
-3. The agent will use past inspection information and look for any temperature anomalies to make suggestions on where to focus future Turnaround efforts
+##### Cost Risks of Turnaround
+The risk of cost overrun is high in turnarounds due to the complexity and unpredictability of discovering additional issues once equipment is opened or inspected. Tight schedules, dependency on contractor performance, and coordination across multiple teams amplify the chance of delays and budget escalation.
 
-![](/Workspace/Users/david.hurley@databricks.com/turnaround-agent/turnaround-agent/artifacts/architecture_diagram.png)
+##### Cost Reduction Through Better Planning
+Accurate planning before a turnaround is critical to minimize downtime and therefore reduce cost overrun. 
+- Historical inspection and repair reports help identify and prioritize high-risk assets
+- IoT sensor data between last turnaround and now can help highlight operating conditions which may have accelerated equipment detioration, such as temperatures above design conditions leading to increased corrosion. 
 
-##### Getting Started
-1. Create a Git Folder pointing to - `https://github.com/david-hurley/databricks-demos`
-2. Open `00-setup` and follow the instructions
+
+### Turnaround Agentic Planning Tool
+
+##### Overview
+This solution accelerator leverages the Databricks Mosaic AI Agent Framework to deploy a focused agent that analyzes historical inspection reports and IoT sensor data, providing engineers with data-driven recommendations for prioritizing tasks in the upcoming turnaround.
+
+##### Architecture
+The system follows this flow:
+1. An engineer initiates a request for assistance in planning the upcoming Turnaround for a specific plant and piece of equipment. 
+
+2. The AI agent is equipped with two key tools: a vector search index containing historical inspection reports and access to IoT sensor data for each asset. 
+
+3. The agent analyzes past inspection findings and identifies recent sensor anomalies—such as unusual temperature patterns—to recommend priority areas for Turnaround planning.
+
+![Turnaround Solution Accelerator Architecture](./artifacts/architecture_diagram.png)
+
+### Getting Started
+1. Create a Git Folder pointing to - `https://github.com/david-hurley/databricks-demos`, use sparse checkout to fetch only `turnaround-agent` folder
+
+2. Navigate to the `turnaround-agent` folder and open `00-setup`, follow the instructions in the Notebook
+
 3. Test the tools, system prompts, and models in the Databricks Playground
 4. Export a Agent notebook template
