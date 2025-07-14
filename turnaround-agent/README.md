@@ -54,4 +54,8 @@ The system follows this flow:
 
 5. Once you are happy with testing you can select `Create Agent Notebook`. This will create a Notebook named `driver` in a new folder. Move this to your Gitfolder. You can also use `01-agent-creation` for now.
 
-6. If using the existing `01-agent-creation` Notebook you will need to update the `catalog` and `schema` throughout.
+6. If using the existing `01-agent-creation` Notebook you will need to update the `catalog` and `schema` throughout. 
+
+7. Run `01-agent-creation` Notebook. This will create `agent.py` (deployment artifact), evaluate the Agent, and register and deploy the Agent. 
+
+8. Try checking out the experiments and the evaluations. Go to the model endpoint and checkout the Review App.
