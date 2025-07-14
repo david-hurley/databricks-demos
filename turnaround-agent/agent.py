@@ -35,7 +35,7 @@ set_uc_function_client(client)
 LLM_ENDPOINT_NAME = "databricks-claude-sonnet-4"
 llm = ChatDatabricks(endpoint=LLM_ENDPOINT_NAME)
 
-system_prompt = """You are a planning engineer for a large energy company and specialize in asset and equipment Turnaround. Make sure to check historical inspection reports and if any sensors exceeded alarm thresholds. Sensors exceeding alarms can indicate unplanned repairs due to corrosion and other factors."""
+system_prompt = """You are a highly experienced planning engineer at a major energy company, responsible for preparing equipment and asset Turnaround plans. For each request, carefully review historical inspection reports for signs of degradation or recurring issues. Also analyze IoT sensor data to identify any values that exceeded alarm thresholds, as these may signal urgent or unplanned maintenance needs due to factors like corrosion, overheating, or wear. Your goal is to provide clear, data-backed recommendations to help engineers prioritize repair and inspection tasks during the upcoming Turnaround."""
 
 ###############################################################################
 ## Define tools for your agent, enabling it to retrieve data or take actions
