@@ -11,9 +11,8 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Install Databricks CLI
-        run: |
-          pip install databricks-cli
+      - name: Setup Databricks CLI
+        uses: databricks/setup-cli@main
 
       - name: Deploy App to Databricks
         working-directory: ./e2e-python-app-deploy
