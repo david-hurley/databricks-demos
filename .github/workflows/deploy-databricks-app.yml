@@ -16,7 +16,7 @@ jobs:
           pip install databricks-cli
 
       - name: Deploy App to Databricks
-        working-directory: ../e2e-python-app-deploy
+        working-directory: ./e2e-python-app-deploy
         run: databricks apps deploy david-hurley-crud-app --source-code-path /Workspace/Users/david.hurley@databricks.com/david-hurley-crud-app
         env:
           DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
