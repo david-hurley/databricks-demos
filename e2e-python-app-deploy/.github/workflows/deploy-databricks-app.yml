@@ -1,0 +1,23 @@
+name: Deploy App to Databricks
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install Databricks CLI
+        run: |
+          pip install databricks-cli
+
+      - name: Deploy App to Databricks
+        run: databricks apps deploy david-hurley-crud-app --source-code-path /Workspace/Users/david.hurley@databricks.com/david-hurley-crud-app
+        env:
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+          DATABRICKS_CLIENT_ID:  ${{ secrets.DATABRICKS_CLIENT_ID }}
+          DATABRICKS_CLIENT_SECRET:  ${{ secrets.DATABRICKS_CLIENT_SECRET }}
