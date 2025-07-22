@@ -1,0 +1,31 @@
+bundle:
+  name: streamlit_auth_demo
+
+resources:
+  apps:
+    streamlit-auth-demo:
+      name: 'streamlit-auth-demo'
+      source_code_path: ./app
+      description: "A Streamlit app that uses a SQL warehouse"
+      resources:
+        - name: "sql-warehouse"
+          description: "A SQL warehouse for app to be able to work with"
+          sql_warehouse:
+            id: "1db6f6628fd5c3af"
+            permission: "CAN_USE"
+      user_api_scopes: ["sql"]
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://e2-demo-field-eng.cloud.databricks.com
+  prod:
+    mode: production
+    workspace:
+      host: https://e2-demo-field-eng.cloud.databricks.com
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
+    permissions:
+      - user_name: david.hurley@databricks.com
+        level: CAN_MANAGE
