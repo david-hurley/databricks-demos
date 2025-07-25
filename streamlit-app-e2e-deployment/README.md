@@ -1,15 +1,14 @@
-<img src=https://raw.githubusercontent.com/databricks-industry-solutions/.github/main/profile/solacc_logo.png width="600px">
+<img src="./artifacts/databricks-logo.png" width="600px">
 
+<!-- Main Title -->
 # Databricks Apps Development and Deployment Accelerator
-
-# Overview
 
 ### Problem
 Deploying custom enterprise data and AI applications can be burdensome. It often requires a person or team that is focused on application deployment, authentication, permissions, networking, and more (i.e. DevOps). 
 
 The problem is this slows time to value for data and AI teams and introduces processes that require specialized knowledge. 
 
-### Problem Scenario
+### Scenario
 Imagine this - you are on Azure and have built a custom Python or Node.js application. Your application is simple, it is designed to give users within the orginization access to data (i.e. CRUD operations). This application runs great locally but now you need to deploy the app so that users can interact. 
 
 In Azure, you would most likely use Azure WebApps. In this case, to deploy the application, you would need to follow roughly these steps:
@@ -19,14 +18,21 @@ In Azure, you would most likely use Azure WebApps. In this case, to deploy the a
 3. Deploy the container to Azure WebApp - setup networking on app, authentication for users, permissions for users to access data outside app memory and permissions for app to write state
 4. Automate deployment with GitHub Action workflows - configure GitHub runner with permissions to container registry and Azure WebApp
 
-Note - replace Azure WebApps with any plethora of app hosting services and the steps are similar or the same. 
+You can replace Azure WebApps with any plethora of app hosting services and the steps are similar or the same. 
 
-### Root Cause
-The primary driver of deployment challenges is the application layer does not "live" next to the data layer. 
+The primary problem is that the application layer does not "live" next to the data layer. 
 
 ### Databricks Apps Solution
+Databricks Apps provides a solution by bringing the application layer directly to the data layer, eliminating the need for complex deployment infrastructure.
 
-# End-to-End Databricks App Demo - Streamlit
+Databricks Apps:
+- Does not require containerizing the application
+- Compute is serverless and auto-scales with demand
+- App authentication and user access to data is managed via Unity Catalog (i.e. your data permissions are respected)
+- You can share with anyone in your organization so long as they are in a Azure AD group (similar on AWS)
+- You can deploy Python and Node.js frameworks
+
+## Getting Started
 The application development and deployment cycle can be broken into 3 stages. 
 1. Develop and run the app locally
 2. Deploy the app to a Databricks Dev workspace
@@ -40,107 +46,29 @@ The application development and deployment cycle can be broken into 3 stages.
 
 ### Step 1: Develop Locally
 1. Clone this repo and open the `streamlit-app-e2e-deployment` folder, `git clone https://github.com/david-hurley/databricks-demos.git`
-1. Use the Databricks CLI to setup workspace authentication
-    a. If you have an existing Databricks Default configuration profile, run `databricks auth profiles` to check, then skip step B. 
+2. Use the Databricks CLI to setup workspace authentication
+    a. If you have an existing Databricks Default configuration profile, run `databricks auth profiles` to check, if you have a profile then skip step B. 
     b. To create a new Default or custom named configuration profile follow the [documentation](https://docs.databricks.com/aws/en/dev-tools/cli/authentication)
-2. In the root of the repository run `source .venv/bin/activate` to launch a virtual environment
-3. Copy the SQL Warehouse compute ID from the workspace, found next to name on SQL Warehouse details ![sql-warehouse-id](./artifacts/image.png)
-4. Export the SQL Warehouse ID as an environment variable `export SQL_WAREHOUSE_ID=XXX`
-5. Run the Streamlit app from repository root with `streamlit run app/app.py`
+3. In the root of the repository run `source .venv/bin/activate` to launch a virtual environment
+4. Install the required packages with `pip install -r app/requirements.txt`
+5. Copy the SQL Warehouse compute ID from the workspace, found next to name on SQL Warehouse details ![sql-warehouse-id](./artifacts/sql-warehouse.png)
+6. Export the SQL Warehouse ID as an environment variable `export SQL_WAREHOUSE_ID=XXX`
+7. Run the Streamlit app from repository root with `streamlit run app/app.py`
+
+You should be able to read data from your Unity Catalog in the workspace
 
 ### Step 2: Test App in Databricks Dev Workspace
-
-
+Now we want to deploy the app to a test workspace, for this we will leverage the Databricks Asset Bundles (DABs). This is infrastructure as code for Databricks resources.
+1. In `databricks.yml` update the `sql-warehouse` id and the Dev and Production `Host` - note you can remove Production section for now if you just want to test
+2. Now run `databricks bundle validate` - you should see a green check
+3. Next, run `databricks bundle deploy` - this will standup the app resource but will not start. To confirm, navigate to the `compute` and `app` tab in your workspace and see if a new app was created
+4. Finally, run `databricks bundle run streamlit-auth-demo` (replace `streamlit-auth-demo` with a new name you give the app) - now you should be able to view your live application in the workspace. 
+5. Test out the authentication - try to query a dataset that you have access to with user auth and one you do not. Note, the app can only query data that it has been given permission to select. On the dataset you just `GRANT` permission and type in the name of the app.
 
 
 ### Step 3: Automate App Deployment to Databricks Prd Workspace
-
-
-##### Development App Environment
-1. Use DABs to manage the Databricks App IaC
-2. Deploy to test using DABs
-`databricks bundle validate`
-`databricks bundle deploy`
-`databricks bundle summary` --> shows where code has been synced
-`databricks bundle run streamlit_auth_demo`
-`databricks bundle summary` --> now it shows the running app
-
-
-
-## Business Problem
-
-The UK's transition to Market-Wide Half-Hourly Settlement (MHHS) marks a significant regulatory shift aimed at modernising electricity billing and promoting a more flexible, efficient energy market. Under MHHS, all electricity consumption data will be settled on a half-hourly basis, reflecting actual usage patterns in near-real time.
-
-For energy suppliers, this change introduces both opportunities and challenges. Accurate forecasting becomes mission-critical: suppliers must predict customer demand at granular 30-minute intervals to manage their trading positions effectively. Forecasting errors can lead to imbalanced positions—buying too much or too little power—which exposes suppliers to costly imbalance charges and volatile trading prices in wholesale markets.
-
-In this new landscape, the ability to harness smart meter data, invest in predictive analytics, and optimise trading strategies will be essential for maintaining competitiveness and mitigating financial risk.
-
-
-## Proposed Solution
-
-This solution accelerator looks at using the Databricks Lakehouse platform to work with half-hourly smart meter data.
-We run you through:
-- Obtaining and processing weather data in unusual formats (`era5`, `ifs`)
-- Processing geographical data to align smart meter locations to nearby features (weather, administrative boundaries)
-- Pre-processing and validating data before it is ready for use
-- Extracting features from the data to augment our forecasts
-- Creating and evaluating forecasts with both prophet and `ai_forecast()`
-
-## Reference Architecture
-<img src="./docs/imgs/energy-sa-high-level-flow.png" width="1200">
-
-## Key Services and Costs
-
-We recommend you treat these notebooks as referential material.
-Running the workflow and the notebook is possible, however we load around 12Gb of smart meter data and several Gb of geographical weather data. This then goes through some significant processing. While the end to end flow can take under an hour to run, there is a compute cost associated which you should be aware of. Effort has been made to minimise this cost, and multiple runs of this accelerator will default to skipping re-processing.
-
-
-## Table of Contents
-
-The notebooks are numbered for convenience. The stages in the reference architecture break down into the following notebooks:
-
-|stage                |notebook|
-|---------------------|-|
-|Source & Ingest      |[01a_ingest_meter_data](./src/01a_ingest_meter_data.ipynb)|
-|Source & Ingest      |[01b_ingest_historic_weather_data](./src/01b_ingest_historic_weather_data.ipynb)|
-|Source & Ingest      |[01c_ingest_forecast_weather_data](./src/01c_ingest_forecast_weather_data.ipynb)|
-|Data clean-up & prep |[02_interactive_exploration](./src/02_interactive_exploration.ipynb)|
-|Source & Ingest      |[02_data_prep_for_feature_engineering](./src/02_data_prep_for_feature_engineering.ipynb)|
-|Feature engineering  |[03_feature_engineering](./src/03_feature_engineering.ipynb)|
-|Model training       |[04a_forecast_with_prophet_and_exogenous_inputs_unscaled](./src/04a_forecast_with_prophet_and_exogenous_inputs_unscaled.ipynb)|
-|Model training       |[04b_forecast_with_prophet_and_exogenous_inputs_scaled](./src/04b_forecast_with_prophet_and_exogenous_inputs_scaled.ipynb)|
-|Model training       |[04c_ai_forecasting_uk_energy](./src/04c_ai_forecasting_uk_energy.ipynb)|
-|Evaluation           |[05_forecast_evaluation](./src/05_forecast_evaluation.ipynb)|
-
-
-## Deploying the accelerator
-
-If you want to deploy the accelerator as a job so you can follow the DAG between tasks, or even run it yourselves you can use Databricks asset bundles in the workspace to do so.
-
-You'll need to create your own secret scope to securely store your API key for the [ECMWF Web Api](https://www.ecmwf.int/en/computing/software/ecmwf-web-api).
-
-Then, all you need to do is navigate into the folder: `.databricks/bundle/dev/` and make a copy of the `variable-overrides-template.json` into the same folder, rename it to `variable-overrides.json` and populate it with your values. 
-
-This will parameterise the first task in the job (The notebook [00_project_setup](./src/00_project_setup.ipynb)) with your settings, and be pulled into all subsequent notebooks via the `%run includes/common_funtions_and_imports` call.
-
-If you want to run it manually, you need to open the notebook [00_project_setup](./src/00_project_setup.ipynb) in databricks, set the widget values appropriately and run it which will create the relevant `config.json` file for you in the project folder.
-
-You can also reference this diagram for the bundle deployment flow:
-
-<img src="./docs/imgs/energy-sa-deployment-flow.png" width="1200">
-
-
-## Authors
-<stuart.lynn@databricks.com>
-<sam.lecorre@databricks.com>
-<kyra.wulfert@databricks.com>
-
-## Project support 
-
-Please note the code in this project is provided for your exploration only, and are not formally supported by Databricks with Service Level Agreements (SLAs). They are provided AS-IS and we do not make any guarantees of any kind. Please do not submit a support ticket relating to any issues arising from the use of these projects. The source in this project is provided subject to the Databricks [License](./LICENSE.md). All included or referenced third party libraries are subject to the licenses set forth below.
-
-Any issues discovered through the use of this project should be filed as GitHub Issues on the Repo. They will be reviewed as time permits, but there are no formal SLAs for support.
-
-## License
-
-&copy; 2025 Databricks, Inc. All rights reserved. The source in this notebook is provided subject to the Databricks License [https://databricks.com/db-license-source].  All included or referenced third party libraries are subject to the licenses set forth below.
+Now that it works locally and in a Dev workspace we want to automate the deployment
+1. Open the `deploy-streamlit-app.yml` in `.github/workflows`
+2. Update the runner to your runner group
+3. In GitHub, you need to create 3 repository secrets. One is the workspace URL (same as in `databricks.yml`) the other is a Service Principal Client ID and Secret. You can create these by going to your workspace settings then select Identity and Access and manage Service Principals. Either create a new one or use a existing and add a secret. 
+4. Now you can push your code to a GitHub branch - when you merge this to `Main` it will trigger the action and redeploy the app

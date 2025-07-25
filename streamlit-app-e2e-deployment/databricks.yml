@@ -11,16 +11,16 @@ resources:
         - name: "sql-warehouse"
           description: "A SQL warehouse for app to be able to work with"
           sql_warehouse:
-            id: "1db6f6628fd5c3af"
+            id: "1db6f6628fd5c3af" # This gives the app access to the SQL warehouse
             permission: "CAN_USE"
-      user_api_scopes: ["sql"]
+      user_api_scopes: ["sql"] # This give the user access to the SQL warehouse
 
 targets:
   dev:
     mode: development
     default: true
     workspace:
-      host: https://e2-demo-field-eng.cloud.databricks.com
+      host: https://e2-demo-field-eng.cloud.databricks.com # This is the workspace to create the resources in
   prod:
     mode: production
     workspace:

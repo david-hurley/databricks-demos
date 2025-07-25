@@ -2,6 +2,7 @@ import streamlit as st
 import os
 from utils import get_user_access_token, get_connection_sp, get_connection_obo, execute_query, run_query_with_connection
 
+
 sql_warehouse_id = os.getenv("SQL_WAREHOUSE_ID")
 sql_warehouse_http_path = f"/sql/1.0/warehouses/{sql_warehouse_id}"
 

@@ -7,7 +7,7 @@ jobs:
   deploy-app:
     name: 'Deploy app resource'
     runs-on:
-      group: databricks-field-eng-protected-runner-group
+      group: databricks-field-eng-protected-runner-group # change this to your runner, likely linux-ubuntu-latest
       labels: linux-ubuntu-latest
 
     steps:
