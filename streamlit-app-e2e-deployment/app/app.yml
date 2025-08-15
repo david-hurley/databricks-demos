@@ -1,7 +1,0 @@
-command:
-  - "streamlit"
-  - "run"
-  - "app.py"
-env:
-  - name: "SQL_WAREHOUSE_ID"
-    valueFrom: "sql-warehouse"
