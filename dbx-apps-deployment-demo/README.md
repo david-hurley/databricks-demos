@@ -52,6 +52,6 @@ The application development and deployment cycle can be broken into 3 stages.
 5. Try testing out the app in the Dev workspace, see if the authentication works by accessing a table you have access to but the app doesn't and vice versa
 
 ### Step 4: Automate App Deployment to Production
-1. Add the secrets in the `deploy.yml` to your GitHub repository
+1. Add the secrets in the `deploy.yml` to your GitHub repository --> this file lives in the repository root, it must
 2. Push the code to a GitHub branch and open a pull request
 3. Merge the PR to main --> this will launch the action. Note: the GitHub runner is currenlty pointing to our field EMU GitHub which gives action permission over the E2 field eng workspace. You may need to update. 
