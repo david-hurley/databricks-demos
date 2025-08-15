@@ -1,0 +1,35 @@
+bundle:
+  name: demo_app_deploy
+
+variables:
+  sql_warehouse_id:
+    description: The ID of an existing sql warehouse
+
+resources:
+  apps:
+    demo-app-deploy:
+      name: 'demo-app-deploy'
+      source_code_path: ./app
+      description: "A Streamlit app that uses a SQL warehouse"
+      resources:
+        - name: "sql-warehouse"
+          description: "A SQL warehouse for app to be able to work with"
+          sql_warehouse:
+            id: ${var.sql_warehouse_id} # This gives the app access to the SQL warehouse
+            permission: "CAN_USE"
+      user_api_scopes: ["sql"] # This give the user access to the SQL warehouse
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://adb-984752964297111.11.azuredatabricks.net # This is the workspace to create the resources in
+  prod:
+    mode: production
+    workspace:
+      host: https://adb-984752964297111.11.azuredatabricks.net
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
+    permissions:
+      - user_name: david.hurley@databricks.com
+        level: CAN_MANAGE

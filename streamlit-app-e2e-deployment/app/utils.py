@@ -36,6 +36,7 @@ def get_connection_sp(http_path):
 
 def get_connection_obo(http_path, user_access_token):
     """Get a connection to the SQL warehouse using a user identity."""
+    print("this is the user access token", user_access_token)
     return sql.connect(
         server_hostname=cfg.host,
         http_path=http_path,

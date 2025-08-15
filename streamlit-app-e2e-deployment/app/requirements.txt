@@ -1,3 +1,0 @@
-databricks-sql-connector==4.0.5
-databricks-sdk==0.59.0
-streamlit==1.47.0
