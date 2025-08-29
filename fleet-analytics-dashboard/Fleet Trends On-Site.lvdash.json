@@ -1,0 +1,568 @@
+{
+  "datasets": [
+    {
+      "name": "642cfb65",
+      "displayName": "Vehicle GPS Data",
+      "queryLines": [
+        "SELECT * FROM users.david_hurley.new_taxigpsdata"
+      ]
+    },
+    {
+      "name": "367d8d30",
+      "displayName": "Vehicle In Critical Zone",
+      "queryLines": [
+        "WITH polygon AS (\n",
+        "  SELECT ST_GeomFromText('POLYGON((-8.62 41.14, -8.6 41.14, -8.6 41.16, -8.62 41.16, -8.62 41.14))') AS geom\n",
+        ")\n",
+        "\n",
+        "SELECT\n",
+        "    t.taxi_id,\n",
+        "    t.timestamp,\n",
+        "    CAST(ST_Within(ST_Point(t.lon, t.lat), p.geom) AS INT) AS is_within_critical_zone\n",
+        "FROM\n",
+        "    users.david_hurley.new_taxigpsdata t\n",
+        "CROSS JOIN\n",
+        "    polygon p"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "73d58a8b",
+      "displayName": "Untitled page",
+      "layout": [
+        {
+          "widget": {
+            "name": "b54c743b",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "642cfb65",
+                  "fields": [
+                    {
+                      "name": "taxi_id",
+                      "expression": "`taxi_id`"
+                    },
+                    {
+                      "name": "lat",
+                      "expression": "`lat`"
+                    },
+                    {
+                      "name": "lon",
+                      "expression": "`lon`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "symbol-map",
+              "encodings": {
+                "coordinates": {
+                  "latitude": {
+                    "fieldName": "lat",
+                    "displayName": "lat"
+                  },
+                  "longitude": {
+                    "fieldName": "lon",
+                    "displayName": "lon"
+                  }
+                },
+                "color": {
+                  "fieldName": "taxi_id",
+                  "scale": {
+                    "type": "quantitative",
+                    "colorRamp": {
+                      "mode": "scheme",
+                      "scheme": "reds"
+                    },
+                    "reverse": false
+                  },
+                  "displayName": "taxi_id"
+                },
+                "extra": [
+                  {
+                    "fieldName": "lon",
+                    "format": {
+                      "type": "number-plain",
+                      "abbreviation": "compact",
+                      "decimalPlaces": {
+                        "type": "all"
+                      }
+                    },
+                    "displayName": "lon"
+                  },
+                  {
+                    "fieldName": "lat",
+                    "format": {
+                      "type": "number-plain",
+                      "abbreviation": "compact",
+                      "decimalPlaces": {
+                        "type": "all"
+                      }
+                    },
+                    "displayName": "lat"
+                  }
+                ]
+              },
+              "mark": {
+                "opacity": 1
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Vehicle Location On-Site"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 1,
+            "width": 6,
+            "height": 9
+          }
+        },
+        {
+          "widget": {
+            "name": "272e82df",
+            "queries": [
+              {
+                "name": "dashboards/01f0837dda8814578090c342de12ee82/datasets/01f08493ab301097b066cbc17e8aa4a0_timestamp",
+                "query": {
+                  "datasetName": "642cfb65",
+                  "fields": [
+                    {
+                      "name": "timestamp",
+                      "expression": "`timestamp`"
+                    },
+                    {
+                      "name": "timestamp_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-date-range-picker",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "timestamp",
+                    "displayName": "timestamp",
+                    "queryName": "dashboards/01f0837dda8814578090c342de12ee82/datasets/01f08493ab301097b066cbc17e8aa4a0_timestamp"
+                  }
+                ]
+              },
+              "selection": {
+                "defaultSelection": {
+                  "range": {
+                    "dataType": "DATETIME",
+                    "min": {
+                      "value": "2013-07-25T05:00:00.000"
+                    },
+                    "max": {
+                      "value": "2013-07-27T04:59:59.999"
+                    }
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Date Filter"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "0edf61e0",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "367d8d30",
+                  "fields": [
+                    {
+                      "name": "taxi_id",
+                      "expression": "`taxi_id`"
+                    },
+                    {
+                      "name": "sum(is_within_critical_zone)",
+                      "expression": "SUM(`is_within_critical_zone`)"
+                    }
+                  ],
+                  "cubeGroupingSets": {
+                    "sets": [
+                      {
+                        "fieldNames": [
+                          "taxi_id"
+                        ]
+                      },
+                      {}
+                    ]
+                  },
+                  "disaggregated": false,
+                  "orders": [
+                    {
+                      "direction": "ASC",
+                      "expression": "`taxi_id`"
+                    }
+                  ]
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "pivot",
+              "encodings": {
+                "rows": [
+                  {
+                    "fieldName": "taxi_id",
+                    "scale": {
+                      "type": "categorical",
+                      "sort": {
+                        "by": "cell-reversed",
+                        "field": {
+                          "index": 0
+                        }
+                      }
+                    },
+                    "headerWidth": 200,
+                    "displayName": "Vehicle ID"
+                  }
+                ],
+                "cell": {
+                  "type": "multi-cell",
+                  "fields": [
+                    {
+                      "fieldName": "sum(is_within_critical_zone)",
+                      "cellType": "text",
+                      "style": {
+                        "type": "color-scale",
+                        "backgroundColor": {
+                          "scale": {
+                            "type": "quantitative"
+                          }
+                        }
+                      },
+                      "displayName": "Seconds"
+                    }
+                  ]
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Time Spent in Critical Congestion Zone"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 10,
+            "width": 2,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "6ec233e3",
+            "queries": [
+              {
+                "name": "dashboards/01f0837dda8814578090c342de12ee82/datasets/01f08493ab301097b066cbc17e8aa4a0_taxi_id",
+                "query": {
+                  "datasetName": "642cfb65",
+                  "fields": [
+                    {
+                      "name": "taxi_id",
+                      "expression": "`taxi_id`"
+                    },
+                    {
+                      "name": "taxi_id_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "taxi_id",
+                    "displayName": "taxi_id",
+                    "queryName": "dashboards/01f0837dda8814578090c342de12ee82/datasets/01f08493ab301097b066cbc17e8aa4a0_taxi_id"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Vehicle ID Filter"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 0,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "51fd15a9",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "367d8d30",
+                  "fields": [
+                    {
+                      "name": "taxi_id",
+                      "expression": "`taxi_id`"
+                    },
+                    {
+                      "name": "timestamp",
+                      "expression": "`timestamp`"
+                    },
+                    {
+                      "name": "is_within_critical_zone",
+                      "expression": "`is_within_critical_zone`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 1,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "taxi_id",
+                    "numberFormat": "0",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "integer",
+                    "displayAs": "number",
+                    "visible": true,
+                    "order": 100000,
+                    "title": "Vehicle ID",
+                    "allowSearch": true,
+                    "alignContent": "right",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false,
+                    "displayName": "taxi_id"
+                  },
+                  {
+                    "fieldName": "timestamp",
+                    "dateTimeFormat": "DD/MM/YYYY HH:mm:ss.SSS",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "datetime",
+                    "displayAs": "datetime",
+                    "visible": true,
+                    "order": 100001,
+                    "title": "timestamp",
+                    "allowSearch": false,
+                    "alignContent": "right",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false,
+                    "displayName": "timestamp"
+                  },
+                  {
+                    "fieldName": "is_within_critical_zone",
+                    "numberFormat": "0",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "integer",
+                    "displayAs": "number",
+                    "visible": true,
+                    "order": 100002,
+                    "title": "is_within_critical_zone",
+                    "allowSearch": false,
+                    "alignContent": "right",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false,
+                    "displayName": "is_within_critical_zone"
+                  }
+                ]
+              },
+              "invisibleColumns": [],
+              "allowHTMLByDefault": false,
+              "itemsPerPage": 25,
+              "paginationSize": "default",
+              "condensed": true,
+              "withRowNumber": false,
+              "frame": {
+                "showTitle": true,
+                "title": "Vehicle Time In Critical Congestion Zone"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 10,
+            "width": 4,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    },
+    {
+      "name": "77bd43eb",
+      "displayName": "Global Filters",
+      "layout": [
+        {
+          "widget": {
+            "name": "7ebda826",
+            "queries": [
+              {
+                "name": "dashboards/01f0837dda8814578090c342de12ee82/datasets/01f08493ab301097b066cbc17e8aa4a0_TIMESTAMP",
+                "query": {
+                  "datasetName": "642cfb65",
+                  "fields": [
+                    {
+                      "name": "min(TIMESTAMP)",
+                      "expression": "MIN(`TIMESTAMP`)"
+                    },
+                    {
+                      "name": "max(TIMESTAMP)",
+                      "expression": "MAX(`TIMESTAMP`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "range-slider",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "TIMESTAMP",
+                    "displayName": "TIMESTAMP",
+                    "queryName": "dashboards/01f0837dda8814578090c342de12ee82/datasets/01f08493ab301097b066cbc17e8aa4a0_TIMESTAMP"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 1,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "136487cb",
+            "queries": [
+              {
+                "name": "dashboards/01f0837dda8814578090c342de12ee82/datasets/01f08493ab301097b066cbc17e8aa4a0_TAXI_ID",
+                "query": {
+                  "datasetName": "642cfb65",
+                  "fields": [
+                    {
+                      "name": "TAXI_ID",
+                      "expression": "`TAXI_ID`"
+                    },
+                    {
+                      "name": "TAXI_ID_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "TAXI_ID",
+                    "displayName": "TAXI_ID",
+                    "queryName": "dashboards/01f0837dda8814578090c342de12ee82/datasets/01f08493ab301097b066cbc17e8aa4a0_TAXI_ID"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 2,
+            "width": 1,
+            "height": 2
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_GLOBAL_FILTERS"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
