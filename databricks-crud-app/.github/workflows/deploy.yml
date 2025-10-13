@@ -1,0 +1,42 @@
+name: Deploy App to Databricks
+
+on:
+  pull_request:
+    types: [ closed ]
+
+jobs:
+  deploy-app:
+    name: 'Deploy app resource'
+    runs-on:
+      group: databricks-field-eng-protected-runner-group
+      labels: linux-ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: databricks/setup-cli@main
+
+      - run: databricks bundle deploy"
+        working-directory: .
+        env:
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+          DATABRICKS_CLIENT_ID:  ${{ secrets.DATABRICKS_CLIENT_ID }}
+          DATABRICKS_CLIENT_SECRET:  ${{ secrets.DATABRICKS_CLIENT_SECRET }}
+
+  update_app:
+    name: 'Start app and deploy app code'
+    runs-on:
+      group: databricks-field-eng-protected-runner-group
+      labels: linux-ubuntu-latest
+    needs:
+      - deploy-app
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: databricks/setup-cli@main
+
+      - run: databricks bundle run crud-app-demo"
+        working-directory: .
+        env:
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+          DATABRICKS_CLIENT_ID:  ${{ secrets.DATABRICKS_CLIENT_ID }}
+          DATABRICKS_CLIENT_SECRET:  ${{ secrets.DATABRICKS_CLIENT_SECRET }}

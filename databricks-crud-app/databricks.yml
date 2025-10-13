@@ -1,0 +1,26 @@
+bundle:
+  name: crud_app_demo
+
+resources:
+  apps:
+    crud-app-demo:
+      name: 'crud-app-demo'
+      source_code_path: .
+      description: "Dash CRUD App Demo"
+      resources:
+        - name: "postgres-instance"
+          description: "Postgres instance for the app to work with"
+          database:
+            database_name: "databricks_postgres"
+            instance_name: "david-demo-instance"
+            permission: "CAN_CONNECT_AND_CREATE"
+        - name: "sql-warehouse"
+          description: "A SQL warehouse for the app to work with"
+          sql_warehouse:
+            id: 383cc3b75ffe2072
+            permission: "CAN_USE"
+
+targets:
+  dev:
+    mode: development
+    default: true
