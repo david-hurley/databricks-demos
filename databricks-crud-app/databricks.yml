@@ -1,11 +1,11 @@
 bundle:
-  name: crud_app_demo
+  name: crud_app_demo_2
 
 resources:
   apps:
-    crud-app-demo:
-      name: 'crud-app-demo'
-      source_code_path: .
+    crud-app-demo-2:
+      name: 'crud-app-demo-2'
+      source_code_path: ./app
       description: "Dash CRUD App Demo"
       resources:
         - name: "postgres-instance"
