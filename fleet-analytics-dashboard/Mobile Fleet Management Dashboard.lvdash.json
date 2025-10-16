@@ -2,34 +2,92 @@
   "datasets": [
     {
       "name": "642cfb65",
-      "displayName": "Vehicle GPS Data",
+      "displayName": "Equipment Location and Congestion Zone Perimeter Data",
       "queryLines": [
-        "SELECT * FROM users.david_hurley.new_taxigpsdata"
+        "-- get the bounding box for each congestion zone polygon\n",
+        "WITH polygon_boundaries_min_max AS (\n",
+        "    SELECT\n",
+        "        congestion_zone_id,\n",
+        "        ST_XMin(polygon_geom) AS xmin,\n",
+        "        ST_XMax(polygon_geom) AS xmax,\n",
+        "        ST_YMin(polygon_geom) AS ymin,\n",
+        "        ST_YMax(polygon_geom) AS ymax\n",
+        "    FROM \n",
+        "        users.david_hurley.congestion_zone_polygon_geom_data\n",
+        ")\n",
+        "-- combine equipment GPS points and densified polygon points into one dataset\n",
+        "SELECT \n",
+        "    t1.route_id,\n",
+        "    t1.equipment_id,\n",
+        "    t1.timestamp,\n",
+        "    t1.latitude,\n",
+        "    t1.longitude,\n",
+        "    NULL as congestion_zone_id\n",
+        "FROM \n",
+        "    users.david_hurley.taxi_gps_geom_data as t1\n",
+        "UNION ALL\n",
+        "SELECT \n",
+        "    NULL AS route_id,\n",
+        "    NULL AS equipment_id,\n",
+        "    NULL AS timestamp,\n",
+        "    st_y(st_transform(st_point(p.x, p.y, 3763), 4326)) AS latitude, -- convert from meters to lat/long\n",
+        "    st_x(st_transform(st_point(p.x, p.y, 3763), 4326)) AS longitude,\n",
+        "    congestion_zone_id\n",
+        "FROM polygon_boundaries_min_max as t2\n",
+        "LATERAL VIEW explode(\n",
+        "    -- generate points every 5m alongs polygon boundary using UDF\n",
+        "    users.david_hurley.densify_polygon_boundary(t2.xmin, t2.xmax, t2.ymin, t2.ymax, 5)\n",
+        ") AS p; \n"
       ]
     },
     {
       "name": "367d8d30",
-      "displayName": "Vehicle In Critical Zone",
+      "displayName": "Equipment In Congested Zone",
       "queryLines": [
-        "WITH polygon AS (\n",
-        "  SELECT ST_GeomFromText('POLYGON((-8.62 41.14, -8.6 41.14, -8.6 41.16, -8.62 41.16, -8.62 41.14))') AS geom\n",
-        ")\n",
-        "\n",
         "SELECT\n",
-        "    t.taxi_id,\n",
-        "    t.timestamp,\n",
-        "    CAST(ST_Within(ST_Point(t.lon, t.lat), p.geom) AS INT) AS is_within_critical_zone\n",
+        "  t1.*,\n",
+        "  t2.congestion_zone_id,\n",
+        "  CAST(ST_Contains(polygon_geom, point_geom) AS INT) AS is_equipment_in_congestion_zone\n",
         "FROM\n",
-        "    users.david_hurley.new_taxigpsdata t\n",
+        "  users.david_hurley.taxi_gps_geom_data AS t1\n",
         "CROSS JOIN\n",
-        "    polygon p"
+        "  users.david_hurley.congestion_zone_polygon_geom_data AS t2"
+      ]
+    },
+    {
+      "name": "3c0f4253",
+      "displayName": "Equipment Proximity Alert",
+      "queryLines": [
+        "SELECT\n",
+        "   c.timestamp,\n",
+        "   c.equipment_id,\n",
+        "   CASE WHEN COUNT_IF(ST_Intersects(c.geom, p.geom)) > 0 THEN 1 ELSE 0 END AS is_equipment_to_close,\n",
+        "   FILTER(COLLECT_LIST(p.equipment_id), x -> x != c.equipment_id) AS close_equipment_ids\n",
+        "FROM (\n",
+        "   SELECT\n",
+        "       equipment_id,\n",
+        "       timestamp,\n",
+        "       ST_Buffer(point_geom, 5000) AS geom\n",
+        "   FROM users.david_hurley.taxi_gps_geom_data\n",
+        ") c\n",
+        "LEFT JOIN (\n",
+        "   SELECT\n",
+        "       equipment_id,\n",
+        "       timestamp,\n",
+        "       ST_Buffer(point_geom, 5000) AS geom\n",
+        "   FROM users.david_hurley.taxi_gps_geom_data\n",
+        ") p\n",
+        "ON c.timestamp = p.timestamp\n",
+        "AND c.equipment_id != p.equipment_id\n",
+        "GROUP BY c.timestamp, c.equipment_id\n",
+        "HAVING COUNT_IF(ST_Intersects(c.geom, p.geom)) > 0"
       ]
     }
   ],
   "pages": [
     {
       "name": "73d58a8b",
-      "displayName": "Untitled page",
+      "displayName": "Mobile Fleet Trends",
       "layout": [
         {
           "widget": {
@@ -41,16 +99,20 @@
                   "datasetName": "642cfb65",
                   "fields": [
                     {
-                      "name": "taxi_id",
-                      "expression": "`taxi_id`"
+                      "name": "equipment_id",
+                      "expression": "`equipment_id`"
                     },
                     {
-                      "name": "lat",
-                      "expression": "`lat`"
+                      "name": "latitude",
+                      "expression": "`latitude`"
                     },
                     {
-                      "name": "lon",
-                      "expression": "`lon`"
+                      "name": "longitude",
+                      "expression": "`longitude`"
+                    },
+                    {
+                      "name": "congestion_zone_id",
+                      "expression": "`congestion_zone_id`"
                     }
                   ],
                   "disaggregated": true
@@ -63,29 +125,28 @@
               "encodings": {
                 "coordinates": {
                   "latitude": {
-                    "fieldName": "lat",
-                    "displayName": "lat"
+                    "fieldName": "latitude",
+                    "displayName": "latitude"
                   },
                   "longitude": {
-                    "fieldName": "lon",
-                    "displayName": "lon"
+                    "fieldName": "longitude",
+                    "displayName": "longitude"
                   }
                 },
                 "color": {
-                  "fieldName": "taxi_id",
+                  "fieldName": "equipment_id",
                   "scale": {
                     "type": "quantitative",
                     "colorRamp": {
                       "mode": "scheme",
-                      "scheme": "reds"
-                    },
-                    "reverse": false
+                      "scheme": "spectral"
+                    }
                   },
-                  "displayName": "taxi_id"
+                  "displayName": "Equipment Id"
                 },
                 "extra": [
                   {
-                    "fieldName": "lon",
+                    "fieldName": "longitude",
                     "format": {
                       "type": "number-plain",
                       "abbreviation": "compact",
@@ -93,10 +154,10 @@
                         "type": "all"
                       }
                     },
-                    "displayName": "lon"
+                    "displayName": "longitude"
                   },
                   {
-                    "fieldName": "lat",
+                    "fieldName": "latitude",
                     "format": {
                       "type": "number-plain",
                       "abbreviation": "compact",
@@ -104,23 +165,30 @@
                         "type": "all"
                       }
                     },
-                    "displayName": "lat"
+                    "displayName": "latitude"
+                  },
+                  {
+                    "fieldName": "congestion_zone_id",
+                    "displayName": "congestion_zone_id"
                   }
                 ]
               },
               "mark": {
-                "opacity": 1
+                "opacity": 1,
+                "size": -1.4
               },
               "frame": {
                 "showTitle": true,
-                "title": "Vehicle Location On-Site"
+                "title": "Historical Equipment Location",
+                "showDescription": true,
+                "description": "Equipment Location and Congestion Zone Boundaries"
               }
             }
           },
           "position": {
             "x": 0,
             "y": 1,
-            "width": 6,
+            "width": 4,
             "height": 9
           }
         },
@@ -158,22 +226,9 @@
                   }
                 ]
               },
-              "selection": {
-                "defaultSelection": {
-                  "range": {
-                    "dataType": "DATETIME",
-                    "min": {
-                      "value": "2013-07-25T05:00:00.000"
-                    },
-                    "max": {
-                      "value": "2013-07-27T04:59:59.999"
-                    }
-                  }
-                }
-              },
               "frame": {
                 "showTitle": true,
-                "title": "Date Filter"
+                "title": "Select Dates"
               }
             }
           },
@@ -194,29 +249,41 @@
                   "datasetName": "367d8d30",
                   "fields": [
                     {
-                      "name": "taxi_id",
-                      "expression": "`taxi_id`"
+                      "name": "equipment_id",
+                      "expression": "`equipment_id`"
                     },
                     {
-                      "name": "sum(is_within_critical_zone)",
-                      "expression": "SUM(`is_within_critical_zone`)"
+                      "name": "congestion_zone_id",
+                      "expression": "`congestion_zone_id`"
+                    },
+                    {
+                      "name": "sum(is_equipment_in_congestion_zone)",
+                      "expression": "SUM(`is_equipment_in_congestion_zone`)"
                     }
                   ],
                   "cubeGroupingSets": {
                     "sets": [
                       {
                         "fieldNames": [
-                          "taxi_id"
+                          "equipment_id"
                         ]
                       },
-                      {}
+                      {
+                        "fieldNames": [
+                          "congestion_zone_id"
+                        ]
+                      }
                     ]
                   },
                   "disaggregated": false,
                   "orders": [
                     {
                       "direction": "ASC",
-                      "expression": "`taxi_id`"
+                      "expression": "`equipment_id`"
+                    },
+                    {
+                      "direction": "ASC",
+                      "expression": "`congestion_zone_id`"
                     }
                   ]
                 }
@@ -228,7 +295,7 @@
               "encodings": {
                 "rows": [
                   {
-                    "fieldName": "taxi_id",
+                    "fieldName": "equipment_id",
                     "scale": {
                       "type": "categorical",
                       "sort": {
@@ -238,40 +305,62 @@
                         }
                       }
                     },
-                    "headerWidth": 200,
-                    "displayName": "Vehicle ID"
+                    "headerWidth": 140,
+                    "displayName": "Equipment Id"
+                  }
+                ],
+                "columns": [
+                  {
+                    "fieldName": "congestion_zone_id",
+                    "displayName": "Congestion Zone Id"
                   }
                 ],
                 "cell": {
                   "type": "multi-cell",
                   "fields": [
                     {
-                      "fieldName": "sum(is_within_critical_zone)",
+                      "fieldName": "sum(is_equipment_in_congestion_zone)",
                       "cellType": "text",
+                      "format": {
+                        "type": "number-plain",
+                        "abbreviation": "none",
+                        "decimalPlaces": {
+                          "type": "exact",
+                          "places": 0
+                        },
+                        "hideGroupSeparator": true
+                      },
                       "style": {
                         "type": "color-scale",
                         "backgroundColor": {
                           "scale": {
-                            "type": "quantitative"
+                            "type": "quantitative",
+                            "colorRamp": {
+                              "mode": "scheme",
+                              "scheme": "blues"
+                            }
                           }
                         }
                       },
                       "displayName": "Seconds"
                     }
-                  ]
+                  ],
+                  "width": 100
                 }
               },
               "frame": {
                 "showTitle": true,
-                "title": "Time Spent in Critical Congestion Zone"
+                "title": "Most Common Equipment in Congestion Areas",
+                "showDescription": true,
+                "description": "Goal: Minimize equipment time in congested areas"
               }
             }
           },
           "position": {
-            "x": 0,
-            "y": 10,
+            "x": 4,
+            "y": 1,
             "width": 2,
-            "height": 6
+            "height": 9
           }
         },
         {
@@ -279,16 +368,16 @@
             "name": "6ec233e3",
             "queries": [
               {
-                "name": "dashboards/01f0837dda8814578090c342de12ee82/datasets/01f08493ab301097b066cbc17e8aa4a0_taxi_id",
+                "name": "dashboards/01f0837dda8814578090c342de12ee82/datasets/01f08493ab301097b066cbc17e8aa4a0_equipment_id",
                 "query": {
                   "datasetName": "642cfb65",
                   "fields": [
                     {
-                      "name": "taxi_id",
-                      "expression": "`taxi_id`"
+                      "name": "equipment_id",
+                      "expression": "`equipment_id`"
                     },
                     {
-                      "name": "taxi_id_associativity",
+                      "name": "equipment_id_associativity",
                       "expression": "COUNT_IF(`associative_filter_predicate_group`)"
                     }
                   ],
@@ -302,15 +391,15 @@
               "encodings": {
                 "fields": [
                   {
-                    "fieldName": "taxi_id",
-                    "displayName": "taxi_id",
-                    "queryName": "dashboards/01f0837dda8814578090c342de12ee82/datasets/01f08493ab301097b066cbc17e8aa4a0_taxi_id"
+                    "fieldName": "equipment_id",
+                    "displayName": "equipment_id",
+                    "queryName": "dashboards/01f0837dda8814578090c342de12ee82/datasets/01f08493ab301097b066cbc17e8aa4a0_equipment_id"
                   }
                 ]
               },
               "frame": {
                 "showTitle": true,
-                "title": "Vehicle ID Filter"
+                "title": "Equipment Id"
               }
             }
           },
@@ -323,24 +412,28 @@
         },
         {
           "widget": {
-            "name": "51fd15a9",
+            "name": "000f02cb",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "367d8d30",
+                  "datasetName": "3c0f4253",
                   "fields": [
-                    {
-                      "name": "taxi_id",
-                      "expression": "`taxi_id`"
-                    },
                     {
                       "name": "timestamp",
                       "expression": "`timestamp`"
                     },
                     {
-                      "name": "is_within_critical_zone",
-                      "expression": "`is_within_critical_zone`"
+                      "name": "equipment_id",
+                      "expression": "`equipment_id`"
+                    },
+                    {
+                      "name": "is_equipment_to_close",
+                      "expression": "`is_equipment_to_close`"
+                    },
+                    {
+                      "name": "close_equipment_ids",
+                      "expression": "`close_equipment_ids`"
                     }
                   ],
                   "disaggregated": true
@@ -352,34 +445,6 @@
               "widgetType": "table",
               "encodings": {
                 "columns": [
-                  {
-                    "fieldName": "taxi_id",
-                    "numberFormat": "0",
-                    "booleanValues": [
-                      "false",
-                      "true"
-                    ],
-                    "imageUrlTemplate": "{{ @ }}",
-                    "imageTitleTemplate": "{{ @ }}",
-                    "imageWidth": "",
-                    "imageHeight": "",
-                    "linkUrlTemplate": "{{ @ }}",
-                    "linkTextTemplate": "{{ @ }}",
-                    "linkTitleTemplate": "{{ @ }}",
-                    "linkOpenInNewTab": true,
-                    "type": "integer",
-                    "displayAs": "number",
-                    "visible": true,
-                    "order": 100000,
-                    "title": "Vehicle ID",
-                    "allowSearch": true,
-                    "alignContent": "right",
-                    "allowHTML": false,
-                    "highlightLinks": false,
-                    "useMonospaceFont": false,
-                    "preserveWhitespace": false,
-                    "displayName": "taxi_id"
-                  },
                   {
                     "fieldName": "timestamp",
                     "dateTimeFormat": "DD/MM/YYYY HH:mm:ss.SSS",
@@ -398,8 +463,8 @@
                     "type": "datetime",
                     "displayAs": "datetime",
                     "visible": true,
-                    "order": 100001,
-                    "title": "timestamp",
+                    "order": 100000,
+                    "title": "Datetime",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
@@ -409,7 +474,35 @@
                     "displayName": "timestamp"
                   },
                   {
-                    "fieldName": "is_within_critical_zone",
+                    "fieldName": "equipment_id",
+                    "numberFormat": "0",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "integer",
+                    "displayAs": "number",
+                    "visible": true,
+                    "order": 100001,
+                    "title": "Equipment Id",
+                    "allowSearch": true,
+                    "alignContent": "right",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false,
+                    "displayName": "equipment_id"
+                  },
+                  {
+                    "fieldName": "is_equipment_to_close",
                     "numberFormat": "0",
                     "booleanValues": [
                       "false",
@@ -427,14 +520,41 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 100002,
-                    "title": "is_within_critical_zone",
+                    "title": "Equipment Is To Close",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "is_within_critical_zone"
+                    "displayName": "is_equipment_to_close"
+                  },
+                  {
+                    "fieldName": "close_equipment_ids",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "complex",
+                    "displayAs": "json",
+                    "visible": true,
+                    "order": 100003,
+                    "title": "Equipment Ids of Close Equipment",
+                    "allowSearch": false,
+                    "alignContent": "left",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false,
+                    "displayName": "close_equipment_ids"
                   }
                 ]
               },
@@ -446,14 +566,14 @@
               "withRowNumber": false,
               "frame": {
                 "showTitle": true,
-                "title": "Vehicle Time In Critical Congestion Zone"
+                "title": "Equipment Proximity Alert "
               }
             }
           },
           "position": {
-            "x": 2,
+            "x": 0,
             "y": 10,
-            "width": 4,
+            "width": 6,
             "height": 6
           }
         }
@@ -463,106 +583,15 @@
     {
       "name": "77bd43eb",
       "displayName": "Global Filters",
-      "layout": [
-        {
-          "widget": {
-            "name": "7ebda826",
-            "queries": [
-              {
-                "name": "dashboards/01f0837dda8814578090c342de12ee82/datasets/01f08493ab301097b066cbc17e8aa4a0_TIMESTAMP",
-                "query": {
-                  "datasetName": "642cfb65",
-                  "fields": [
-                    {
-                      "name": "min(TIMESTAMP)",
-                      "expression": "MIN(`TIMESTAMP`)"
-                    },
-                    {
-                      "name": "max(TIMESTAMP)",
-                      "expression": "MAX(`TIMESTAMP`)"
-                    }
-                  ],
-                  "disaggregated": false
-                }
-              }
-            ],
-            "spec": {
-              "version": 2,
-              "widgetType": "range-slider",
-              "encodings": {
-                "fields": [
-                  {
-                    "fieldName": "TIMESTAMP",
-                    "displayName": "TIMESTAMP",
-                    "queryName": "dashboards/01f0837dda8814578090c342de12ee82/datasets/01f08493ab301097b066cbc17e8aa4a0_TIMESTAMP"
-                  }
-                ]
-              },
-              "frame": {
-                "showTitle": true
-              }
-            }
-          },
-          "position": {
-            "x": 0,
-            "y": 0,
-            "width": 1,
-            "height": 2
-          }
-        },
-        {
-          "widget": {
-            "name": "136487cb",
-            "queries": [
-              {
-                "name": "dashboards/01f0837dda8814578090c342de12ee82/datasets/01f08493ab301097b066cbc17e8aa4a0_TAXI_ID",
-                "query": {
-                  "datasetName": "642cfb65",
-                  "fields": [
-                    {
-                      "name": "TAXI_ID",
-                      "expression": "`TAXI_ID`"
-                    },
-                    {
-                      "name": "TAXI_ID_associativity",
-                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
-                    }
-                  ],
-                  "disaggregated": false
-                }
-              }
-            ],
-            "spec": {
-              "version": 2,
-              "widgetType": "filter-multi-select",
-              "encodings": {
-                "fields": [
-                  {
-                    "fieldName": "TAXI_ID",
-                    "displayName": "TAXI_ID",
-                    "queryName": "dashboards/01f0837dda8814578090c342de12ee82/datasets/01f08493ab301097b066cbc17e8aa4a0_TAXI_ID"
-                  }
-                ]
-              },
-              "frame": {
-                "showTitle": true
-              }
-            }
-          },
-          "position": {
-            "x": 0,
-            "y": 2,
-            "width": 1,
-            "height": 2
-          }
-        }
-      ],
       "pageType": "PAGE_TYPE_GLOBAL_FILTERS"
     }
   ],
   "uiSettings": {
     "theme": {
       "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "genieSpace": {
+      "isEnabled": false
     }
   }
 }
