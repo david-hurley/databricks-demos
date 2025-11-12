@@ -330,7 +330,7 @@ with mlflow.start_run():
 # COMMAND ----------
 
 import mlflow
-from mlflow.genai.scorers import RelevanceToQuery, Safety, RetrievalRelevance, RetrievalGroundedness
+from mlflow.genai.scorers import Correctness, RelevanceToQuery, Guidelines
 
 eval_dataset = [
     {
@@ -338,40 +338,23 @@ eval_dataset = [
             "input": [
                 {
                     "role": "user",
-                    "content": "Should I be concerned about any water quality?\n"
+                    "content": "Is Cadmium a health based or aesthetic guideline?"
                 }
             ]
         },
-        "expected_response": None
-    },
-    {
-        "inputs": {
-            "input": [
-                {
-                    "role": "user",
-                    "content": "Should I be concerned about any water quality?\n"
-                },
-                {
-                    "role": "assistant",
-                    "content": "I'd be happy to help you check for water quality concerns in your area. To provide you with accurate information, I'll need your location coordinates (latitude and longitude) so I can look up water well test results near you.\n\nCould you please provide me with:\n1. Your latitude (e.g., 43.6532)\n2. Your longitude (e.g., -79.3832)\n3. The search radius in kilometers (e.g., 5)\n\nOnce you provide this information, I can check for any water quality concerns in your area and compare them against health guidelines."
-                },
-                {
-                    "role": "user",
-                    "content": "I live in Calgary and search within 30km"
-                }
-            ]
+        "expectations": {
+            "expected_facts": ["Cadmium is a MAC which is health based"],
         },
-        "expected_response": None
     }
 ]
 
 eval_results = mlflow.genai.evaluate(
     data=eval_dataset,
     predict_fn=lambda input: AGENT.predict({"input": input}),
-    scorers=[RelevanceToQuery(), Safety()], # add more scorers here if they're applicable
+    scorers=[
+      Correctness(), 
+      RelevanceToQuery()]
 )
-
-# Review the evaluation results in the MLfLow UI (see console output)
 
 # COMMAND ----------
 
@@ -399,9 +382,9 @@ mlflow.models.predict(
 mlflow.set_registry_uri("databricks-uc")
 
 # TODO: define the catalog, schema, and model name for your UC model
-catalog = ""
-schema = ""
-model_name = ""
+catalog = "users"
+schema = "david_hurley"
+model_name = "water-quality-agent"
 UC_MODEL_NAME = f"{catalog}.{schema}.{model_name}"
 
 # register the model to UC
