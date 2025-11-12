@@ -262,12 +262,12 @@ dbutils.library.restartPython()
 
 from agent import AGENT
 
-AGENT.predict({"input": [{"role": "user", "content": "what is 4*3 in python"}]})
+AGENT.predict({"input": [{"role": "user", "content": "Is Cadmium a MAC or AO?"}]})
 
 # COMMAND ----------
 
 for chunk in AGENT.predict_stream(
-    {"input": [{"role": "user", "content": "What is 4*3 in Python?"}]}
+    {"input": [{"role": "user", "content": "Is Cadmium a MAC or AO?"}]}
 ):
     print(chunk.model_dump(exclude_none=True))
 
