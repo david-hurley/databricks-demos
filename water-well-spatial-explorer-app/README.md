@@ -6,9 +6,14 @@ An interactive web application for subsurface data related to drilled water well
 
 This application demonstrates how to build a low-latency Databricks App for quering spatial data with freeform polygons. Draw a polygon on the map and view the scatter plot of material composition vs depth for water bearing material. 
 
-- **Databricks App** - 
-- **Databricks Lakebase** - Managed PostGIS-compatible database for spatial queries
-- **PostGIS** - 
+**Uses**
+- Databricks App
+- Databricks Lakebase (Postgres)
+- PostGIS
+
+<img width="1698" height="777" alt="image" src="https://github.com/user-attachments/assets/197429a1-02c7-40ed-8e6a-88f49c1d8e08" />
+
+<img width="1698" height="819" alt="image" src="https://github.com/user-attachments/assets/9c231e31-6dab-4b77-ade1-1756d76aa6b9" />
 
 ## Getting Started
 
