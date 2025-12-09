@@ -1,0 +1,1660 @@
+Drilling_Company_ID,Company_Name,Street_Address,City,Province,Country,Postal_Code,e_Mail,Is_Active_Flag,Starting_Well_ID,Ending_Well_ID,Last_Well_ID_Used
+1,ALBERTA ENVIRONMENT,9820-106 ST,EDMONTON,ALBERTA,CANADA,T5K 2J6,gwinfo@gov.ab.ca,false,9661000,9665999,9000010
+3,QUIGG GEORGE,null,null,null,null,null,null,false,null,null,null
+4,PERMTON SUPLIES,null,null,null,null,null,null,false,null,null,null
+6,UNITY SERVICES,null,null,null,null,null,null,false,null,null,null
+9,DOUBLE E,null,null,null,null,null,null,false,null,null,null
+10,KREYE ROY,null,null,null,null,null,null,false,null,null,null
+11,CYCLONE EXPLORATIONS,null,null,null,null,null,null,false,null,null,null
+12,FORMOST DRLG,null,null,null,null,null,null,false,null,null,null
+13,RAINBOW DRILLING,BOX 205,INISFREE,AB,CA,T0B 2G0,gwinfo@gov.ab.ca,false,1620000,1624999,1620002
+14,WATERTON DRLG,null,null,null,null,null,null,false,null,null,null
+15,RUTTAN DON H,null,null,null,null,null,null,false,null,null,null
+16,TEE KAI DRLG,null,null,null,null,null,null,false,null,null,null
+17,MIDLAND DRLG,null,null,null,null,null,null,false,null,null,null
+18,RELIABLE DRLG,null,null,null,null,null,null,false,null,null,null
+19,KINSLEY DRLG,null,null,null,null,null,null,false,null,null,null
+20,MEDHURST J L,null,null,null,null,null,null,false,null,null,null
+22,LEISMEISTER G,null,null,null,null,null,null,false,null,null,null
+23,AKERSTROM BROS,null,null,null,null,null,null,false,null,null,null
+24,LAWS & BYRT,null,null,null,null,null,null,false,null,null,null
+25,FORMATION,null,null,null,null,null,null,false,null,null,null
+26,FORTUNE JACK,null,null,null,null,null,null,false,null,null,null
+27,CULVER BARRY,null,null,null,null,null,null,false,null,null,null
+28,COMBINATION DRLG,null,null,null,null,null,null,false,null,null,null
+29,JOHNSON V E,null,null,null,null,null,null,false,null,null,null
+30,THOMPSON DEWEY,null,null,null,null,null,null,false,null,null,null
+31,BEFUS TED,null,null,null,null,null,null,false,null,null,null
+32,VOLK KEN,null,null,null,null,null,null,false,null,null,null
+34,GRANLIN LOWELL,null,null,null,null,null,null,false,null,null,null
+35,HUB CITY DRLG,null,null,null,null,null,null,false,null,null,null
+36,ALPINE DRLG,null,null,null,null,null,null,false,null,null,null
+37,KENNEDY DAVID,null,null,null,null,null,null,false,null,null,null
+38,SNIDER RALPH,null,null,null,null,null,null,false,null,null,null
+39,PALM J E,null,null,null,null,null,null,false,null,null,null
+40,FARLEY JACK,null,null,null,null,null,null,false,null,null,null
+42,F&D DRLG,null,null,null,null,null,null,false,null,null,null
+43,DAVIDSON BROS,null,null,null,null,null,null,false,null,null,null
+46,VOLB J,null,null,null,null,null,null,false,null,null,null
+47,OLSTAD HARLAND,null,null,null,null,null,null,false,null,null,null
+48,R&P DRLG,null,null,null,null,null,null,false,null,null,null
+49,COOPER VERN,null,null,null,null,null,null,false,null,null,null
+51,SMITH R O,null,null,null,null,null,null,false,null,null,null
+52,ENOCH CARL L,null,null,null,null,null,null,false,null,null,null
+55,AIZZIER BROS,null,null,null,null,null,null,false,null,null,null
+57,ALBRIGHT LOUIS,null,null,null,null,null,null,false,null,null,null
+58,ALYEA ERWIN,null,null,null,null,null,null,false,null,null,null
+61,ART&LEO WELL BORING,null,null,null,null,null,null,false,null,null,null
+63,AURORA DRLG,null,null,null,null,null,null,false,null,null,null
+67,BAKKEN S,null,null,null,null,null,null,false,null,null,null
+69,BARR ALBERT,null,null,null,null,null,null,false,null,null,null
+70,BECHJOLD CHARLIE,null,null,null,null,null,null,false,null,null,null
+74,BENSON J,null,null,null,null,null,null,false,null,null,null
+78,BETA WELL SERV,null,null,null,null,null,null,false,null,null,null
+80,BOETTGER HARRY,null,null,null,null,null,null,false,null,null,null
+81,BOHACHYK NICK,null,null,null,null,null,null,false,null,null,null
+82,BORLE G,null,null,null,null,null,null,false,null,null,null
+85,BREADNER ROB K,null,null,null,null,null,null,false,null,null,null
+86,BRISCOE LESLIE,null,null,null,null,null,null,false,null,null,null
+87,BROWN BUSTER,null,null,null,null,null,null,false,null,null,null
+89,BROWNELL,null,null,null,null,null,null,false,null,null,null
+91,CAMPBELL LEROY,null,null,null,null,null,null,false,null,null,null
+92,CAMPBELL LINE T,null,null,null,null,null,null,false,null,null,null
+94,CARLSON DAVID,null,null,null,null,null,null,false,null,null,null
+95,CARON L E,null,null,null,null,null,null,false,null,null,null
+98,CHRISTIANSON C,null,null,null,null,null,null,false,null,null,null
+99,CLAYDON DRLG,null,null,null,null,null,null,false,null,null,null
+100,CORNELSSEN EARL,null,null,null,null,null,null,false,null,null,null
+103,CURTIS TEST LAB,null,null,null,null,null,null,false,null,null,null
+105,DAIL ROBERT,null,null,null,null,null,null,false,null,null,null
+106,DANBERGER C,null,null,null,null,null,null,false,null,null,null
+107,DAVIS RONALD,null,null,null,null,null,null,false,null,null,null
+109,DESNOYER RENE,null,null,null,null,null,null,false,null,null,null
+111,DIAL ROBERT,null,null,null,null,null,null,false,null,null,null
+112,DIETZ BROS,null,null,null,null,null,null,false,null,null,null
+117,DOWNEY GORDON B,null,null,null,null,null,null,false,null,null,null
+119,E&R DRLG,null,null,null,null,null,null,false,null,null,null
+120,EAGLE DRLG,null,null,null,null,null,null,false,null,null,null
+121,JONES A O,null,null,null,null,null,null,false,null,null,null
+123,ELLEFSON EUGENE,null,null,null,null,null,null,false,null,null,null
+125,ERICKSON ERNFRED,null,null,null,null,null,null,false,null,null,null
+126,F&L DRLG,null,null,null,null,null,null,false,null,null,null
+128,FORESTER E,null,null,null,null,null,null,false,null,null,null
+129,FORESTER WM,null,null,null,null,null,null,false,null,null,null
+130,FORRESTER ROBERT,null,null,null,null,null,null,false,null,null,null
+132,FOSSUM HENRI,null,null,null,null,null,null,false,null,null,null
+133,FOSTER DRLG CO,null,null,null,null,null,null,false,null,null,null
+134,FOX HOWARD,null,null,null,null,null,null,false,null,null,null
+140,GARDNER WILLIAM,null,null,null,null,null,null,false,null,null,null
+141,GAY C B,null,null,null,null,null,null,false,null,null,null
+144,GRAHAM L J,null,null,null,null,null,null,false,null,null,null
+147,HALLADAY VERNON,null,null,null,null,null,null,false,null,null,null
+149,HALVORSON ROY R,null,null,null,null,null,null,false,null,null,null
+150,HANSEN MARLEN,null,null,null,null,null,null,false,null,null,null
+151,HATHERTON,null,null,null,null,null,null,false,null,null,null
+152,HAYWOOD BOB,null,null,null,null,null,null,false,null,null,null
+153,HECK A R,null,null,null,null,null,null,false,null,null,null
+154,HENDERSON F J,null,null,null,null,null,null,false,null,null,null
+155,HENDERSON J A,null,null,null,null,null,null,false,null,null,null
+156,HISEY R,null,null,null,null,null,null,false,null,null,null
+158,HOLLINGSWORTH,null,null,null,null,null,null,false,null,null,null
+159,HOLM G E,null,null,null,null,null,null,false,null,null,null
+162,INGLIS WW,null,null,null,null,null,null,false,null,null,null
+163,IRWIN ROBERT,null,null,null,null,null,null,false,null,null,null
+166,JOHNSON C M,null,null,null,null,null,null,false,null,null,null
+167,JOHNSON EDWARD,null,null,null,null,null,null,false,null,null,null
+174,KIND R G,null,null,null,null,null,null,false,null,null,null
+175,KINLEY R H,null,null,null,null,null,null,false,null,null,null
+178,KIRBYSON W A,null,null,null,null,null,null,false,null,null,null
+179,KNIE WALTER,null,null,null,null,null,null,false,null,null,null
+183,LAFLEUR ADRIAN,null,null,null,null,null,null,false,null,null,null
+185,LANG GERALD,null,null,null,null,null,null,false,null,null,null
+189,LEEDHOLM A,null,null,null,null,null,null,false,null,null,null
+190,LEONARD DON A,null,null,null,null,null,null,false,null,null,null
+191,LETOURNEAU R J,null,null,null,null,null,null,false,null,null,null
+195,MAERZ S E,null,null,null,null,null,null,false,null,null,null
+198,MARTIN E V,null,null,null,null,null,null,false,null,null,null
+199,MASTRE MORRIS,null,null,null,null,null,null,false,null,null,null
+200,MAYGARD E,null,null,null,null,null,null,false,null,null,null
+201,MCADO HERB & SON,null,null,null,null,null,null,false,null,null,null
+202,MCCALLUM J L,null,null,null,null,null,null,false,null,null,null
+205,MEASURES CHARLES,null,null,null,null,null,null,false,null,null,null
+207,MERICLE SERVICING,null,null,null,null,null,null,false,null,null,null
+208,MICHAUD OVIDE,null,null,null,null,null,null,false,null,null,null
+210,MILLER CHARLES,null,null,null,null,null,null,false,null,null,null
+211,MILLER JOHN,null,null,null,null,null,null,false,null,null,null
+212,MILLER L,null,null,null,null,null,null,false,null,null,null
+213,MJOLSNESS &MCKENZIE,null,null,null,null,null,null,false,null,null,null
+216,MOREL & MAER,null,null,null,null,null,null,false,null,null,null
+218,MUNDY C T,null,null,null,null,null,null,false,null,null,null
+219,MURRAY ALEX,null,null,null,null,null,null,false,null,null,null
+220,MURRAY RUSSELL,null,null,null,null,null,null,false,null,null,null
+221,NADEAU DRLG,null,null,null,null,null,null,false,null,null,null
+223,NESS OLIVER,null,null,null,null,null,null,false,null,null,null
+227,NORTHSIDE DRLG,null,null,null,null,null,null,false,null,null,null
+228,NUFIELD OPERATIONS,null,null,null,null,null,null,false,null,null,null
+229,ODELL R M&CARPENTER,null,null,null,null,null,null,false,null,null,null
+232,PATTERN DRLG,null,null,null,null,null,null,false,null,null,null
+233,PEARSON BROS,null,null,null,null,null,null,false,null,null,null
+235,PEARSON WILLIAM,null,null,null,null,null,null,false,null,null,null
+237,PERICHE ED & GAVEL,null,null,null,null,null,null,false,null,null,null
+238,PETERSON ANTHONY,null,null,null,null,null,null,false,null,null,null
+240,PICKERING RAY,null,null,null,null,null,null,false,null,null,null
+242,PIKE GORDON,null,null,null,null,null,null,false,null,null,null
+245,POLLARDS WW DRLG,null,null,null,null,null,null,false,null,null,null
+247,POTTER L,null,null,null,null,null,null,false,null,null,null
+248,POTTER N N,null,null,null,null,null,null,false,null,null,null
+250,PRICE DRLG CO,null,null,null,null,null,null,false,null,null,null
+251,QUILAN K,null,null,null,null,null,null,false,null,null,null
+252,RAINER JOE,null,null,null,null,null,null,false,null,null,null
+253,RAINS GERALD,null,null,null,null,null,null,false,null,null,null
+254,RAYMENT GORDON,null,null,null,null,null,null,false,null,null,null
+255,READMAN & SNEDKER,null,null,null,null,null,null,false,null,null,null
+256,RED WELL SERVICING,null,null,null,null,null,null,false,null,null,null
+258,REIMER A,null,null,null,null,null,null,false,null,null,null
+259,RENES J B,null,null,null,null,null,null,false,null,null,null
+262,ROBERT HARVEY,null,null,null,null,null,null,false,null,null,null
+270,SANKEY BROS,null,null,null,null,null,null,false,null,null,null
+271,SASKATOON MTN DRLG,null,null,null,null,null,null,false,null,null,null
+273,SAVILLE & HUG,null,null,null,null,null,null,false,null,null,null
+274,SAVILLE & TROTTLER,null,null,null,null,null,null,false,null,null,null
+277,SCOTT & WENNERSTROM,null,null,null,null,null,null,false,null,null,null
+278,SCOTT BROS DRLG,null,null,null,null,null,null,false,null,null,null
+281,SHUSTER EDWIN H,null,null,null,null,null,null,false,null,null,null
+282,SIDEWINDER SERVICE,null,null,null,null,null,null,false,null,null,null
+283,SIEGEL B,null,null,null,null,null,null,false,null,null,null
+284,SIEGEL H,null,null,null,null,null,null,false,null,null,null
+285,SINCLAIR CANADA OIL,null,null,null,null,null,null,false,null,null,null
+289,SMITH GERALD M,null,null,null,null,null,null,false,null,null,null
+291,SOUTHERN WW,null,null,null,null,null,null,false,null,null,null
+293,SRIGLEY A R,null,null,null,null,null,null,false,null,null,null
+298,STOTTS J P,null,null,null,null,null,null,false,null,null,null
+299,STRATICHUCK H,null,null,null,null,null,null,false,null,null,null
+302,SWANSON RALPH,null,null,null,null,null,null,false,null,null,null
+303,TAKS & WANGLER,null,null,null,null,null,null,false,null,null,null
+305,THOMAS ALAN D,null,null,null,null,null,null,false,null,null,null
+307,THOMPSON JOE,null,null,null,null,null,null,false,null,null,null
+309,TINDALL WW DRLG,null,null,null,null,null,null,false,null,null,null
+314,TRAIL DRLG LTD,null,null,null,null,null,null,false,null,null,null
+315,TRI CITY DRLG,null,null,null,null,null,null,false,null,null,null
+318,UNWIN HERBERT,null,null,null,null,null,null,false,null,null,null
+323,VERNS WATER WELLS,null,null,null,null,null,null,false,null,null,null
+325,WAGAR JOHN,null,null,null,null,null,null,false,null,null,null
+326,WARREN R G,null,null,null,null,null,null,false,null,null,null
+328,WESTERN CABLE TOOL,null,null,null,null,null,null,false,null,null,null
+336,WILSON&COCKS RATHOLE,null,null,null,null,null,null,false,null,null,null
+337,WINTER A A,null,null,null,null,null,null,false,null,null,null
+340,ZELASEK DON A,null,null,null,null,null,null,false,null,null,null
+341,ZUKIWSKI PAUL,null,null,null,null,null,null,false,null,null,null
+342,DOUBLE B DRLG,null,null,null,null,null,null,false,null,null,null
+345,G HEPBURN DRLG,null,null,null,null,null,null,false,null,null,null
+347,SMITH WARREN C,null,null,null,null,null,null,false,null,null,null
+348,PETERSON ERNEST,null,null,null,null,null,null,false,null,null,null
+349,TEMPLE DRLG,null,null,null,null,null,null,false,null,null,null
+353,LR DRLG,null,null,null,null,null,null,false,null,null,null
+354,WEBSTER CABLE TOOL,null,null,null,null,null,null,false,null,null,null
+355,LINDBURG DRLG,null,null,null,null,null,null,false,null,null,null
+357,NOWOCHIN C G,null,null,null,null,null,null,false,null,null,null
+360,DARALD JONES,null,null,null,null,null,null,false,null,null,null
+361,STRASZCIK,null,null,null,null,null,null,false,null,null,null
+362,SADDLE LAKE RESERVE,null,null,null,null,null,null,false,null,null,null
+365,CROSBIE G R,null,null,null,null,null,null,false,null,null,null
+367,ORTIVEIW OEL C,null,null,null,null,null,null,false,null,null,null
+368,"KOASCHUK, RON",null,null,null,null,null,null,false,null,null,null
+369,HOLMAN BOB,null,null,null,null,null,null,false,null,null,null
+370,ANDERSON ALVIN,null,null,null,null,null,null,false,null,null,null
+371,BILODEAU LAWRENCE,null,null,null,null,null,null,false,null,null,null
+376,ERICKSON & KANGAS,UNKNOWN,null,null,null,null,gwinfo@gov.ab.ca,false,1866600,1866699,1866600
+377,GENERAUX ALBERT E,null,null,null,null,null,null,false,null,null,null
+387,WEBSTER & WEBSTER,null,null,null,null,null,null,false,null,null,null
+388,H & E CONTRACTING,null,null,null,null,null,null,false,null,null,null
+389,KOVSCHOL RON,null,null,null,null,null,null,false,null,null,null
+390,INCH BILL,null,null,null,null,null,null,false,null,null,null
+391,LEE HERB,null,null,null,null,null,null,false,null,null,null
+394,HIRSCHKORN & PITTMAN,null,null,null,null,null,null,false,null,null,null
+395,BECKETT & ROLFE,null,null,null,null,null,null,false,null,null,null
+396,PROSSER & BECKETT,null,null,null,null,null,null,false,null,null,null
+398,SIEBEL GEO,null,null,null,null,null,null,false,null,null,null
+400,MERIDIAN DLG,null,null,null,null,null,null,false,null,null,null
+401,G HOLIDAY DLG,null,null,null,null,null,null,false,null,null,null
+402,SWANSON & ELIASON,null,null,null,null,null,null,false,null,null,null
+500,TATHAM J,null,null,null,null,null,null,false,null,null,null
+501,GOLLY CHRIS,null,null,null,null,null,null,false,null,null,null
+503,HARNESS DON,null,null,null,null,null,null,false,null,null,null
+506,SEIBEL GEORGE,null,null,null,null,null,null,false,null,null,null
+507,UHRYN'S WELL BORING,10447 - 137 AVENUE,EDMONTON,AB,CA,null,gwinfo@gov.ab.ca,false,2057400,2057499,2057404
+508,TRIPLE A DLG,null,null,null,null,null,null,false,null,null,null
+509,S & W DRLG,null,null,null,null,null,null,false,null,null,null
+510,WAREHIME GRANT,null,null,null,null,null,null,false,null,null,null
+512,RAPID WATER DRLG,null,null,null,null,null,null,false,null,null,null
+514,GOLKA DRILLING,GENERAL DELIVERY,VIKING,AB,CA,null,gwinfo@gov.ab.ca,false,2057500,2057599,2057508
+518,HURRICANE DRLG,null,null,null,null,null,null,false,null,null,null
+519,FREDERICKSON JE,null,null,null,null,null,null,false,null,null,null
+521,K & W WATER BORING,null,null,null,null,null,null,false,null,null,null
+522,PETERSON C ENT LTD,BOX 101,COLINTON,AB,CA,null,gwinfo@gov.ab.ca,false,1936400,1936499,1936402
+524,WESTERN DRLG & CONST,null,null,null,null,null,null,false,null,null,null
+525,RAMM  D,null,null,null,null,null,null,false,null,null,null
+526,VENTURE DRLG LTD,null,null,null,null,null,null,false,null,null,null
+527,ED'S DRLG,null,null,null,null,null,null,false,null,null,null
+528,FAROWNY M P,null,null,null,null,null,null,false,null,null,null
+529,LEN WELLS,null,null,null,null,null,null,false,null,null,null
+530,MILLIGAN JB,null,null,null,null,null,null,false,null,null,null
+531,A&V ROBERT WW DRLG,null,null,null,null,null,null,false,null,null,null
+532,MEYERS DEV LTD,null,null,null,null,null,null,false,null,null,null
+533,SCHICK DRLG,null,null,null,null,null,null,false,null,null,null
+534,SHEIK,null,null,null,null,null,null,false,null,null,null
+535,REYNOLDS B,null,null,null,null,null,null,false,null,null,null
+536,GUTHRIE,null,null,null,null,null,null,false,null,null,null
+537,TURNBULL,null,null,null,null,null,null,false,null,null,null
+538,COLLETT,null,null,null,null,null,null,false,null,null,null
+539,FIRESTONE,null,null,null,null,null,null,false,null,null,null
+540,AMBLER,null,null,null,null,null,null,false,null,null,null
+541,OLSEN C,null,null,null,null,null,null,false,null,null,null
+542,WOODS T,null,null,null,null,null,null,false,null,null,null
+543,JOY,null,null,null,null,null,null,false,null,null,null
+545,DRIVER,null,null,null,null,null,null,false,null,null,null
+547,SIMONS,null,null,null,null,null,null,false,null,null,null
+548,WINRIDGE,null,null,null,null,null,null,false,null,null,null
+550,WEINRICH,null,null,null,null,null,null,false,null,null,null
+551,LOUIS,null,null,null,null,null,null,false,null,null,null
+552,CRAUN,null,null,null,null,null,null,false,null,null,null
+553,MCGILLEY,null,null,null,null,null,null,false,null,null,null
+554,BLEVINS,null,null,null,null,null,null,false,null,null,null
+555,HAIRE,null,null,null,null,null,null,false,null,null,null
+557,MURRAY F,null,null,null,null,null,null,false,null,null,null
+558,LOVE,null,null,null,null,null,null,false,null,null,null
+559,MYHREN I W,null,null,null,null,null,null,false,null,null,null
+560,H B C,null,null,null,null,null,null,false,null,null,null
+561,CARON,null,null,null,null,null,null,false,null,null,null
+563,SMART,null,null,null,null,null,null,false,null,null,null
+564,O'LEARY,null,null,null,null,null,null,false,null,null,null
+565,URRYING WELL BORING,null,null,null,null,null,null,false,null,null,null
+567,HAND,null,null,null,null,null,null,false,null,null,null
+568,WIER,null,null,null,null,null,null,false,null,null,null
+569,SAMPLE,null,null,null,null,null,null,false,null,null,null
+571,IRVING,null,null,null,null,null,null,false,null,null,null
+572,MARY,null,null,null,null,null,null,false,null,null,null
+573,SLIPPER,null,null,null,null,null,null,false,null,null,null
+574,LAWSON,null,null,null,null,null,null,false,null,null,null
+575,LARSON,null,null,null,null,null,null,false,null,null,null
+576,DORTY,null,null,null,null,null,null,false,null,null,null
+577,HAYNES,null,null,null,null,null,null,false,null,null,null
+578,HARE,null,null,null,null,null,null,false,null,null,null
+579,STEEVES,null,null,null,null,null,null,false,null,null,null
+580,MATHEWS,null,null,null,null,null,null,false,null,null,null
+581,SMITH,null,null,null,null,null,null,false,null,null,null
+582,DORATY,null,null,null,null,null,null,false,null,null,null
+583,MILNE,null,null,null,null,null,null,false,null,null,null
+584,HOSKINS,null,null,null,null,null,null,false,null,null,null
+585,DARDY P,null,null,null,null,null,null,false,null,null,null
+586,BGOIK,null,null,null,null,null,null,false,null,null,null
+587,SAMPLETON,null,null,null,null,null,null,false,null,null,null
+588,HENCH W,null,null,null,null,null,null,false,null,null,null
+589,FORD B,null,null,null,null,null,null,false,null,null,null
+590,SCROGGINS,null,null,null,null,null,null,false,null,null,null
+591,KELLER,null,null,null,null,null,null,false,null,null,null
+592,SAWLE,null,null,null,null,null,null,false,null,null,null
+593,HALVERSEN,null,null,null,null,null,null,false,null,null,null
+594,EMBERG,null,null,null,null,null,null,false,null,null,null
+595,STOCKTON,null,null,null,null,null,null,false,null,null,null
+596,HALBERTSON,null,null,null,null,null,null,false,null,null,null
+597,CARLSON,null,null,null,null,null,null,false,null,null,null
+598,TANGENT,null,null,null,null,null,null,false,null,null,null
+599,AMBERG C,null,null,null,null,null,null,false,null,null,null
+600,TANGEN,null,null,null,null,null,null,false,null,null,null
+602,DOERR,null,null,null,null,null,null,false,null,null,null
+603,ARNBERG C,null,null,null,null,null,null,false,null,null,null
+604,STOCKTON-ERNBERG,null,null,null,null,null,null,false,null,null,null
+605,ERNBERG,null,null,null,null,null,null,false,null,null,null
+606,EARNFIELD-STOCKTON,null,null,null,null,null,null,false,null,null,null
+607,KRAFT,null,null,null,null,null,null,false,null,null,null
+608,SEATH,null,null,null,null,null,null,false,null,null,null
+609,HEINBERG,null,null,null,null,null,null,false,null,null,null
+610,MAULL,null,null,null,null,null,null,false,null,null,null
+612,HAGER,null,null,null,null,null,null,false,null,null,null
+613,MISENER,null,null,null,null,null,null,false,null,null,null
+620,GIRARD,null,null,null,null,null,null,false,null,null,null
+621,PERRY,null,null,null,null,null,null,false,null,null,null
+622,MCMANN,null,null,null,null,null,null,false,null,null,null
+623,SEVIONY,null,null,null,null,null,null,false,null,null,null
+624,HAULE,null,null,null,null,null,null,false,null,null,null
+625,BISHOP,null,null,null,null,null,null,false,null,null,null
+626,OTTERHOLM,null,null,null,null,null,null,false,null,null,null
+627,BUSCHEY,null,null,null,null,null,null,false,null,null,null
+628,ELWOOD,null,null,null,null,null,null,false,null,null,null
+629,REID,null,null,null,null,null,null,false,null,null,null
+630,HARE B,null,null,null,null,null,null,false,null,null,null
+631,KARLSON H,null,null,null,null,null,null,false,null,null,null
+632,MOOR B,null,null,null,null,null,null,false,null,null,null
+633,BUSHY,null,null,null,null,null,null,false,null,null,null
+634,JOHNS,null,null,null,null,null,null,false,null,null,null
+635,SNYDER,null,null,null,null,null,null,false,null,null,null
+636,TENNAN,null,null,null,null,null,null,false,null,null,null
+637,NORLAND,null,null,null,null,null,null,false,null,null,null
+638,HUNTER,null,null,null,null,null,null,false,null,null,null
+639,KIMBALL,null,null,null,null,null,null,false,null,null,null
+640,TANGIEN,null,null,null,null,null,null,false,null,null,null
+643,YULLIS S,null,null,null,null,null,null,false,null,null,null
+644,LOGIE,null,null,null,null,null,null,false,null,null,null
+645,SAYER,null,null,null,null,null,null,false,null,null,null
+646,WIMBLES,null,null,null,null,null,null,false,null,null,null
+647,FLECK,null,null,null,null,null,null,false,null,null,null
+648,PAULGEARD,null,null,null,null,null,null,false,null,null,null
+649,IRONBERG,null,null,null,null,null,null,false,null,null,null
+650,ANDBERG C,null,null,null,null,null,null,false,null,null,null
+651,BLAINEY,null,null,null,null,null,null,false,null,null,null
+652,HALVERSON E,null,null,null,null,null,null,false,null,null,null
+653,ROCKNE,null,null,null,null,null,null,false,null,null,null
+654,JEFFERY,null,null,null,null,null,null,false,null,null,null
+655,KNUTSON,null,null,null,null,null,null,false,null,null,null
+656,MCGILLVARY&ROBB,null,null,null,null,null,null,false,null,null,null
+657,CHRISTENSEN,null,null,null,null,null,null,false,null,null,null
+658,IRONFIELD,null,null,null,null,null,null,false,null,null,null
+659,ERENBERG,null,null,null,null,null,null,false,null,null,null
+660,ARMSTRONG,null,null,null,null,null,null,false,null,null,null
+661,HEINTZ,null,null,null,null,null,null,false,null,null,null
+662,JEFFRIES BEN,null,null,null,null,null,null,false,null,null,null
+663,RURICH T,null,null,null,null,null,null,false,null,null,null
+664,CASPER,null,null,null,null,null,null,false,null,null,null
+666,FALKNER,null,null,null,null,null,null,false,null,null,null
+668,MORRISON,null,null,null,null,null,null,false,null,null,null
+669,COLLINS J,null,null,null,null,null,null,false,null,null,null
+670,WRIGHT,null,null,null,null,null,null,false,null,null,null
+671,EWARD E,null,null,null,null,null,null,false,null,null,null
+672,GARDINER,null,null,null,null,null,null,false,null,null,null
+673,KIENGLE,null,null,null,null,null,null,false,null,null,null
+674,GRANDI C,null,null,null,null,null,null,false,null,null,null
+675,EMERT J,null,null,null,null,null,null,false,null,null,null
+676,COLLINS D,null,null,null,null,null,null,false,null,null,null
+677,EMARD J,null,null,null,null,null,null,false,null,null,null
+678,SHERER E,null,null,null,null,null,null,false,null,null,null
+679,HUNT E,null,null,null,null,null,null,false,null,null,null
+681,CULBERT E L,null,null,null,null,null,null,false,null,null,null
+682,N W DRLG CO,null,null,null,null,null,null,false,null,null,null
+683,BRADY C,null,null,null,null,null,null,false,null,null,null
+684,SHANNON N,null,null,null,null,null,null,false,null,null,null
+685,LUTZ,null,null,null,null,null,null,false,null,null,null
+686,HEDLEY-SHAW,null,null,null,null,null,null,false,null,null,null
+687,ERNIES WW,null,null,null,null,null,null,false,null,null,null
+688,LINDGREN,null,null,null,null,null,null,false,null,null,null
+689,KING B,null,null,null,null,null,null,false,null,null,null
+690,LOSS,null,null,null,null,null,null,false,null,null,null
+691,LARAVIRE,null,null,null,null,null,null,false,null,null,null
+693,ARMEL R,null,null,null,null,null,null,false,null,null,null
+694,BECK J E,null,null,null,null,null,null,false,null,null,null
+695,GUTHREY,null,null,null,null,null,null,false,null,null,null
+696,LOUS,null,null,null,null,null,null,false,null,null,null
+697,REYNOLDS W,null,null,null,null,null,null,false,null,null,null
+698,MOORE,null,null,null,null,null,null,false,null,null,null
+699,NORDBLOM W,null,null,null,null,null,null,false,null,null,null
+700,HOLTE,null,null,null,null,null,null,false,null,null,null
+702,MORRIS,null,null,null,null,null,null,false,null,null,null
+703,BARNSCHER,null,null,null,null,null,null,false,null,null,null
+704,DAVIES,null,null,null,null,null,null,false,null,null,null
+705,HILL J,null,null,null,null,null,null,false,null,null,null
+706,HOUSE H,null,null,null,null,null,null,false,null,null,null
+707,WELLS A,null,null,null,null,null,null,false,null,null,null
+708,HAYS,null,null,null,null,null,null,false,null,null,null
+709,REED,null,null,null,null,null,null,false,null,null,null
+710,ANGLEN,null,null,null,null,null,null,false,null,null,null
+711,GRIFFINS,null,null,null,null,null,null,false,null,null,null
+712,SCHEICK,null,null,null,null,null,null,false,null,null,null
+713,CALDWELL,null,null,null,null,null,null,false,null,null,null
+714,HARTLEY,null,null,null,null,null,null,false,null,null,null
+715,DOLAN,null,null,null,null,null,null,false,null,null,null
+716,DOLAND,null,null,null,null,null,null,false,null,null,null
+717,CHADWICK,null,null,null,null,null,null,false,null,null,null
+718,LAMON,null,null,null,null,null,null,false,null,null,null
+719,FRASER,null,null,null,null,null,null,false,null,null,null
+720,MURPHY,null,null,null,null,null,null,false,null,null,null
+721,RANDON,null,null,null,null,null,null,false,null,null,null
+722,EMMETT,null,null,null,null,null,null,false,null,null,null
+724,DUNN,null,null,null,null,null,null,false,null,null,null
+726,THORSEN,null,null,null,null,null,null,false,null,null,null
+727,MOON,null,null,null,null,null,null,false,null,null,null
+728,MORE W,null,null,null,null,null,null,false,null,null,null
+729,WINRIGHT A,null,null,null,null,null,null,false,null,null,null
+731,SHEAR ED,null,null,null,null,null,null,false,null,null,null
+732,WESTLAND,null,null,null,null,null,null,false,null,null,null
+733,WINER O,null,null,null,null,null,null,false,null,null,null
+734,SOUZY,null,null,null,null,null,null,false,null,null,null
+735,BOUCH,null,null,null,null,null,null,false,null,null,null
+736,LUNDER,null,null,null,null,null,null,false,null,null,null
+738,HOSKIN,null,null,null,null,null,null,false,null,null,null
+739,SAINT,null,null,null,null,null,null,false,null,null,null
+740,BELL,null,null,null,null,null,null,false,null,null,null
+741,MACDONALD,null,null,null,null,null,null,false,null,null,null
+742,HARBERT,null,null,null,null,null,null,false,null,null,null
+743,TECHOIN,null,null,null,null,null,null,false,null,null,null
+744,BAILEY,null,null,null,null,null,null,false,null,null,null
+745,BLAYZE R,null,null,null,null,null,null,false,null,null,null
+746,BOOHER ALF,null,null,null,null,null,null,false,null,null,null
+747,DENHOLM,null,null,null,null,null,null,false,null,null,null
+748,GUYCHON,null,null,null,null,null,null,false,null,null,null
+750,HALBERT,null,null,null,null,null,null,false,null,null,null
+751,HUBERT,null,null,null,null,null,null,false,null,null,null
+752,UTAS,null,null,null,null,null,null,false,null,null,null
+753,OLAN,null,null,null,null,null,null,false,null,null,null
+754,SYMONS,null,null,null,null,null,null,false,null,null,null
+755,STENSON J,null,null,null,null,null,null,false,null,null,null
+756,JACOBSON,null,null,null,null,null,null,false,null,null,null
+757,JUWELL,null,null,null,null,null,null,false,null,null,null
+758,LAFORGE,null,null,null,null,null,null,false,null,null,null
+759,MONTPELLIER C,null,null,null,null,null,null,false,null,null,null
+760,NELSON,null,null,null,null,null,null,false,null,null,null
+761,MCPHERSON J,null,null,null,null,null,null,false,null,null,null
+762,HAMMER A,null,null,null,null,null,null,false,null,null,null
+763,DOUGLAS,null,null,null,null,null,null,false,null,null,null
+764,EVANS,null,null,null,null,null,null,false,null,null,null
+765,SABOE J,null,null,null,null,null,null,false,null,null,null
+766,HOWARD,null,null,null,null,null,null,false,null,null,null
+767,GIBSON G,null,null,null,null,null,null,false,null,null,null
+768,NYHOS P,null,null,null,null,null,null,false,null,null,null
+769,BEGORY C,null,null,null,null,null,null,false,null,null,null
+770,FORCE,null,null,null,null,null,null,false,null,null,null
+771,DAVIS ART,null,null,null,null,null,null,false,null,null,null
+772,GIESBRECHT W,null,null,null,null,null,null,false,null,null,null
+773,KANE V,null,null,null,null,null,null,false,null,null,null
+774,SCOTT H,null,null,null,null,null,null,false,null,null,null
+775,SHERRIDON B,null,null,null,null,null,null,false,null,null,null
+777,WALKER,null,null,null,null,null,null,false,null,null,null
+778,JACKSON,null,null,null,null,null,null,false,null,null,null
+779,MCINTYRE,null,null,null,null,null,null,false,null,null,null
+780,GILL N,null,null,null,null,null,null,false,null,null,null
+781,HART J,null,null,null,null,null,null,false,null,null,null
+782,SANDE S,null,null,null,null,null,null,false,null,null,null
+783,BITTNER G,null,null,null,null,null,null,false,null,null,null
+784,CANFIELD M,null,null,null,null,null,null,false,null,null,null
+785,CRAIG J A,null,null,null,null,null,null,false,null,null,null
+786,HILLER J,null,null,null,null,null,null,false,null,null,null
+788,HOVIS,null,null,null,null,null,null,false,null,null,null
+789,GORDNEY G,null,null,null,null,null,null,false,null,null,null
+790,FISHER,null,null,null,null,null,null,false,null,null,null
+791,HENRY,null,null,null,null,null,null,false,null,null,null
+794,HOLVERSON,null,null,null,null,null,null,false,null,null,null
+795,GUTTRICH,null,null,null,null,null,null,false,null,null,null
+796,COATES W H,null,null,null,null,null,null,false,null,null,null
+797,SIEBERT,null,null,null,null,null,null,false,null,null,null
+798,BRADIN,null,null,null,null,null,null,false,null,null,null
+799,NEWHOUSE P,null,null,null,null,null,null,false,null,null,null
+800,CABISH,null,null,null,null,null,null,false,null,null,null
+801,FORSS,null,null,null,null,null,null,false,null,null,null
+802,BORASS,null,null,null,null,null,null,false,null,null,null
+803,MORTON,null,null,null,null,null,null,false,null,null,null
+804,HALL,null,null,null,null,null,null,false,null,null,null
+805,BARBER F,null,null,null,null,null,null,false,null,null,null
+806,KABESH C,null,null,null,null,null,null,false,null,null,null
+807,HOVLEN,null,null,null,null,null,null,false,null,null,null
+808,SABLE,null,null,null,null,null,null,false,null,null,null
+809,HAVARD,null,null,null,null,null,null,false,null,null,null
+810,WEAVER,null,null,null,null,null,null,false,null,null,null
+811,BENSON ROBERT,null,null,null,null,null,null,false,null,null,null
+812,LOGAN F,null,null,null,null,null,null,false,null,null,null
+813,JARVIS F,null,null,null,null,null,null,false,null,null,null
+814,RONDAL WW DRLG,null,null,null,null,null,null,false,null,null,null
+815,OTTO J,null,null,null,null,null,null,false,null,null,null
+816,RISKE,null,null,null,null,null,null,false,null,null,null
+817,POTTER W,null,null,null,null,null,null,false,null,null,null
+818,BOGDONOVICH S,null,null,null,null,null,null,false,null,null,null
+819,MCCRACKEN,null,null,null,null,null,null,false,null,null,null
+820,HOLTZ,null,null,null,null,null,null,false,null,null,null
+821,GROVES,null,null,null,null,null,null,false,null,null,null
+822,ROCK J,null,null,null,null,null,null,false,null,null,null
+823,KEMPE,null,null,null,null,null,null,false,null,null,null
+824,SHERIDON M,null,null,null,null,null,null,false,null,null,null
+825,GATENBY T,null,null,null,null,null,null,false,null,null,null
+827,EVERT  W,null,null,null,null,null,null,false,null,null,null
+828,MEAHURST R P,null,null,null,null,null,null,false,null,null,null
+829,VOLKER,null,null,null,null,null,null,false,null,null,null
+830,STANTON BROS,null,null,null,null,null,null,false,null,null,null
+831,REDMAN F,null,null,null,null,null,null,false,null,null,null
+832,MCKENZIE,null,null,null,null,null,null,false,null,null,null
+833,HEWLETT,null,null,null,null,null,null,false,null,null,null
+834,TELNING,null,null,null,null,null,null,false,null,null,null
+835,MCINTOSH,null,null,null,null,null,null,false,null,null,null
+836,BYERS,null,null,null,null,null,null,false,null,null,null
+837,PERKINS,null,null,null,null,null,null,false,null,null,null
+838,FARRELL,null,null,null,null,null,null,false,null,null,null
+839,CHEEVER,null,null,null,null,null,null,false,null,null,null
+840,KENT,null,null,null,null,null,null,false,null,null,null
+841,MACFARLANE,null,null,null,null,null,null,false,null,null,null
+842,HAKENYN,null,null,null,null,null,null,false,null,null,null
+843,BRIGHT  W,null,null,null,null,null,null,false,null,null,null
+844,GILHOUSE,null,null,null,null,null,null,false,null,null,null
+845,INGLE,null,null,null,null,null,null,false,null,null,null
+846,CRAVIK  J,null,null,null,null,null,null,false,null,null,null
+848,LULL,null,null,null,null,null,null,false,null,null,null
+849,ZURFLUH NEILSON,null,null,null,null,null,null,false,null,null,null
+850,NEILSON,null,null,null,null,null,null,false,null,null,null
+851,GILTNER,null,null,null,null,null,null,false,null,null,null
+852,RUPPELL,null,null,null,null,null,null,false,null,null,null
+853,TIPMAN,null,null,null,null,null,null,false,null,null,null
+854,CLARK,null,null,null,null,null,null,false,null,null,null
+855,RADELL,null,null,null,null,null,null,false,null,null,null
+856,NORTH  L,null,null,null,null,null,null,false,null,null,null
+857,ROPPEL  A,null,null,null,null,null,null,false,null,null,null
+858,RUSTLEY,null,null,null,null,null,null,false,null,null,null
+859,BAIN,null,null,null,null,null,null,false,null,null,null
+860,STEVENS,null,null,null,null,null,null,false,null,null,null
+861,MCDOWELL  J,null,null,null,null,null,null,false,null,null,null
+862,MUNROE  S,null,null,null,null,null,null,false,null,null,null
+863,GUTTERUD,null,null,null,null,null,null,false,null,null,null
+864,RESKE,null,null,null,null,null,null,false,null,null,null
+865,COPELAND  J.B.,null,null,null,null,null,null,false,null,null,null
+868,KANDT R,null,null,null,null,null,null,false,null,null,null
+870,ANGLE,null,null,null,null,null,null,false,null,null,null
+871,PAGE,null,null,null,null,null,null,false,null,null,null
+872,SOLMONSON WEAVER,null,null,null,null,null,null,false,null,null,null
+873,STRATTON  GILBERT,null,null,null,null,null,null,false,null,null,null
+874,SLEETH  P,null,null,null,null,null,null,false,null,null,null
+875,SICH,null,null,null,null,null,null,false,null,null,null
+876,EMMARD  G,null,null,null,null,null,null,false,null,null,null
+877,PANNESTERNGAS&LIGHT,null,null,null,null,null,null,false,null,null,null
+879,GRANDE,null,null,null,null,null,null,false,null,null,null
+880,NOBLE CS,null,null,null,null,null,null,false,null,null,null
+881,STREONSMOE ED,null,null,null,null,null,null,false,null,null,null
+882,MAHON  JOE,null,null,null,null,null,null,false,null,null,null
+883,EWING  F,null,null,null,null,null,null,false,null,null,null
+884,ADDISON,124 TELUS TEST DRIVE,null,null,null,null,GWINFO@GOV.AB.CA,false,1826800,1826899,1826825
+885,GILLETTE BB,null,null,null,null,null,null,false,null,null,null
+886,LYONS OMAR,null,null,null,null,null,null,false,null,null,null
+887,COX W R,null,null,null,null,null,null,false,null,null,null
+888,KNIGHT,null,null,null,null,null,null,false,null,null,null
+889,BIGLOW  E,null,null,null,null,null,null,false,null,null,null
+890,FLYNN J,null,null,null,null,null,null,false,null,null,null
+891,PETERS,null,null,null,null,null,null,false,null,null,null
+892,CONSELLA  W,null,null,null,null,null,null,false,null,null,null
+893,HASTEY  N,null,null,null,null,null,null,false,null,null,null
+894,BARNES  L,null,null,null,null,null,null,false,null,null,null
+895,GLISTON J,null,null,null,null,null,null,false,null,null,null
+896,BURNS,null,null,null,null,null,null,false,null,null,null
+897,CARTWRIGHT,null,null,null,null,null,null,false,null,null,null
+899,SHIELDS,null,null,null,null,null,null,false,null,null,null
+900,SPARKS,null,null,null,null,null,null,false,null,null,null
+901,BALL,null,null,null,null,null,null,false,null,null,null
+902,WHITE,null,null,null,null,null,null,false,null,null,null
+903,MARON JAKE,null,null,null,null,null,null,false,null,null,null
+904,BALTIMORE,null,null,null,null,null,null,false,null,null,null
+905,MOSSCRIPT,null,null,null,null,null,null,false,null,null,null
+906,OSBORNE,null,null,null,null,null,null,false,null,null,null
+907,RIDDELL,null,null,null,null,null,null,false,null,null,null
+908,MACAULEY,null,null,null,null,null,null,false,null,null,null
+909,CASTLE,null,null,null,null,null,null,false,null,null,null
+910,SHORT,null,null,null,null,null,null,false,null,null,null
+913,BATES,null,null,null,null,null,null,false,null,null,null
+914,STOTZ J,null,null,null,null,null,null,false,null,null,null
+915,BURNSTED J,null,null,null,null,null,null,false,null,null,null
+916,CAMERON C,null,null,null,null,null,null,false,null,null,null
+917,PARKER,null,null,null,null,null,null,false,null,null,null
+918,STARKY,null,null,null,null,null,null,false,null,null,null
+919,HENNESEY,null,null,null,null,null,null,false,null,null,null
+920,CASSEL,null,null,null,null,null,null,false,null,null,null
+921,MULLER  J,null,null,null,null,null,null,false,null,null,null
+922,FILLAPAUGH J,null,null,null,null,null,null,false,null,null,null
+923,DAFOE,null,null,null,null,null,null,false,null,null,null
+924,UNGER,null,null,null,null,null,null,false,null,null,null
+925,MCCONKEY,null,null,null,null,null,null,false,null,null,null
+926,BLATTER  CHRIS,null,null,null,null,null,null,false,null,null,null
+927,ACRE  ANDY,null,null,null,null,null,null,false,null,null,null
+928,ATKINS,null,null,null,null,null,null,false,null,null,null
+929,AHIR A,null,null,null,null,null,null,false,null,null,null
+930,KERCH BROS,null,null,null,null,null,null,false,null,null,null
+931,COVERNESS,null,null,null,null,null,null,false,null,null,null
+932,BJORNSON,null,null,null,null,null,null,false,null,null,null
+934,DOUBLE J DRILLING,null,null,null,null,null,null,false,null,null,null
+935,MCGEE,null,null,null,null,null,null,false,null,null,null
+936,THOMPSON W,null,null,null,null,null,null,false,null,null,null
+937,RADEAU (WIELLARD),null,null,null,null,null,null,false,null,null,null
+11110,UNKNOWN DRILLER,UNKNOWN,UNKNOWN,AB,CA,null,gwinfo@gov.ab.ca,false,1973500,1973599,1973599
+11111,OWNER DRILLED,null,null,null,null,null,null,true,null,null,null
+11362,TSCHIDA JOE,null,null,null,null,null,null,false,null,null,null
+13203,LEWIS THOMAS A,null,null,null,null,null,null,false,null,null,null
+14343,TWO WAY DRLG,null,null,null,null,null,null,false,null,null,null
+14401,ALBERTA RATHOLE,null,null,null,null,null,null,false,null,null,null
+14402,ALLAN BROS,null,null,null,null,null,null,false,null,null,null
+14403,AL'S WATER WELLS LTD,BOX 641,LACOMBE,AB,CA,null,gwinfo@gov.ab.ca,false,2057000,2057099,2057046
+14405,ANDERSON C G,null,null,null,null,null,null,false,null,null,null
+14406,ANDERSON SVERRE,null,null,null,null,null,null,false,null,null,null
+14407,ARTESIA DRLG,null,null,null,null,null,null,false,null,null,null
+14408,ALL KIND DRLG,null,null,null,null,null,null,false,null,null,null
+14409,ABRAMENKO PETER,null,null,null,null,null,null,false,null,null,null
+14411,BABICH JOHN W,null,null,null,null,null,null,false,null,null,null
+14412,BABLITZ ROBERT,null,null,null,null,null,null,false,null,null,null
+14413,BABLITZ WALTER,null,null,null,null,null,null,false,null,null,null
+14414,BAKER DRLG,null,null,null,null,null,null,false,null,null,null
+14415,B&R DRLG CO LTD,null,null,null,null,null,null,false,null,null,null
+14417,BARTON LES,null,null,null,null,null,null,false,null,null,null
+14420,BERTRAM DRLG,null,null,null,null,null,sue@bertramdrilling.com,true,9756000,9760999,9756046
+14421,BIG INDIAN DRILLING CO. LTD.,"216, 513-8TH AVENUE WEST",CALGARY,AB,CA,null,gwinfo@gov.ab.ca,false,2057700,2057799,2057703
+14424,BLACK DIAMOND WATER WELLS LTD,3628 BURNSLAND RD SE,CALGARY,AB,CA,null,GWINFO@GOV.AB.CA,false,1841100,1841199,null
+14425,BLIZE LA & SONS,null,null,null,null,null,null,false,null,null,null
+14429,BOWERS & THIBEDEAU,null,null,null,null,null,null,false,null,null,null
+14430,AQUA DRLG,null,null,null,null,null,null,false,null,null,null
+14433,BROWN JIM,null,null,null,null,null,null,false,null,null,null
+14434,BRUN F A,null,null,null,null,null,null,false,null,null,null
+14435,BUDESHEIN DON,null,null,null,null,null,null,false,null,null,null
+14438,BURGHARDT ROBERT,null,null,null,null,null,null,false,null,null,null
+14439,LAWS E,null,null,null,null,null,null,false,null,null,null
+14440,"BRENDAL, RAYMOND",null,null,null,null,null,null,false,null,null,null
+14445,CARPENTER WAYNE,null,null,null,null,null,null,false,null,null,null
+14449,CHIPMUNK HOLDING LTD,null,null,null,null,null,null,false,null,null,null
+14451,CHRISTIAN EARL,null,null,null,null,null,null,false,null,null,null
+14452,CLIFFORD DALE E,null,null,null,null,null,null,false,null,null,null
+14455,CRANDALL A J,null,null,null,null,null,null,false,null,null,null
+14456,CT&T DRLG CO LTD,null,null,null,null,null,null,false,null,null,null
+14460,DAGG H &DL WELL DRLG,null,null,null,null,null,null,false,null,null,null
+14461,DEFORAS J P,null,null,null,null,null,null,false,null,null,null
+14468,DUTCHYS WW DRLG,null,null,null,null,null,null,false,null,null,null
+14470,DIRKS WW DRLG,null,null,null,null,null,null,false,null,null,null
+14474,ELLEFSON BUD E,null,null,null,null,null,null,false,null,null,null
+14476,FARROW STEWART,null,null,null,null,null,null,false,null,null,null
+14477,FELDBERG ROBERT,null,null,null,null,null,null,false,null,null,null
+14485,BIG SIX DRLG LTD,null,null,null,null,null,null,false,null,null,null
+14486,BEAGRIE TOM,null,null,null,null,null,null,false,null,null,null
+14487,CULVERS FARM&RANCH,null,null,null,null,null,null,false,null,null,null
+14491,GEOSERVE DRLG,null,null,null,null,null,null,false,null,null,null
+14492,GERMAN R E,null,null,null,null,null,null,false,null,null,null
+14494,GODDARD A E,null,null,null,null,null,null,false,null,null,null
+14495,GOLKA PLUMBING,null,null,null,null,null,null,false,null,null,null
+14499,GAILEY JOHN,null,null,null,null,null,null,false,null,null,null
+14500,HALL M R DRLG,null,null,null,null,null,null,false,null,null,null
+14506,HENDRICKSON C&H,null,null,null,null,null,null,false,null,null,null
+14510,HOVIS M E,null,null,null,null,null,null,false,null,null,null
+14516,JACK PINE DRLG,null,null,null,null,null,null,false,null,null,null
+14519,JAYS WW DRLG,null,null,null,null,null,null,false,null,null,null
+14522,KALLAS FRED,null,null,null,null,null,null,false,null,null,null
+14523,KENASTON DRLG,null,null,null,null,null,null,false,null,null,null
+14525,KIND EVAN,null,null,null,null,null,null,false,null,null,null
+14526,KING LLOYD,null,null,null,null,null,null,false,null,null,null
+14528,KEITH RALPH,null,null,null,null,null,null,false,null,null,null
+14536,LAFORGE BROS,null,null,null,null,null,null,false,null,null,null
+14537,LAKVOLD MILTON,null,null,null,null,null,null,false,null,null,null
+14544,LINGO DRLG,null,null,null,null,null,null,false,null,null,null
+14545,L&M,null,null,null,null,null,null,false,null,null,null
+14548,LUTYCK BILL W,null,null,null,null,null,null,false,null,null,null
+14559,MCDONALD DRLG,null,null,null,null,null,null,false,null,null,null
+14562,MCISAAC GERALD,null,null,null,null,null,null,false,null,null,null
+14569,MOORE YOTO,null,null,null,null,null,null,false,null,null,null
+14570,MOORES WW DRLG,null,null,null,null,null,null,false,null,null,null
+14576,MILLAR LEONARD,null,null,null,null,null,null,false,null,null,null
+14578,NASLUND E E,null,null,null,null,null,null,false,null,null,null
+14580,NEPSTAD L K,null,null,null,null,null,null,false,null,null,null
+14581,NIPISI W PUMPING LTD,null,null,null,null,null,null,false,null,null,null
+14582,NORTHERN AUGER,null,null,null,null,null,null,false,null,null,null
+14588,PANKIW DRLG CO,null,null,null,null,null,null,false,null,null,null
+14597,QUAST GEORGE,null,null,null,null,null,null,false,null,null,null
+14600,RENBAR DRILLING LTD,548-4 AVE NE,CALGARY,AB,CA,null,gwinfo@gov.ab.ca,false,2058000,2058099,2058000
+14601,ROBBINS ALLAN,null,null,null,null,null,null,false,null,null,null
+14602,ROSYCHUK I,null,null,null,null,null,null,false,null,null,null
+14604,ROBERTSON ALLEN C,null,null,null,null,null,null,false,null,null,null
+14615,MCADOO & SHANK,null,null,null,null,null,null,false,null,null,null
+14618,STERLING DRLG,null,null,null,null,null,null,false,null,null,null
+14619,SKELLY DRLG,null,null,null,null,null,null,false,null,null,null
+14624,SPINK G,null,null,null,null,null,null,false,null,null,null
+14627,STEDMAN DRLG&PUMPING,null,null,null,null,null,null,false,null,null,null
+14628,STEINKE A,null,null,null,null,null,null,false,null,null,null
+14633,SWANSON GILBERT,null,null,null,null,null,null,false,null,null,null
+14639,THOMPSON & SONS,null,null,null,null,null,null,false,null,null,null
+14646,TSCHETTER DAVID,null,null,null,null,null,null,false,null,null,null
+14649,V&H DRLG,null,null,null,null,null,null,false,null,null,null
+14651,VALB ERNEST,null,null,null,null,null,null,false,null,null,null
+14652,WAGAR SHERMAN,null,null,null,null,null,null,false,null,null,null
+14656,WAMBEKE BROS,null,null,null,null,null,null,false,null,null,null
+14657,WAINKE (BOB) DRLG,null,null,null,null,null,null,false,null,null,null
+14660,WATSON DRLG,null,null,null,null,null,null,false,null,null,null
+14662,KIEFIUK EDWARD,null,null,null,null,null,null,false,null,null,null
+14666,WRAIGHT FRED,null,null,null,null,null,null,false,null,null,null
+14669,BAIRD MJ,null,null,null,null,null,null,false,null,null,null
+14672,BABLITZ REINHOLD,null,null,null,null,null,null,false,null,null,null
+14675,APACHE DRLG,null,null,null,null,null,null,false,null,null,null
+14676,MELNYK CHRIS,null,null,null,null,null,null,false,null,null,null
+14677,KROFTS WW DRLG,null,null,null,null,null,null,false,null,null,null
+14698,SLECZKA TED,null,null,null,null,null,null,false,null,null,null
+15175,MUNDLE ROBERT T,null,null,null,null,null,null,false,null,null,null
+15287,BEATTY DOUG,null,null,null,null,null,null,false,null,null,null
+15775,CAMPBELL GORDON,null,null,null,null,null,null,false,null,null,null
+15776,GARRICK DRLG,null,null,null,null,null,null,false,null,null,null
+15779,MUKANIK JOHN,null,null,null,null,null,null,false,null,null,null
+15780,MURRAY JACK,null,null,null,null,null,null,false,null,null,null
+15781,MILLER DON,null,null,null,null,null,null,false,null,null,null
+15782,PETERSEN ERNEST,null,null,null,null,null,null,false,null,null,null
+15783,PEANUTS DRLG,null,null,null,null,null,null,false,null,null,null
+15784,PATERSON DRLG CO LTD,null,null,null,null,null,null,false,null,null,null
+15786,SHERIDAN BILL,null,null,null,null,null,null,false,null,null,null
+15787,SARAFINCHAN ED,null,null,null,null,null,null,false,null,null,null
+15791,SIMENSEN DRLG,null,null,null,null,null,null,false,null,null,null
+15796,WEISS TOM,null,null,null,null,null,null,false,null,null,null
+15815,KRUK JOHN J,null,null,null,null,null,null,false,null,null,null
+15846,POTTER JAMES N,null,null,null,null,null,null,false,null,null,null
+15848,TERRA NUMA DRLG,null,null,null,null,null,null,false,null,null,null
+15858,LUNAR DRLG,null,null,null,null,null,null,false,null,null,null
+15969,HILKER ALVAN,null,null,null,null,null,null,false,null,null,null
+15971,PEE WEE DRLG,null,null,null,null,null,null,false,null,null,null
+15972,VANMAARION LEONARD,null,null,null,null,null,null,false,null,null,null
+16000,RANGELAND DRILLING,null,null,null,null,null,null,false,null,null,null
+16044,GROVE DRILLING LTD,BOX 1465,SPRUCE GROVE,AB,CA,null,gwinfo@gov.ab.ca,false,2098050,2098099,2098058
+16045,PENNY KEITH,null,null,null,null,null,null,false,null,null,null
+16046,ROBBINS ERNEST G,null,null,null,null,null,null,false,null,null,null
+16099,PETERSON RONALD,null,null,null,null,null,null,false,null,null,null
+16100,STUD MUD&ENGINEERING,null,null,null,null,null,null,false,null,null,null
+16201,ENGEL JOHN,null,null,null,null,null,null,false,null,null,null
+16203,HALL B,null,null,null,null,null,null,false,null,null,null
+16204,RAFFA F G,null,null,null,null,null,null,false,null,null,null
+16205,AMATIA NICK,null,null,null,null,null,null,false,null,null,null
+16207,SRIGLEY DRLG,null,null,null,null,null,null,false,null,null,null
+16208,THORSEN TED,null,null,null,null,null,null,false,null,null,null
+16209,NORTHERN WW BORING,null,null,null,null,null,null,false,null,null,null
+16210,A&J DRLG,null,null,null,null,null,null,false,null,null,null
+16211,ABLE DRLG,123 CABLE CRT ,LEDUC,AB,CA,T9E 5H4,gwinfo@gov.ab.ca,false,1825900,1825999,null
+16212,ADAIR D,null,null,null,null,null,null,false,null,null,null
+16213,ALBERTA WELL DRLRS,null,null,null,null,null,null,false,null,null,null
+16214,ANDERBURG & SONS,null,null,null,null,null,null,false,null,null,null
+16215,ASHTON O W,null,null,null,null,null,null,false,null,null,null
+16216,BENNET & NOWAK,null,null,null,null,null,null,false,null,null,null
+16217,BERWYN DRLG LTD,null,null,null,null,null,null,false,null,null,null
+16218,BLACKWOOD ALEX,null,null,null,null,null,null,false,null,null,null
+16219,BLACKWOOD ROGER,null,null,null,null,null,null,false,null,null,null
+16220,CAL & NORM'S DRILLING,null,null,null,null,null,null,false,null,null,null
+16221,BOWERS RAY & RALPH,null,null,null,null,null,null,false,null,null,null
+16222,BROWN GORDON L,null,null,null,null,null,null,false,null,null,null
+16223,BRUNER J L,null,null,null,null,null,null,false,null,null,null
+16224,BURGESS BILL,null,null,null,null,null,null,false,null,null,null
+16225,CALALTA DRLG,null,null,null,null,null,null,false,null,null,null
+16226,CARDAY DRLG,null,null,null,null,null,null,false,null,null,null
+16227,CLEVELNDWAYLNDMORTON,null,null,null,null,null,null,false,null,null,null
+16228,CODE D N,null,null,null,null,null,null,false,null,null,null
+16229,CORNELSSON W E,null,null,null,null,null,null,false,null,null,null
+16230,DANSCOT DRLG CO,null,null,null,null,null,null,false,null,null,null
+16231,DAY ARTHUR A,null,null,null,null,null,null,false,null,null,null
+16232,DIAL A L,null,null,null,null,null,null,false,null,null,null
+16233,DUBE OTTO,null,null,null,null,null,null,false,null,null,null
+16234,EDWARDS E NEIL,null,null,null,null,null,null,false,null,null,null
+16236,EUREKA DRLG CO,null,null,null,null,null,null,false,null,null,null
+16237,FAST DRLG CO,null,null,null,null,null,null,false,null,null,null
+16238,FAY GUY E,null,null,null,null,null,null,false,null,null,null
+16239,FIVELAND N,null,null,null,null,null,null,false,null,null,null
+16240,FORESTER TERRY,null,null,null,null,null,null,false,null,null,null
+16242,FREEMAN W J,null,null,null,null,null,null,false,null,null,null
+16243,GRAY B,null,null,null,null,null,null,false,null,null,null
+16244,GREEN C C,null,null,null,null,null,null,false,null,null,null
+16245,GREEN F T,null,null,null,null,null,null,false,null,null,null
+16246,GRIFFITH CHARLES,null,null,null,null,null,null,false,null,null,null
+16247,GUNDERSON CORNELL,null,null,null,null,null,null,false,null,null,null
+16248,HADLAND HERMAN,null,null,null,null,null,null,false,null,null,null
+16249,HEGLAND OLAF P,null,null,null,null,null,null,false,null,null,null
+16250,HENDERSON ALVIN,null,null,null,null,null,null,false,null,null,null
+16251,HENDERSON DRILLING LTD.,BOX 878,PONOKA,AB,CA,null,gwinfo@gov.ab.ca,false,2057100,2057399,2057123
+16252,HOLDSWORTH ERNEST,null,null,null,null,null,null,false,null,null,null
+16253,HORNESS D N,null,null,null,null,null,null,false,null,null,null
+16254,HORRICKS BOB,null,null,null,null,null,null,false,null,null,null
+16255,HUSSEY BILL,null,null,null,null,null,null,false,null,null,null
+16256,INDEPENDENT DRG& EXP,null,null,null,null,null,null,false,null,null,null
+16257,JALBERT ENTERPRISES,null,null,null,null,null,null,false,null,null,null
+16258,JOHANSON VICTOR,null,null,null,null,null,null,false,null,null,null
+16259,KENDREW C,null,null,null,null,null,null,false,null,null,null
+16260,KIENZLE E,null,null,null,null,null,null,false,null,null,null
+16261,KIND R G & RENNIE,null,null,null,null,null,null,false,null,null,null
+16262,KINGSEP ROBERT,null,null,null,null,null,null,false,null,null,null
+16263,KLETTKE GUS,null,null,null,null,null,null,false,null,null,null
+16264,KORTMEYER FRED,null,null,null,null,null,null,false,null,null,null
+16265,KOWALCHUK PETER,null,null,null,null,null,null,false,null,null,null
+16267,LORRAINE DRLG,null,null,null,null,null,null,false,null,null,null
+16268,LUND SVEN DRLG,null,null,null,null,null,null,false,null,null,null
+16271,MAUGHAN WM,null,null,null,null,null,null,false,null,null,null
+16272,MCDONNEL & SCHMIDT,null,null,null,null,null,null,false,null,null,null
+16273,MCLAREN DRLG,null,null,null,null,null,null,false,null,null,null
+16274,MCCRAE W M,null,null,null,null,null,null,false,null,null,null
+16275,MCWILLIS A,null,null,null,null,null,null,false,null,null,null
+16276,MOON W C,null,null,null,null,null,null,false,null,null,null
+16277,MOOR J E,null,null,null,null,null,null,false,null,null,null
+16278,MORRISON FC,null,null,null,null,null,null,false,null,null,null
+16279,ALLAN & SANDERSON,null,null,null,null,null,null,false,null,null,null
+16280,PACHOLKO ALEX,null,null,null,null,null,null,false,null,null,null
+16282,PALADIN DRILLS,null,null,null,null,null,null,false,null,null,null
+16283,PEDERSON CHRISTIAN,null,null,null,null,null,null,false,null,null,null
+16284,PREGODA GEORGE,null,null,null,null,null,null,false,null,null,null
+16285,BAIRD JC JUNIOR,null,null,null,null,null,null,false,null,null,null
+16288,CORNELSSEN L R,null,null,null,null,null,null,false,null,null,null
+16290,EDSON WW,null,null,null,null,null,null,false,null,null,null
+16292,FORRESTER DRILLING,RR1,OLDS,AB,CA,null,gwinfo@gov.ab.ca,false,1871400,1871499,1871400
+16294,FRASER BROS,null,null,null,null,null,null,false,null,null,null
+16295,FRIESEN JOHN,null,null,null,null,null,null,false,null,null,null
+16296,GREEN TED,null,null,null,null,null,null,false,null,null,null
+16297,HNATIUK PAUL,null,null,null,null,null,null,false,null,null,null
+16298,KANGAS DRLG,null,null,null,null,null,null,false,null,null,null
+16299,KRUGER ARNOLD,null,null,null,null,null,null,false,null,null,null
+16301,LS AUGERING & DRLG,null,null,null,null,null,null,false,null,null,null
+16305,MICHELE DRLG&EXPLOR,10279 - 101 SREET,EDMONTON,AB,CA,null,gwinfo@gov.ab.ca,false,2098100,2098149,null
+16306,MILLER A,null,null,null,null,null,null,false,null,null,null
+16307,R&D DRLG,null,null,null,null,null,null,false,null,null,null
+16308,MISKULIN G,null,null,null,null,null,null,false,null,null,null
+16309,MITCHELL HERB,null,null,null,null,null,null,false,null,null,null
+16310,NICHOLS BOB,null,null,null,null,null,null,false,null,null,null
+16311,NORTH SIDE GARAGE,null,null,null,null,null,null,false,null,null,null
+16312,OLIVER NESS,null,null,null,null,null,null,false,null,null,null
+16313,OSZUST JOHN,null,null,null,null,null,null,false,null,null,null
+16315,MANNVILLE DRLG,null,null,null,null,null,null,false,null,null,null
+16316,RENNICH DRLG,null,null,null,null,null,null,false,null,null,null
+16317,ROBERTSONS PLUMBING,null,null,null,null,null,null,false,null,null,null
+16318,RUSSEL ROBERT G,null,null,null,null,null,null,false,null,null,null
+16319,SCHAFFER JACK,null,null,null,null,null,null,false,null,null,null
+16320,SCHAFFER ROBERT,null,null,null,null,null,null,false,null,null,null
+16321,SCHELLENBERGER M,null,null,null,null,null,null,false,null,null,null
+16322,SCHULLER LEO,null,null,null,null,null,null,false,null,null,null
+16323,SCHUSTER EDWIN,null,null,null,null,null,null,false,null,null,null
+16324,SCHUSTER FRED,null,null,null,null,null,null,false,null,null,null
+16325,SCOGGINS & RAINES,null,null,null,null,null,null,false,null,null,null
+16327,SCOTT HARVEY L,null,null,null,null,null,null,false,null,null,null
+16328,SEAMAN ENGINEERING,null,null,null,null,null,null,false,null,null,null
+16332,SRIGLEY ELLWOOD,null,null,null,null,null,null,false,null,null,null
+16333,STANOLIND OIL & GAS,null,null,null,null,null,null,false,null,null,null
+16334,STEINBRUE KOLBOURNE,null,null,null,null,null,null,false,null,null,null
+16335,TARRY HARRY,null,null,null,null,null,null,false,null,null,null
+16337,TURNQUIST O F,null,null,null,null,null,null,false,null,null,null
+16339,WARD G H DRLG,null,null,null,null,null,null,false,null,null,null
+16340,WASMUTH ALVIN A,null,null,null,null,null,null,false,null,null,null
+16341,WESTERN WATER WELLS LTD.,null,CALGARY,AB,CA,null,null,false,9556000,9560999,9556000
+16342,WILSON FRED Y,null,null,null,null,null,null,false,null,null,null
+16343,WINTER R A,null,null,null,null,null,null,false,null,null,null
+16344,WIRECHENKO H,null,null,null,null,null,null,false,null,null,null
+16345,ZAROWNY MIKE,null,null,null,null,null,null,false,null,null,null
+16346,ZUKOWICH JOHN,null,null,null,null,null,null,false,null,null,null
+16349,MURRAY R D DRLG,null,null,null,null,null,null,false,null,null,null
+16350,RENNICH HERB,null,null,null,null,null,null,false,null,null,null
+16351,RONDEAU & DENOYER,null,null,null,null,null,null,false,null,null,null
+16352,RONDEAU PAUL,null,null,null,null,null,null,false,null,null,null
+16355,SIEBLE ALLAN,null,null,null,null,null,null,false,null,null,null
+16357,STEPHENSON C,null,null,null,null,null,null,false,null,null,null
+16359,TAKES DRLG,null,null,null,null,null,null,false,null,null,null
+16360,TAKES & WANGLER,null,null,null,null,null,null,false,null,null,null
+16363,WATER RESOURCES,null,null,null,null,null,null,false,null,null,null
+16365,WILSON DRLG,null,null,null,null,null,null,false,null,null,null
+16366,WILDERMAN DRLG,null,null,null,null,null,null,false,null,null,null
+16495,BEAGRIE KARL J,null,null,null,null,null,null,false,null,null,null
+16515,DYCK PETER,null,null,null,null,null,null,false,null,null,null
+16516,LAWES LAWRENCE,null,null,null,null,null,null,false,null,null,null
+16517,STEPHENS BROS,null,null,null,null,null,null,false,null,null,null
+16518,AURORA EXPLORATIONS,null,null,null,null,null,null,false,null,null,null
+16519,FERLAND ENTERPRISES,null,null,null,null,null,null,false,null,null,null
+16521,B&M DRLG,null,null,null,null,null,null,false,null,null,null
+16592,LEWIS FLOYD A,null,null,null,null,null,null,false,null,null,null
+16759,LAMOREAX ERNEST,null,null,null,null,null,null,false,null,null,null
+16760,STRAND ELVIN,null,null,null,null,null,null,false,null,null,null
+16767,R&J DRLG,null,null,null,null,null,null,false,null,null,null
+16770,SIMENSEN GEORGE,null,null,null,null,null,null,false,null,null,null
+16771,HOOD DRLG CO,null,null,null,null,null,null,false,null,null,null
+16870,DOUBLE V DRLG,null,null,null,null,null,null,false,null,null,null
+16872,WILLNESS WARNER,null,null,null,null,null,null,false,null,null,null
+16875,GEMINI DRLG,null,null,null,null,null,null,false,null,null,null
+16878,SEXAUER DALE,null,null,null,null,null,null,false,null,null,null
+16951,BEATTIE GARY,null,null,null,null,null,null,false,null,null,null
+16988,LANGE EXPLORATION,null,null,null,null,null,null,false,null,null,null
+16993,CHINOOK DRLG,null,null,null,null,null,null,false,null,null,null
+17674,ELLIOTT DOUGLAS,null,null,null,null,null,null,false,null,null,null
+23999,"BECKER, RAYMOND",null,null,null,null,null,null,false,null,null,null
+24003,WM WELL SERVICE,null,null,null,null,null,null,false,null,null,null
+24004,BECKETT DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24005,CLIFF'S DRILLING,RR 1,BASHAW,AB,CA,T0B 0H0,GWINFO@GOV.AB.CA,true,1200000,1204999,1201579
+24006,C&E WELL BORING,null,null,null,null,null,null,false,null,null,null
+24008,DOOL WW,null,null,null,null,null,null,false,null,null,null
+24009,DUBOIS ELMER J,null,null,null,null,null,null,false,null,null,null
+24010,D&B DRLG (1023466 ALBERTA LTD),BOX 142,LA GLACE,AB,CA,T0H 2J0,gwinfo@gov.ab.ca,false,1856600,1856699,1856695
+24012,GREEN ACRES WW DRLG,null,null,null,null,null,null,false,null,null,null
+24014,HOLLAND DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24015,J&L OIL SALES,null,null,null,null,null,null,false,10061000,10065999,10061000
+24017,NORTHERN GEOPHYSICAL,null,null,null,null,null,null,false,null,null,null
+24020,C&R DRLG,null,null,null,null,null,null,false,null,null,null
+24021,"STEFFENSEN, HENRY E.",null,null,null,null,null,null,false,null,null,null
+24023,PECOS DRLG LTD,null,null,null,null,null,null,false,null,null,null
+24024,CLARKS DRLG CO,null,null,null,null,null,null,false,null,null,null
+24028,"SLOAT, H. & SONS DRILLING",null,null,null,null,null,null,false,null,null,null
+24029,ALF'S DRILLING & SUPPLIES LTD.,BOX 452,VIKING,AB,CA,T0B 4N0,GWINFO@GOV.AB.CA,false,1055000,1059999,1055030
+24030,AB WATER WELL DRILLING,null,null,null,null,null,null,false,null,null,null
+24032,BANKS WELL SERVICE,null,null,null,null,null,null,false,null,null,null
+24033,DARRAGH LEE,null,null,null,null,null,null,false,null,null,null
+24034,GP WW DRLG,null,null,null,null,null,null,false,null,null,null
+24035,MELS SEISMIC OIL LTD,null,null,null,null,null,null,false,null,null,null
+24036,KEN'S WATER SERVICE,null,null,null,null,null,null,false,null,null,null
+24037,KENROB WATER WELL SERVICES,null,null,null,null,null,null,false,null,null,null
+24038,KAEHN VICTOR A,null,null,null,null,null,null,false,null,null,null
+24039,LAKELAND DRILLING LTD.,BOX 1388,ST PAUL,AB,CA,T0A 3A0,gwinfo@gov.ab.ca,true,1420000,1424999,1422780
+24040,MORTON'S WATER WELL DRILLING LTD.,4620 RAILWAY AVE,VERMILION,AB,CA,T9X 1E7,null,false,2040200,2044999,1924972
+24041,AARON DRILLING INC.,PO Box 434,Black Diamond,ALBERTA,CANADA,T0L 0H0,admin@aarondrilling.com,true,1020000,1024999,1024197
+24042,"LAMAR HOLDINGS LTD./BILODEAU, LAWRENCE",null,null,null,null,null,null,false,null,null,null
+24043,OBAR DRLG LTD,null,null,null,null,null,null,false,null,null,null
+24044,PITTMAN ROBERT,null,null,null,null,null,null,false,null,null,null
+24045,PERCUSSION CORE,null,null,null,null,null,null,false,null,null,null
+24046,PARKLAND DRLG&SALES,null,null,null,null,null,null,false,null,null,null
+24047,ROBERTS RATHOLE DRLG,null,null,null,null,null,null,false,null,null,null
+24048,FRED'S WATER WELL DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24049,STEINHAUER ENT. LTD,BOX 2050,ST. PAUL,AB,CA,null,gwinfo@gov.ab.ca,false,2057600,2057699,2057600
+24052,SCHRADER & SON DRILLING & SERVICING,null,null,null,null,null,null,false,null,null,null
+24053,LOU'S WATER WELL DRILLING,BOX 1021,COCHRANE,AB,CA,T4C 1B1,gwinfo@gov.ab.ca,false,1465000,1469999,1465064
+24054,TRIPLE M DRLG,null,null,null,null,null,null,false,null,null,null
+24055,VIDOK JAMES,null,null,null,null,null,null,false,null,null,null
+24056,ALBERTA WW SERVICE,null,null,null,null,null,null,false,null,null,null
+24057,CARTER AQUIFER,null,null,null,null,null,null,false,null,null,null
+24058,DOUBLE H DRILLING,GENERAL DELIVERY,WESTEROSE,AB,CA,null,gwinfo@gov.ab.ca,false,2057800,2057899,2057800
+24059,GOLDEN PEACE DRILLING LTD.,RR 1,CROOKED CREEK,AB,CA,T0H 0Y0,GWINFO@GOV.AB.CA,true,1877500,1877599,1877534
+24060,BARR FREDRICK DRLG,null,null,null,null,null,null,false,null,null,null
+24062,ATSINGER KEN R,null,null,null,null,null,null,false,null,null,null
+24063,TENCO ENTERPRISES,null,null,null,null,null,null,false,null,null,null
+24064,KRUSE DRLG LTD,null,null,null,null,null,null,false,null,null,null
+24065,MCCOMB DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24066,MCDONNEL DOUPE,null,null,null,null,null,null,false,null,null,null
+24069,WARDLEY F G,null,null,null,null,null,null,false,null,null,null
+24070,PETE'S WATERWELL CONTRACTING LTD.,null,null,null,null,null,null,false,null,null,null
+24071,LAMBERT DRLG,null,null,null,null,null,null,false,null,null,null
+24072,ARIES DRLG,null,null,null,null,null,null,false,null,null,null
+24073,FARARI HOLDINGS,null,null,null,null,null,null,false,null,null,null
+24075,J&J DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24076,FEDORVICH DRILLING,BOX 122,BUSBY,AB,CA,T0G 0H0,GWINFO@GOV.AB.CA,false,1280000,1284999,1280032
+24077,MCNARY DAVID M,null,null,null,null,null,null,false,null,null,null
+24079,GENERAUX ERIC,null,null,null,null,null,null,false,null,null,null
+24080,GLOBE DRLG,null,null,null,null,null,null,false,null,null,null
+24081,MALESKI FRANK,null,null,null,null,null,null,false,null,null,null
+24082,"BYRT, STAN & SONS LTD.",null,null,null,null,null,null,false,null,null,null
+24083,DEL'S DRILLING,567 NORTHMOUNT DR NW,CALGARY,AB,CA,T2K 3J4,gwinfo@gov.ab.ca,false,2027001,2027050,2027002
+24084,INTERPROVINCIAL DRILLING CONTRACTORS,SUB PO 36,CALGARY,AB,CA,null,GWINFO@GOV.AB.CA,false,1893200,1893299,1893200
+24085,BORLE DELPHIS M,null,null,null,null,null,null,false,null,null,null
+24086,SKOLSKI MIKE H,null,null,null,null,null,null,false,null,null,null
+24087,ALBERTA OILFIELD WATER PUMPING CO. LTD.,BOX 62,PICKARDVILLE,AB,CA,T0G 1W0,GWINFO@GOV.AB.CA,false,1050000,1054999,null
+24089,NIEMANS DRILLING (1980) LTD.,BOX 5564,HIGH RIVER,AB,CA,T0E 1M6,gwinfo@gov.ab.ca,false,1555000,1559999,1556541
+24090,NORMAN GASS,BOX 21097,GRANDE PRAIRIE,AB,CA,T8V 6W7,gwinfo@gov.ab.ca,false,1875000,1875099,1875000
+24092,ARCHIBALD NORMAN,null,null,null,null,null,null,false,null,null,null
+24094,"SANDERSON, LLOYD",null,null,null,null,null,null,false,null,null,null
+24096,BOB'S DRILLING & BACKHOE SERVICE LTD.,BOX 50,MULHURST,AB,CA,T0C 2C0,GWINFO@GOV.AB.CA,false,1145000,1149999,null
+24097,BRIX DRLG,null,null,null,null,null,null,false,null,null,null
+24098,ELLIOTT DRLG,13420-139 ST,EDMONTON,AB,CA,null,gwinfo@gov.ab.ca,false,1865300,1865399,1865303
+24099,FOOTHILLS DRLG,null,null,null,null,null,null,false,null,null,null
+24100,"FRASER, RON",null,null,null,null,null,null,false,null,null,null
+24101,HARVEY DRLG CO,null,null,null,null,null,null,false,null,null,null
+24102,L M WW LTD,null,null,null,null,null,null,false,null,null,null
+24103,GERALD MCGINN DRILLING LTD.,8 HARVEST WAY,STONY PLAIN,ALBERTA,CANADA,T7Z 2A7,sheila@geraldmcginndrilling.com,true,1300000,1304999,1300574
+24105,AMA DRILLING CO. LTD.,null,null,null,null,null,null,false,null,null,null
+24106,CAMFIELD DRILLING SERVICES LTD.,1280 4 AVE S,LETHBRIDGE,AB,CA,T1J 0R2,garfield@camdril.com,false,1170000,1174999,1170587
+24107,"RYAN, GERALD",null,null,null,null,null,null,false,null,null,null
+24108,"SCOTT, GORDON",null,null,null,null,null,null,false,null,null,null
+24109,KINSELLA DRILLING LTD.,RR 2,INNISFAIL,AB,CA,T4G 1T7,gwinfo@gov.ab.ca,true,1405000,1409999,1405122
+24110,"LAFORGE, ARCHIE DRILLING",null,null,null,null,null,null,false,null,null,null
+24112,CORALTA DRLG,PO. BOX 4104,EDMONTON,AB,CA,null,gwinfo@gov.ab.ca,false,2059300,2059399,2059307
+24113,"MAUGHAN, JOSEPH R.",null,null,null,null,null,null,false,null,null,null
+24114,HOOVER DRILLING,null,null,null,null,null,null,false,null,null,null
+24115,LARRY LEBEAU DRILLING LTD.,P.O. BOX 5127,WESTLOCK,AB,CA,T7P 2P4,gwinfo@gov.ab.ca,false,1425000,1429999,1425009
+24116,MAHAR DRILLING CO. LTD.,R.R. 2,BARRHEAD,AB,CA,T7N 1N3,gwinfo@gov.ab.ca,false,1912500,1912599,1912522
+24117,PATRICK DRLG,null,null,null,null,null,null,false,null,null,null
+24118,BOUTIN RENE,null,null,null,null,null,null,false,null,null,null
+24119,DIVERSIFIED DRILLING & EXPLORATION CO.,null,null,null,null,null,null,false,null,null,null
+24120,LOUSANA WATER WELLS (1987) LTD.,BOX 88,LOUSANA,AB,CA,T0M 1KO,gwinfo@gov.ab.ca,true,1470000,1474999,1471191
+24121,MCALLISTER DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24123,CARIBOU DRILLING LTD.,null,null,null,null,null,null,true,10071000,10075999,10071004
+24124,HENRICKSON BROS,null,null,null,null,null,null,false,null,null,null
+24125,CANNON DRLG,10834 - 64 AEVNUE,EDMONTON,AB,CA,null,gwinfo@gov.ab.ca,false,2060100,2060199,2060101
+24127,M&S WATERWELL DRILLING LTD.,BOX 609,THORHILD,AB,CA,T0A 3JO,gwinfo@gov.ab.ca,true,2050000,2054999,1912659
+24128,THREE STAR DRLG,null,null,null,null,null,null,false,null,null,null
+24129,ELGIN EXPLORATION COMPANY LIMITED,245-61 AVE SE,CALGARY,AB,CA,T2H 0R4,gwinfo@gov.ab.ca,false,1864800,1864899,1864803
+24130,FORRESTER WATER WELL DRILLING (1981) LTD.,RR 1,RED DEER,AB,CA,null,GWINFO@GOV.AB.CA,false,2055000,2055999,2055001
+24131,HANSEN BUD G,null,null,null,null,null,null,false,null,null,null
+24132,KIELBAUCH DRLG,null,null,null,null,null,null,false,null,null,null
+24133,MAR-WAYNE WATER WELL DRILLING SERVICES LTD.,"BOX 4, SITE 5, RR 1",CALAHOO,AB,CA,T0G 0J0,MARWAYNE@CRUZINTERNET.COM,false,1495000,1499999,1495607
+24134,REKLOW WATER WELL DRILLING,null,null,null,null,null,null,false,null,null,null
+24135,HILLSDALE DRILLING,null,null,null,null,null,null,false,null,null,null
+24136,CLEAR WATER DRILLING LTD.,UNKNOWN,DARWELL,AB,CA,null,gwinfo@gov.ab.ca,false,1851900,1851999,1851951
+24137,CASKEY HOLDING LTD.,null,null,null,null,null,null,false,null,null,null
+24138,HOKENSON WW LTD,null,null,null,null,null,null,false,null,null,null
+24139,LOSNESS DRILLING (1975) LTD.,BOX 145,LOUGHEED,AB,CA,T0B 2V0,gwinfo@gov.ab.ca,false,1460000,1464999,1460102
+24140,ZIEGLER BROS. DRILLING LTD.,BOX 478,BEISEKER,ALBERTA,CANADA,T0M 0G0,gwinfo@gov.ab.ca,false,1815000,1819999,null
+24141,SEXSMITH DRILLING,null,null,null,null,null,null,false,null,null,null
+24142,STAR DRLG CO,null,null,null,null,null,null,false,null,null,null
+24143,STEDMAN WILLIAM,null,null,null,null,null,null,false,null,null,null
+24144,ROSS DRILLING,BOX 22,BIG VALLEY,AB,CA,T0J 0G0,gwinfo@gov.ab.ca,false,1650000,1654999,1650127
+24145,WARNKE DRILLING LTD.,RR 3,WETASKIWIN,AB,CA,T9A 1X1,warnkedrilling@HOTMAIL.COM,false,1780000,1784999,1780392
+24146,DAVES DRLG,null,null,null,null,null,null,false,null,null,null
+24147,LANGE STAN,null,null,null,null,null,null,false,null,null,null
+24148,SAVILLE WATER WELL DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24149,MEL'S DRILLING SERVICES 1976 LTD.,BOX 1354,EDSON,AB,CA,null,gwinfo@gov.ab.ca,false,2060000,2060099,2060001
+24150,TAJE ARNOLD,null,null,null,null,null,null,false,null,null,null
+24151,TOWN & COUNTRY WATER WELL BORING LTD.,BOX 630,THORHILD,AB,CA,T0A 3J0,ruhryn@telusplanet.net,false,1755000,1759999,1755242
+24152,"WAREHIME, FRANK",null,null,null,null,null,null,false,null,null,null
+24153,BROSSEAU RAY,null,null,null,null,null,null,false,null,null,null
+24154,M&O CONSTRUCTION,null,null,null,null,null,null,false,null,null,null
+24155,HEER MANUEL D,null,null,null,null,null,null,false,null,null,null
+24156,DEN-ALTA DRILLING LTD.,"SITE 2, SITE 21, R.R. 1",AIRDRIE,AB,CA,T4B 2A3,denalta@telusplanet.net,false,1240000,1244999,1240329
+24158,"SERVOLD, HAROLD",null,null,null,null,null,null,false,null,null,null
+24159,SIEGEL DON,null,null,null,null,null,null,false,null,null,null
+24160,WARNKE BROS,null,null,null,null,null,null,false,null,null,null
+24161,WATKINS DRILLING,null,null,null,null,null,null,false,null,null,null
+24162,"WINTER, PAUL WATER WELL DRILLING",null,null,null,null,null,null,false,null,null,null
+24163,BIRKNESS DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24164,"VERT, GLEN",null,null,null,null,null,null,false,null,null,null
+24165,W&G WATER WELLS LTD,BOX 2007,EDSON,AB,CA,null,gwinfo@gov.ab.ca,false,2059600,2059699,2059607
+24166,"PETERSON, CLARENCE",null,null,null,null,null,null,false,null,null,null
+24167,SEIS-TEST,null,null,null,null,null,null,false,null,null,null
+24168,WARD E DRLG CO LTD,null,null,null,null,null,null,false,null,null,null
+24169,UNIVERSAL DRILLING,RR 1,THREE HILLS,AB,CA,T0M 2A0,gwinfo@gov.ab.ca,false,2023500,2023549,2023500
+24170,GUZYK WILLIAM,null,null,null,null,null,null,false,null,null,null
+24171,"BURGESS, GEORGE WELL DRILLING LTD.",null,null,null,null,null,null,false,null,null,null
+24172,CABAY DRLG SERVICE,null,null,null,null,null,null,false,null,null,null
+24173,PARSONS DRLG,null,null,null,null,null,null,false,null,null,null
+24174,SCHLAGL GAS & OIL,null,null,null,null,null,null,false,null,null,null
+24176,STARKEY DRILLING,null,null,null,null,null,null,false,null,null,null
+24177,MCNIVEN BROS,null,null,null,null,null,null,false,null,null,null
+24178,IWS DRILLING ALBERTA LTD.,null,null,null,null,null,null,false,null,null,null
+24179,CHORNEY WATER WELL DRILLING LTD.,BOX 4 SITE 4,ST. LINA,AB,CA,T0A 2Z0,chorneywwdltd@mcsnet.ca,true,1185000,1189999,1185209
+24180,"MEASURES, CLARK DRILLING",BOX 161,BARRHEAD,AB,CA,T0G 0E0,gwinfo@gov.ab.ca,false,1919000,1919099,1919001
+24181,"SPENCE, J.P.",null,null,null,null,null,null,false,null,null,null
+24182,MISYK DRILLING,BOX 175,BRUCE,AB,CA,T0B 0R0,gwinfo@gov.ab.ca,false,1530000,1534999,1530006
+24183,DICKAU HOWARD F,GENERAL DELIVERY,PONOKA,AB,CA,null,gwinfo@gov.ab.ca,false,2059100,2059199,null
+24184,HANSEN PETER E,null,null,null,null,null,null,false,null,null,null
+24186,"WAREHIME, JACK DRILLING",GENERAL DELIVERY,BARRHEAD,AB,null,null,gwinfo@gov.ab.ca,false,2090000,2090099,2090001
+24189,WAREHIME ROSS D,null,null,null,null,null,null,false,null,null,null
+24190,HENNING DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24192,ROCKY MOUNTAIN DRILLING CO.,null,null,null,null,null,null,false,null,null,null
+24193,AQUARIUS EXPLORATION LTD.,null,null,null,null,null,null,false,null,null,null
+24194,MORRILL'S WATER WELL DRILLING LTD.,"SITE 422, BOX 2, COMP. 3, RR 2",DRAYTON VALLEY,AB,CA,T7A 2A2,gwinfo@gov.ab.ca,true,1545000,1549999,1546350
+24195,RICHMOND WW DRLG,null,null,null,null,null,null,false,null,null,null
+24196,BRADSHAW DM & SONS,null,null,null,null,null,null,false,null,null,null
+24197,CHINN JULIAN S,null,null,null,null,null,null,false,null,null,null
+24198,JIMS DRLG,null,null,null,null,null,null,false,null,null,null
+24199,BARNARD W T,null,null,null,null,null,null,false,null,null,null
+24200,DOWNEY JAMES R,null,null,null,null,null,null,false,null,null,null
+24201,ELK POINT DRILLING CORP.,BOX 3790,SPRUCE GROVE,ALBERTA,CANADA,T7X 3B1,trinidy@elkpointdrilling.com,true,1270000,1274999,1270649
+24202,"FORESTER, AUGUST R.",null,null,null,null,null,null,false,null,null,null
+24203,HOSTYN DRILLING CO. LTD.,null,null,null,null,null,null,false,null,null,null
+24204,SEISFORM DRLG LTD,null,null,null,null,null,null,false,null,null,null
+24207,MEDICINE VALLEY WATER WELLS,RR 3,ECKVILLE,AB,CA,T0M 0X0,gwinfo@gov.ab.ca,false,1510000,1514999,1510032
+24208,MOOSE DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24209,WHILLANS JERALD,null,null,null,null,null,null,false,null,null,null
+24211,GOODISON WATER WELL DRILLING,null,null,null,null,null,null,false,null,null,null
+24212,"LARSGARD, GEORGE",null,null,null,null,null,null,false,null,null,null
+24213,PRIER HERBERT A,null,null,null,null,null,null,false,null,null,null
+24214,SATELLITE DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24215,TERRY'S WATER WELLS (1980) LTD.,BOX 7447,EDSON,AB,CA,T7E 1W6,gwinfo@gov.ab.ca,false,2059700,2059799,2059711
+24216,WATKINS SANFORD,null,null,null,null,null,null,false,null,null,null
+24218,IRMC WATER WELL SERVICE & SUPPLY CO. LTD.,null,null,null,null,null,null,false,null,null,null
+24219,MCISAAC GARRY N,null,null,null,null,null,null,false,null,null,null
+24220,ROBSCO DRLG,null,null,null,null,null,null,false,null,null,null
+24221,"MILLER, STANLEY",9015 - 94 ST,EDMONTON,AB,CA,T6C 3V3,gwinfo@gov.ab.ca,false,1525000,1529999,null
+24222,R&D WW BORING,null,null,null,null,null,null,true,10066000,10070999,10066019
+24223,RUBIK JOHN,null,null,null,null,null,null,false,null,null,null
+24224,DOUBLE S DRILLING,null,null,null,null,null,null,false,null,null,null
+24225,"SCOTT, H.A. DRILLING",BOX 101,TOMAHAWK,AB,CA,null,gwinfo@gov.ab.ca,false,2060200,2060299,2060200
+24226,"GERRITSEN, PETER WATER WELL DRILLING",null,null,null,null,null,null,false,null,null,null
+24227,M&M DRILLING CO. LTD.,"BOX 1, SITE 22, RR 2",STRATHMORE,AB,CA,T1P 1K5,murraywh@mmdrilling.ca,true,1475000,1479999,1477040
+24228,BUFFALO LAKE DRILLING,BOX 654,PEACE RIVER,AB,CA,null,gwinfo@gov.ab.ca,false,2098150,2098199,2098157
+24229,KALICUM FRED V,null,null,null,null,null,null,false,null,null,null
+24230,LADCO EXPLORATION CO. LTD.,null,null,null,null,null,null,false,null,null,null
+24231,B&W LAKEVOLD DRILLING,null,null,null,null,null,null,false,null,null,null
+24232,PETERSON DRILLING (1977),BOX 101,COLINTON,AB,CA,null,GWINFO@GOV.AB.CA,false,1935900,1935999,1935901
+24233,RAFFA DRLG,null,null,null,null,null,null,false,null,null,null
+24234,SUCHY STEVE,BOX 265,HOLDEN,AB,CA,null,gwinfo@gov.ab.ca,false,2059900,2059999,2059900
+24236,TAP WW DRLG,null,null,null,null,null,null,false,null,null,null
+24237,PEDERSEN PEDER,null,null,null,null,null,null,false,null,null,null
+24238,HI-RATE DRILLING 1985 LTD.,BOX 1324,STETTLER,AB,CA,T0C 2L0,GWINFO@GOV.AB.CA,false,1365000,1369999,1365022
+24239,TIZZARD DRILLING LTD.,BOX 7894,BONNYVILLE,AB,CA,T9N 2J2,gwinfo@gov.ab.ca,false,1745000,1749999,1745047
+24240,LIN MURRAY DRILLING,null,null,null,null,null,null,false,null,null,null
+24241,BIG IRON DRILLING LTD.,9336 - 37 AVENUE,EDMONTON,AB,CA,T6E 5K3,bigiron@bigirondrilling.com,true,1130000,1134999,1131497
+24242,"MJOLSNESS, J.",null,null,null,null,null,null,false,null,null,null
+24243,SCHMIDT DRILLING LTD.,"RR 2, SITE 16, BOX 16",PONOKA,ALBERTA,CANADA,T4J 1R2,gwinfo@gov.ab.ca,true,1670000,1674999,1670271
+24244,KC DRILLING (LEDUC),null,null,null,null,null,null,false,null,null,null
+24245,MORTENSEN HARRY,null,null,null,null,null,null,false,null,null,null
+24246,B&W DRLG,null,null,null,null,null,null,false,null,null,null
+24247,MCAULEY DRILLING CO. LTD.,5930 96 STREET,EDMONTON,AB,null,null,gwinfo@gov.ab.ca,true,2098000,2098010,2098010
+24248,BENGTSON CODY,null,null,null,null,null,null,false,null,null,null
+24249,OTTO SCHADECK DRILLING,BOX 186,TOMAHAWK,AB,CA,T0E 2H0,gwinfo@gov.ab.ca,false,1984800,1984899,null
+24250,PARSONS DRLG&PUMPING,null,null,null,null,null,null,false,null,null,null
+24251,GORDON'S DRILLING LTD.,RR #2,LEDUC,AB,CA,T9E 2X2,GGDRILL@LIVE.COM,true,1320000,1324999,1320322
+24252,W. CHAPPELL DRILLING,"BOX 8, SITE 503, RR 5",STONY PLAIN,AB,CA,T7Z 1X5,gwinfo@gov.ab.ca,false,1850400,1850499,1850400
+24253,"TINDALL, W. WATER WELLS",null,null,null,null,null,null,false,null,null,null
+24254,ALL RITE DRILLING LTD.,7819 - 50 AVENUE,RED DEER,AB,AB,null,gwinfo@gov.ab.ca,true,2059200,2059299,2059205
+24255,COMFORT DRLG,null,null,null,null,null,null,false,null,null,null
+24256,TRANS PROVINCIAL DRILLING LTD.,BOX 758,CLARESHOLM,AB,CA,T0L 0T0,gwinfo@gov.ab.ca,true,1765000,1769999,1765014
+24260,"PLATZ, A. WELL DRILLING",null,null,null,null,null,null,false,null,null,null
+24261,TYNDALL DRLG HOWARD,null,null,null,null,null,null,false,null,null,null
+24262,"HILLER, ERNEST (JACK)",BOX 58,HAY LAKES,AB,CA,T0B 2W0,GWINFO@GOV.AB.CA,false,1360000,1364999,null
+24263,VANDRIESTEN WM,null,null,null,null,null,null,false,null,null,null
+24264,FLINN DRILLING LTD.,GENERAL DELIVERY,LACOMBE,AB,CA,null,gwinfo@gov.ab.ca,false,2057900,2057999,2057902
+24265,HOVIS ERNEST R,null,null,null,null,null,null,false,null,null,null
+24266,"JAMES, WILLARD",null,null,null,null,null,null,false,null,null,null
+24267,SANDO DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24268,SOUTHERN ALTA,null,null,null,null,null,null,false,null,null,null
+24269,TAKS & SONS DRILLING LTD.,BOX 552,CROSSFIELD,AB,CA,T0M 0S0,gwinfo@gov.ab.ca,true,1725000,1729999,1725073
+24270,ERICKSON DRILLING,null,null,null,null,null,null,false,null,null,null
+24271,BECKER DRILLS,null,null,null,null,null,null,false,null,null,null
+24272,BIG COUNTRY DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24273,PAPLEY DRILLING LTD.,RR 2,LEDUC,AB,CA,T9E 2X2,ljacks@xplornet.com,true,1575000,1579999,1577242
+24274,SHANK DAVE & SONS,null,null,null,null,null,null,false,null,null,null
+24275,KALIN DAVE & SON,null,null,null,null,null,null,false,null,null,null
+24276,MOUNTAIN HILL DRILLING,BOX 114,BASHAW,AB,CA,T0B 0H0,gwinfo@gov.ab.ca,false,1550000,1554999,1550015
+24277,GROVE DRILLING ENTERPRISES (1980) LTD.,null,null,null,null,null,null,false,null,null,null
+24278,SUNSHINE DRILLING LTD.,BOX 261,SANGUDO,AB,CA,T0E 2A0,gwinfo@gov.ab.ca,false,1720000,1724999,1720085
+24279,EDELMAN DRLG,null,null,null,null,null,null,false,null,null,null
+24280,PANKY'S CONSOLIDATED LTD.,P.O. BOX 5344,DRAYTON VALLEY,AB,CA,T0E 0M0,loispankewicz@gmail.com,true,1570000,1574999,1570050
+24281,GAVOL JOE,null,null,null,null,null,null,false,null,null,null
+24282,SERVOLD & SONS DRILLING,133 SASKATCHEWAN AVE,DEVON,AB,CA,T9G 1C9,gwinfo@gov.ab.ca,true,1685000,1689999,1685033
+24283,DEANS WW DRLG,null,null,null,null,null,null,false,null,null,null
+24284,"ROBERT, A. WATER WELL DRILLING LTD.",null,null,null,null,null,null,false,null,null,null
+24285,TURNER VALLEY WW,null,null,null,null,null,null,false,null,null,null
+24286,JAMES & SON,null,null,null,null,null,null,false,null,null,null
+24287,WARNER'S WATER SERVICE,null,null,null,null,null,null,false,null,null,null
+24288,DOERING DRILLING LTD.,BOX 4028,OLDS,AB,CA,T4H 1P6,GWINFO@GOV.AB.CA,false,1245000,1249999,1245342
+24289,PARADIS BROS WW,null,null,null,null,null,null,false,null,null,null
+24290,L&C DRLG,null,null,null,null,null,null,false,null,null,null
+24291,GRANT COMFORT ENTERPRISES LTD.,BOX 463,THORHILD,AB,CA,T0A 3J0,GWINFO@GOV.AB.CA,false,1325000,1329999,1325021
+24292,SHERWOOD PARK,null,null,null,null,null,null,false,null,null,null
+24293,MCGINNIS ROBERT,null,null,null,null,null,null,false,null,null,null
+24294,"HENLINE, GEORGE",null,null,null,null,null,null,false,null,null,null
+24296,"FAWCETT, CHARLES",null,null,null,null,null,null,false,null,null,null
+24297,KRIEGER DRILLING LTD.,RR 6,CALGARY,AB,CA,T2M 4L5,gwinfo@gov.ab.ca,true,1904300,1904399,1904303
+24298,ROCKNEY NORMAN A,null,null,null,null,null,null,false,null,null,null
+24299,BROWN HARRY,null,null,null,null,null,null,false,null,null,null
+24301,K&M WW DRLG,null,null,null,null,null,null,false,null,null,null
+24302,LARSEN CALVIN,null,null,null,null,null,null,false,null,null,null
+24303,QUINLAN J THOMAS,null,null,null,null,null,null,false,null,null,null
+24304,"DANIELLS, BRUCE K.",null,null,null,null,null,null,false,null,null,null
+24305,KENS DRLG,null,null,null,null,null,null,false,null,null,null
+24306,ANDERSON DRILLING CO. LTD.,null,null,null,null,null,null,false,null,null,null
+24307,THOMAS WELL DRLG,null,null,null,null,null,null,false,null,null,null
+24309,B&R WATE&SEISMIC,null,null,null,null,null,null,false,null,null,null
+24310,HANSEN DRLG,null,null,null,null,null,null,false,null,null,null
+24311,SHUMANSKY WATER WELL SERVICES LTD.,15956 - 88 ST,EDMONTON,AB,CA,T5Z 3J1,ETOWNDRILLER@SHAW.ca,true,1690000,1694999,1690237
+24313,DOUBLE B WATER WELL DRILLING,null,null,null,null,null,null,false,null,null,null
+24314,NELSON DRILLING & PLUMBING,null,null,null,null,null,null,false,null,null,null
+24315,HART DRLG LTD,null,null,null,null,null,null,false,null,null,null
+24316,DOUBLE C DRLG,null,null,null,null,null,null,false,null,null,null
+24317,"MOORE, DENNIS RAYMOND",null,null,null,null,null,null,false,null,null,null
+24318,"STENSTROM, HENRY J.",null,null,null,null,null,null,false,null,null,null
+24319,STUART DRILLING & WATER WELL SERVICE,null,null,null,null,null,null,false,null,null,null
+24320,EXCELL DRLG,null,null,null,null,null,null,false,null,null,null
+24322,"SCHOENING, JAMES A.",null,null,null,null,null,null,false,null,null,null
+24323,FRIESEN DRLG,null,null,null,null,null,null,false,null,null,null
+24324,KENS AIRTECH SERVICE,null,null,null,null,null,null,false,null,null,null
+24325,KAP'S DRILLING LTD.,null,null,null,null,null,null,false,9891000,9895999,9891000
+24326,PORTMANN DRLG,null,null,null,null,null,null,false,null,null,null
+24327,POTTER DRLG,null,null,null,null,null,null,false,null,null,null
+24328,A&C WATER WELL DRILLING,BOX 6496,BONNYVILLE,AB,CA,T9N 2H1,ardellm@mcsnet.ca,true,1015000,1019999,1015198
+24329,KINSHELLA LEO J,null,null,null,null,null,null,false,null,null,null
+24330,SYLVAN LAKE DRLG,null,null,null,null,null,null,false,null,null,null
+24331,SUTTON DRLG,null,null,null,null,null,null,false,null,null,null
+24334,SMITTY'S WW SVC LTD,null,null,null,null,null,null,false,null,null,null
+24335,WHISPERING HILLS DRILLING,BOX 1859,ATHABASCA,AB,CA,T9S 2B5,gwinfo@gov.ab.ca,true,1800000,1804999,1800057
+24336,PRAIRIE TO PINE,null,null,null,null,null,null,false,null,null,null
+24338,"MARTIN, J. WATER WELLS",null,null,null,null,null,null,false,null,null,null
+24339,LIBCAP INDUSTRIES LT,null,null,null,null,null,null,false,null,null,null
+24341,LBR CONTRACTORS LTD.,null,null,null,null,null,null,false,null,null,null
+24343,ST PAUL DRLG,null,null,null,null,null,null,false,null,null,null
+24345,T-CAR HOLDINGS LTD.,1542 66 STREET,EDSON,ALBERTA,CANADA,T7E 1S4,swestoil@telus.net,false,2020200,2021999,2020303
+24346,JODEN DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24347,SKY LINE DRLG LTD,GENERAL DELIVERY,RED DEER,AB,CA,null,gwinfo@gov.ab.ca,false,2059500,2059599,2059502
+24348,ROBERTSON DAVE L,null,null,null,null,null,null,false,null,null,null
+24349,RANKIN DRILLING,BOX 403,BOWDEN,AB,CA,T0M 0K0,gwinfo@gov.ab.ca,true,1625000,1629999,1625439
+24350,"BENN, W. ENTERPRISES LTD.",null,null,null,null,null,null,false,null,null,null
+24351,NORMAN DRLG LTD,null,null,null,null,null,null,false,null,null,null
+24355,DOWNEY DRILLING,null,null,null,null,null,null,false,null,null,null
+24356,QUALITY WW DRLG,null,null,null,null,null,null,false,null,null,null
+24357,LANDO ENTERPRISES LTD.,null,null,null,null,null,null,false,null,null,null
+24358,HANEY JAMES E,null,null,null,null,null,null,false,null,null,null
+24359,COUNTRYSIDE DRILLING,RR 1,PICKARDVILLE,AB,CA,T0G 1W0,GWINFO@GOV.AB.CA,false,1215000,1219999,1215055
+24360,WIDDOWS DRLG LTD,null,null,null,null,null,null,false,null,null,null
+24361,J & R DRLG,null,null,null,null,null,null,false,null,null,null
+24362,RULE TRUCKING,null,null,null,null,null,null,false,null,null,null
+24363,JONES & JONES DIGGIN,null,null,null,null,null,null,false,null,null,null
+24364,GRANVILLE RESOURCES LTD.,null,null,null,null,null,null,false,null,null,null
+24365,GARRITTY & BAKER DRILLING (1979) LTD.,null,null,null,null,null,null,false,null,null,null
+24367,PRO DRLG & WW SVC,null,null,null,null,null,null,false,null,null,null
+24369,BIG QUILL DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24370,TRYWAY DRLG LTD,null,null,null,null,null,null,false,null,null,null
+24371,GLENS DRLG,null,null,null,null,null,null,false,null,null,null
+24372,ALBERTA ENVIRONMENT/EARTH SCIENCES DIVISION,"9820-106 ST, OXBRIDGE PLACE",EDMONTON,AB,CA,T5K 2J6,gwinfo@gov.ab.ca,false,1827800,1827899,1827875
+24373,CLARKE JIM WW DRLG,null,null,null,null,null,null,false,null,null,null
+24374,GREENE FARMS DRILLING LTD.,BOX 277,MEDICINE HAT,AB,CA,T1A 7G1,GWINFO@GOV.AB.CA,true,2062500,2062999,1879910
+24375,ROSE COUNTRY DRLG,null,null,null,null,null,null,false,null,null,null
+24376,CARIBOO WATER WELLS LTD.,BOX 2265,PRINCE GEORGE,BRITISH COLUMBIA,CA,V2N 2J8,GWINFO@GOV.AB.CA,true,1180000,1184999,1180029
+24377,E&R DUCHESNE,null,null,null,null,null,null,false,null,null,null
+24378,SPRING WATER DRLG CO,null,null,null,null,null,null,false,null,null,null
+24379,ALBERTA EAGLE DRILLING LTD.,BOX 9036,SYLVAN LAKE,AB,CA,T4S 1S6,GWINFO@GOV.AB.CA,true,1045000,1049999,1045277
+24380,WICKENS WATERWELL DRILLING CO. LTD.,null,null,null,null,null,null,false,null,null,null
+24381,KERN WATER WELL LTD.,null,null,null,null,null,null,false,null,null,null
+24382,JENSEN CC EXP LTD,null,null,null,null,null,null,false,null,null,null
+24384,WHITEBRUSH DRLG,null,null,null,null,null,null,false,null,null,null
+24385,CORA LYNN DRILLING CO. LTD.,"BOX 2, SITE 18, RR 2",STRATHMORE,AB,CA,T1P 1K5,GWINFO@GOV.AB.CA,false,1210000,1214999,1210001
+24386,BRANDON DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24387,LARSON'S WATERWELL SERVICING LTD.,P.O. BOX 61,LOUGHEED,AB,CA,T0B 2V0,office@larsonswaterwell.com,true,1435000,1439999,1435519
+24388,PARSONS BROS. WATER WELLS,null,null,null,null,null,null,false,null,null,null
+24389,EARNEST WATER WELL DRILLING LTD.,BOX 1930,VEGREVILLE,AB,CA,T9C 1T2,GWINFO@GOV.AB.CA,false,1265000,1269999,1265108
+24390,GRIMSHAW WATER WELL DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24391,K&W WATER WELL DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24392,CHINOOK WATERWELLS LTD.,null,null,null,null,null,null,false,null,null,null
+24393,K & V CAISSON LTD,null,null,null,null,null,null,false,null,null,null
+24396,PRAIRIE FARM REHABILITATION ADMINISTRATION,null,null,null,null,null,null,false,null,null,null
+24397,SOUTH COUNTRY DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24398,RIGHT-WAY CONST WW,null,null,null,null,null,null,false,null,null,null
+24399,ALDER W W DRLG LTD,BOX 43,LESLIEVILLE,AB,CA,T0M 1T0,gwinfo@gov.ab.ca,false,2059400,2059499,2059400
+24400,H&H DRILLING,null,null,null,null,null,null,false,null,null,null
+24401,MARTIN A DRLG,null,null,null,null,null,null,false,null,null,null
+24402,WESTERN HYDRO-AIR DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24403,PETERSEN WATER DRILLING SERVICES LTD.,null,null,null,null,null,null,false,null,null,null
+24404,ASHMONT WATER WELL DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24405,BAKER WATER WELLS,BOX 212,Turner Valley,AB,CA,T0L 2A0,null,false,1115000,1119999,1115244
+24406,CANADIAN GEOLOGICAL DRILLING,15107 - 117 Avenue,Edmonton,AB,CA,null,null,true,9941000,9945999,9941013
+24407,ALBERTA AGRICULTURE/LAND EVALUATION & RECLAMATION BRANCH,null,null,null,null,null,null,false,null,null,null
+24408,LORALTA DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24410,BOYD'S WATER WELL DRILLING,null,null,null,null,null,null,false,null,null,null
+24411,CHALIFOUX DRLG,null,null,null,null,null,null,false,null,null,null
+24412,HERTZ DRILLING COMPANY LTD.,null,null,null,null,null,null,false,null,null,null
+24413,ALBERTA SOUTHERN EXPLORATION DRILLING LTD.,null,null,null,null,null,null,true,10176000,10180999,null
+24414,DAN'S WATER WELL,BOX 444,BONNYVILLE,AB,CA,T0A 0L0,gwinfo@gov.ab.ca,false,1857500,1857599,1857500
+24415,"FRASER, JACK",null,null,null,null,null,null,false,null,null,null
+24416,CLOVER VALLEY DRG,null,null,null,null,null,null,false,null,null,null
+24417,MAGNUM DRLG,null,null,null,null,null,null,false,null,null,null
+24420,CRYSTAL WATER DRLG,null,null,null,null,null,null,false,null,null,null
+24421,TANGEDAL DRILLING LTD.,BOX 1,ATHABASCA,AB,CA,T9S 2A2,gwinfo@gov.ab.ca,false,9481000,9485999,1967620
+24422,THROOP DRILLING,RR 1,BASHAW,AB,CA,T0B 0H0,gwinfo@gov.ab.ca,false,1740000,1744999,null
+24423,SIMPSON DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24424,JIM'S DRILLING,RR 1,MILLET,AB,CA,T0C 1Z0,GWINFO@GOV.AB.CA,false,1390000,1394999,1390002
+24427,CRYSTAL DRILLING LTD,null,null,null,null,null,null,false,null,null,null
+24428,ALKEN BASIN DRILLING LTD.,"BOX 9 Site 1, RR 4",Red Deer County ,AB,CANADA,T4N 5E4,jeffd@alkenbasindrilling.com,true,1065000,1069999,1067653
+24429,"MAHAR, VERN DRILLING SERVICES",null,null,null,null,null,null,false,null,null,null
+24430,HILL'S DRILLING,null,null,null,null,null,null,false,null,null,null
+24431,COVERDALE'S DRILLING,null,null,null,null,null,null,false,null,null,null
+24432,CHALLENGE WATER WELL DRILLING (1984),null,null,null,null,null,null,false,null,null,null
+24433,BERNWAY ENTERPRISES LTD.,BOX 225,CREMONA,AB,CA,T0M 0R0,GWINFO@GOV.AB.CA,false,1839200,1839299,1839204
+24434,RANGELINE DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24435,J.C. DRILLING,BOX 5291,LACOMBE,AB,CA,T4L 1W9,GWINFO@GOV.AB.CA,true,1380000,1384999,1380196
+24436,JRBT DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24437,GENETH CONSTRUCTION/DIVISION OF 305-137 ALBERTA LTD.,null,null,null,null,null,null,false,null,null,null
+24438,DOGWOOD DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24439,MJOLSNESS LORRIS,null,null,null,null,null,null,false,null,null,null
+24441,VULCAN WATER WELL,null,null,null,null,null,null,false,null,null,null
+24442,LITTLE BUDDY WATERWELLS,null,null,null,null,null,null,false,null,null,null
+24443,263423 ALBERTA LTD.,UNKNOWN,null,null,null,null,gwinfo@gov.ab.ca,false,9000000,9000001,null
+24445,BARBIC DRILLING,null,null,null,null,null,null,false,null,null,null
+24448,SPRINGWATER DRILLING & BORING,null,null,null,null,null,null,false,null,null,null
+24449,WENGER (D) DRILLING,null,null,null,null,null,null,false,null,null,null
+24450,SAWCHUK DRILLING,null,null,null,null,null,null,false,null,null,null
+24451,STAVELY WATER WELLS,null,null,null,null,null,null,false,null,null,null
+24452,RODCO DRILLING,BOX 5168,SPRUCE GROVE,AB,CA,T7X 3A3,RODCODRILLING@TELUS.NET ,true,1640000,1644999,1640766
+24453,MERV'S WATER WELL DRILLING,null,null,null,null,null,null,false,null,null,null
+24454,INGLIS WATER WELL DRILLING,4006-36 AVE,LEDUC,AB,CA,T9E 6C7,GWINFO@GOV.AB.CA,false,1893000,1893099,null
+24455,VINO'S WATER WELL DRILLING,null,null,null,null,null,null,false,null,null,null
+24458,MCGINNIS DRILLING,null,null,null,null,null,null,false,null,null,null
+24459,GRIMSTEAD'S ROUTE 22 WATER WELLS,null,null,null,null,null,null,false,null,null,null
+24460,D&D WATER WELL DRILLING & SERVICING LTD.,"BOX 12, SITE 502, RR 5",STONY PLAIN,AB,CA,T7Z 1X5,GWINFO@GOV.AB.CA,false,1230000,1234999,1230139
+24461,RIVERSIDE DRILLING,null,null,null,null,null,null,false,null,null,null
+24462,318533 ALTA LTD.,null,null,null,null,null,null,false,null,null,null
+24463,ALBERTA BORING & DRILLING,null,null,null,null,null,null,false,null,null,null
+24464,NORTHERN WATER SUPPLY CO.,null,null,null,null,null,null,false,null,null,null
+24465,HINTERLAND DRILLING,null,null,null,null,null,null,false,null,null,null
+24466,RON'S WATER WELL DRILLING,null,null,null,null,null,null,false,null,null,null
+24467,"PARSONS, DON DRILLING",null,null,null,null,null,null,false,null,null,null
+24468,SNETLER WATER WELL DRILLING LTD.,RR 4,CALMAR,AB,CA,T0C 0V0,gwinfo@gov.ab.ca,false,1695000,1699999,1695023
+24469,CODIAN WELL SERVICING (1980) CO. LTD.,null,null,null,null,null,null,false,null,null,null
+24470,KGM ASSOC. AUGER LTD,null,null,null,null,null,null,false,null,null,null
+24471,BABLITZ DRILLING,null,null,null,null,null,null,false,null,null,null
+24472,LASH DRILLING,null,null,null,null,null,null,false,null,null,null
+24473,WINCZURA DRILLING,null,null,null,null,null,null,false,null,null,null
+24474,MANORA DRILLING SERVICE,null,null,null,null,null,null,false,null,null,null
+24476,DORSAY DRILLING SERVICES LTD.,BOX 29,PERRYVALE,AB,CA,T0G 1T0,GWINFO@GOV.AB.CA,false,1255000,1259999,null
+24477,G&S WATER WELL SERVICING,null,null,null,null,null,null,false,null,null,null
+24478,PARKLAND DRILLING LTD.,BOX 6235,BONNYVILLE,AB,CA,T9N 2G8,duchesne@mcsnet.ca,true,1580000,1584999,1580787
+24479,BORDER DRILLING CO. LTD.,null,null,null,null,null,null,false,null,null,null
+24481,CAMARO DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24482,NORTH WEST WATER WELLS,null,null,null,null,null,null,false,null,null,null
+24483,PARSONS DRILLING,null,null,null,null,null,null,false,null,null,null
+24484,"DENHAM, HUGH DRILLING",null,null,null,null,null,null,false,null,null,null
+24485,GF WATERWELLS,null,null,null,null,null,null,false,null,null,null
+24486,CAL WEST WATER WELL DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24487,DJ DRILLING CAMROSE,null,null,null,null,null,null,false,null,null,null
+24488,"HOMMY, WAYNE",null,null,null,null,null,null,false,null,null,null
+24489,RADIUM WELL SERVICE,null,null,null,null,null,null,false,null,null,null
+24491,TOM MEASURES DRILLING,5816 - 53 AVE,BARRHEAD,AB,CA,T7N 1C2,gwinfo@gov.ab.ca,true,1760000,1764999,1760363
+24492,THREEWAY DRILLING INC.,null,null,null,null,null,null,false,null,null,null
+24493,AMA DRILLING/DIVISION OF HILL & PARSONS WATER WELLS LTD.,"RR3, SITE 5, BOX 8",RED DEER,AB,CA,T4N 5E3,GWINFO@GOV.AB.CA,false,2023101,2023200,2023150
+24494,WHITELINE OILFIELD RENTALS,null,null,null,null,null,null,false,null,null,null
+24495,HOPPER WATER WELL DRILLING LTD.,11031 - 92 AVENUE,GRANDE PRAIRIE,AB,CA,T8V 3J3,GWINFO@GOV.AB.CA,true,1375000,1379999,1375500
+24496,MCALLISTER HOLDINGS LTD.,null,null,null,null,null,null,false,10101000,10105999,10101001
+24497,MCALLISTER WATERWELLS LTD.,null,null,null,null,null,null,true,10016000,10020999,10016002
+24501,ALL TYPE PUMP & WATER WELL SERVICES,"BOX 229, RR6, LDC DELTON",EDMONTON,AB,CA,T4V 4K3,null,false,1826000,1826099,null
+24502,Double R Drilling Co. Ltd.,null,null,null,null,null,null,false,null,null,null
+24503,DOLLMAN'S WATER WELL DRILLING INC.,BOX 345,PINCHER CREEK,AB,CA,T0K 1W0,dwwdinc@gmail.com,true,1250000,1254999,1251065
+24504,SEDCO DRILLING/BOW VALLEY RESOURCE SERVICES LTD.,null,null,null,null,null,null,false,null,null,null
+24505,"VOGEL, LAWRENCE",null,null,null,null,null,null,false,null,null,null
+24506,WESTAR WATER WELL DRILLING LTD.,BOX 57188 2020 SHERWOOD DRIVE,SHERWOOD PARK,AB,CA,T8A 5L7,ADMIN@WESTARDRILLING.CA,true,1795000,1799999,1795660
+24507,TRIPLE R DRILLING,null,null,null,null,null,null,false,null,null,null
+24508,"MARSHALL, WALLY ENTERPRISES LTD.",null,null,null,null,null,null,false,null,null,null
+24509,DRILLING 4U LTD.,null,null,null,null,null,null,false,null,null,null
+24510,UHL DRILLING LTD.,BOX 1197,CLARESHOLM,AB,CA,T0L 0T0,gwinfo@gov.ab.ca,true,1770000,1774999,1770308
+24511,PETER NIEMANS WATER WELL DRILLING,BOX 5024,HIGH RIVER,AB,CA,T1V 1M3,doug@pnwwd.com,true,1610000,1614999,1611302
+24512,WALKER DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24516,R.U. DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24517,AQUA BORING LTD.,148 20 ST NE,MEDICINE HAT,AB,CA,T1C 1S1,AQUABOB@XPLORNET.COM,false,2027100,2027999,1831726
+24519,SIMON'S DRILLING & PLUMBING INC.,null,null,null,null,null,null,false,null,null,null
+24520,"PARSONS, DELBERT",null,null,null,null,null,null,false,null,null,null
+24521,COBOB PUMPS & SERVICES LTD.,51517 RANGE ROAD 275,STONY PLAIN,AB,CA,T7Z 1Z5,GWINFO@GOV.AB.CA,false,1205000,1209999,1205052
+24522,RISLING DRILLING,null,null,null,null,null,null,false,null,null,null
+24523,RENO DRILLING,null,null,null,null,null,null,false,null,null,null
+24524,GREEN-TEE WATER WELLS,null,null,null,null,null,null,false,null,null,null
+24525,SHORTY'S WATER WELL DRILLING,null,null,null,null,null,null,false,null,null,null
+24527,FRED'S WATER WELL DRILLING 1989,null,null,null,null,null,null,false,null,null,null
+24528,DOLOMITE DRILLING,null,null,null,null,null,null,false,null,null,null
+24529,BHP PETROLEUM (CANADA) INC.,null,null,null,null,null,null,false,null,null,null
+24530,RURAL WATER WELL SERVICES (1983) LTD.,null,null,null,null,null,null,false,null,null,null
+24531,AMA DRILLING (SASK.) LTD.,null,null,null,null,null,null,false,null,null,null
+24532,NIELSEN DRILLING COMPANY (1984) LTD.,null,null,null,null,null,null,false,null,null,null
+24534,RED ARROW DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24535,BIG ROCK WATER WELL DRILLING,null,null,null,null,null,null,false,null,null,null
+24537,R.D. DRILLING,null,null,null,null,null,null,false,null,null,null
+24538,GREAT WEST DRILLING LTD.,5724-1 ST SW,CALGARY,AB,CA,T2H 0E2,GWINFO@GOV.AB.CA,true,1335000,1339999,null
+24539,FEHR DRILLING,null,null,null,null,null,null,false,null,null,null
+24540,ROCKYVIEW DRILLING LTD.,BOX 226,BALZAC,AB,CA,T0M 0E0,gwinfo@gov.ab.ca,false,1635000,1639999,1635040
+24542,R&L BIO GAS LTD.,null,null,null,null,null,null,false,null,null,null
+24545,AERO DRILLING & CONSULTING LTD.,BOX 263,BENTLEY,AB,CA,T0C 0J0,GWINFO@GOV.AB.CA,false,1035000,1039999,1035484
+24546,RRR DRILLING,null,null,null,null,null,null,false,null,null,null
+24547,K.J. POLLUTION TESTING & LEASING LTD.,BOX 263,BENTLEY,AB,CA,T0C 0J0,GWINFO@GOV.AB.CA,false,1400000,1404999,null
+24548,SAVILLE DRILLING LTD.,P.O. BOX 636,VALLEYVIEW,AB,CA,T0H 3N0,BSAVILLE@ZOOMLA.CA,false,1665000,1669999,1665966
+24549,PAT MURRAY WATER WELL DRILLING,BOX 3,DRUMHELLER,AB,CA,T0J 0Y0,gwinfo@gov.ab.ca,false,1595000,1599999,1595006
+24551,ALBERTA ENVIRONMENT/WASTE & CHEMICALS DIVISION,null,null,null,null,null,null,false,null,null,null
+24553,WASON WATER WELLS,null,null,null,null,null,null,false,null,null,null
+24556,PEE WEE DRILLING (2004) LTD.,RR 1,CALGARY,ALBERTA,CANADA,T4B 2A3,dkondrat@pathcom.ca,false,1600000,1604999,1600272
+24557,A&J WATER WELL SERVICES LTD.,null,null,null,null,null,null,false,null,null,null
+24558,BARRHEAD DRILLING 1991 LTD.,null,null,null,null,null,null,false,null,null,null
+24560,ALBERTA ENVIRO DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24563,RUSSELL'S WATERWELL DRILLING,4409-46 AVENUE,ST. PAUL,AB,CA,T0A 3A3,gwinfo@gov.ab.ca,false,1655000,1659999,1655039
+24564,BLACKWOOD DRILLING LTD.,BOX 53,DE WINTON,ALBERTA,CANADA,T0L 0X0,info@blackwooddrilling.ca,false,1140000,1144999,1140444
+24565,GRIZZLEY ENTERPRISES,BOX 113,ST. LINA,AB,CA,T0A 2Z0,GWINFO@GOV.AB.CA,false,1340000,1344999,1340025
+24566,PAP RESOURCES,null,null,null,null,null,null,false,null,null,null
+24567,SPETH DRILLING 1989 LTD.,null,null,null,null,null,null,false,null,null,null
+24568,MARTIN DRILLING,null,null,null,null,null,null,false,10021000,10025999,10021000
+24569,ACREAGE WATER SYSTEMS,null,null,null,null,null,null,false,null,null,null
+24570,DRIVE WELL SERVICING LTD.,null,null,null,null,null,null,false,null,null,null
+24571,PARSONS DRILLING 1992,null,null,null,null,null,null,false,null,null,null
+24573,JR WATERWELLS INC.,null,null,null,null,null,null,false,null,null,null
+24574,ACCESS WATERWELLS INC.,BOX 7297,EDSON,AB,CA,T7E 1V5,grant@ACCESSWATERWELLS.COM,true,1025000,1029999,1025697
+24575,HOLLAND WATER WELLS,RR 2,NEW SAREPTA,AB,CA,T0B 3M0,GWINFO@GOV.AB.CA,true,1370000,1374999,1370672
+24579,"JONES, B. WATERWELLS",null,null,null,null,null,null,false,null,null,null
+24580,PELLETIER DRILLING,null,null,null,null,null,null,false,null,null,null
+24581,ANDREWS & SONS DRILLING LTD.,BOS 26040 RPO NORTHGATE,REGINA,SASKATCHEWAN,CA,S4R 8R7,andrewsdr@sasktel.net,true,1090000,1094999,1090005
+24582,PETERSEN AQUATECH DRILLING LTD.,BOX 108,LA GLACE,AB,CA,T0H 2J0,gwinfo@gov.ab.ca,false,1615000,1619999,1615046
+24583,"PLUNET, ERNEST",null,null,null,null,null,null,false,null,null,null
+24584,SOUTHERN ALBERTA DRILLING & SERVICING CO. LTD.,BOX 1504,LETHBRIDGE,AB,CA,T1J 4K2,gwinfo@gov.ab.ca,true,1705000,1709999,1705003
+24585,LIFEWATER DRILLING,BOX 913,BOW ISLAND,AB,CA,T0K 0G0,gwinfo@gov.ab.ca,false,1455000,1459999,1455034
+24586,ALVIN'S WATER WELL DRILLING & SERVICE,BOX 7 SITE 13 RR 2,ROCKY MOUNTAIN HOUSE,AB,CA,T0M 1T0,GWINFO@GOV.AB.CA,false,1080000,1084999,1080001
+24587,WEBSTER DRILLING,BOX 956,TURNER VALLEY,AB,CA,T0L 2A0,gwinfo@gov.ab.ca,false,1790000,1794999,1790009
+24588,"MAHAR, JOSEPH E.",null,null,null,null,null,null,false,null,null,null
+24589,ALBERTA ENVIRONMENTAL PROTECTION/TECHNICAL SERVICES DIVISION,9820 - 106 STREET,EDMONTON,AB,CA,T5K 2J6,gwinfo@gov.ab.ca,false,2059000,2059099,2059024
+24593,SMOKY LAKE WELL BORING AND SERVICE,null,null,null,null,null,null,false,null,null,null
+24594,TRIPLE M DRILLING,null,null,null,null,null,null,false,null,null,null
+24595,MOBILE AUGERS AND RESEARCH LTD.,5603 - 54 STREET,EDMONTON,AB,null,T6B 3G8,administration@mobileaugers.com,true,2088000,2088199,2088014
+24598,ASHBURN DRILLING LTD.,BOX 7834,EDSON,AB,CA,T7E 1V9,john@ashburndrilling.com,true,1105000,1109999,1108079
+24599,TALL PINE DRILLING LTD.,BOX 700,BENTLEY,AB,CA,T0C 0J0,gwinfo@gov.ab.ca,true,1735000,1739999,1736080
+24600,ACTION WATER WELLS LTD.,RR 3,WETASKIWIN,AB,CA,T9A 1X1,actionwaterwells@hotmail.com,true,1030000,1034999,1030538
+24602,MANNVILLE WATER WELL SERVICES LTD.,BOX 249,MANNVILLE,AB,CA,T0B 2W0,gwinfo@gov.ab.ca,true,1485000,1489999,1485176
+24604,ACE DRILLING,BOX 162,BROCK,SK,CA,S0L 0H0,gwinfo@gov.ab.ca,false,1826300,1826399,1826300
+24606,KEN & JERRI'S WATER WELL DRILLING & SERVICES,null,null,null,null,null,null,false,null,null,null
+24607,ANDERSON AIR DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24608,CRAIG WATERWELL & DRILLING LTD.,BOX 7983,EDSON,AB,CA,T7E 1W2,CWWD@TELUS.NET,true,1220000,1224999,1220622
+24609,REGIONAL DRILLING CONTRACTORS,null,null,null,null,null,null,false,null,null,null
+24613,MID-WEST DRILLING LTD.,6109 - 46 ST,LEDUC,AB,CA,T9E 6T8,gwinfo@gov.ab.ca,false,1520000,1524999,1520188
+24615,MERV & SONS WATER WELL DRILLING,BOX 584,VEGREVILLE,AB,CA,T9C 1R6,gwinfo@gov.ab.ca,false,1515000,1519999,1515165
+24616,MARTIN WATER WELLS,4605 - 49 AVE,VERMILION,AB,CA,T9X 1R6,gwinfo@gov.ab.ca,true,1490000,1494999,1490993
+24617,"JAMES, W. G. WATER WELL DRILLING","48 COVINGTON RD, NE",CALGARY,AB,CA,T3K 4B1,GWINFO@GOV.AB.CA,false,1385000,1389999,null
+24621,BECK DRILLING & ENVIRONMENTAL SERVICES LTD.,543 71 AVE SE,CALGARY,AB,CA,T2H 2Y2,GWINFO@GOV.AB.CA,true,1125000,1129999,1125074
+24622,OK RATHOLE DRILLING LTD.,null,null,null,null,null,null,false,null,null,null
+24624,ALTAWEST PRESSURE CEMENTING LTD.,null,null,null,null,null,null,false,null,null,null
+24625,PARSONS WATER WELL SERVICES,BOX 44,ABEE,AB,CA,T0A 0A0,gwinfo@gov.ab.ca,false,1585000,1589999,1585001
+24626,"DWYER, PAT CONSTRUCTION INC.",BOX 38,LUNDBRECK,AB,CA,T0K 1H0,gwinfo@gov.ab.ca,false,2040000,2040199,2040009
+24629,PARSONS WATER WELLS LTD (o/a AMA Drilling),37078 Range Road 270,RED DEER COUNTY,AB,CA,T4E 1K6,amadrill@platinum.ca,true,1590000,1594999,1590453
+24630,KLYMIUK WATER WELL DRILLING,BOX 1074,MANNING,AB,CA,T0H 2M0,gwinfo@gov.ab.ca,false,1410000,1414999,1410025
+24631,"HILL,DWIGHT (752663 ALBERTA LTD.",null,null,null,null,null,null,false,null,null,null
+24632,MIKE'S WATER WELL DRILLING,null,null,null,null,null,null,false,null,null,null
+24634,"KRAMPS, JEROME A.",RR 1,CROOKED CREEK,AB,CA,T0H 0Y0,gwinfo@gov.ab.ca,false,2020000,2020100,2020004
+24635,LAST CHANCE DRILLING,P.O. BOX 5208,LACOMBE,AB,CA,T4L 1W9,gwinfo@gov.ab.ca,false,1440000,1444999,1440004
+24636,LAYNE CHRISTENSEN CANADA LIMITED,1345 HIGHFIELD CRES SE,CALGARY,AB,CA,T2G 5N2,gwinfo@gov.ab.ca,false,1445000,1449999,1445004
+24638,Freeman Contracting Ltd.,null,null,null,null,null,null,false,null,null,null
+24639,DEL'S REGIONAL DRILLING,"151 VENTURA WAY, NE",CALGARY,AB,CA,T2E 8H3,gwinfo@gov.ab.ca,false,1859000,1859099,1859004
+24644,DU-ALL DRILLING,BOX 10,VALHALLA CENTRE,AB,CA,T0H 3M0,GWINFO@GOV.AB.CA,false,1820000,1824999,1820031
+24645,S & M WATER WELLS LTD.,BOX 3048,SHERWOOD PARK,AB,CA,T8A 2A6,gwinfo@gov.ab.ca,false,1660000,1664999,null
+24646,WAYNE'S WATER WELL SERVICES,BOX 306,GRANUM,AB,CA,T0L 1A0,gwinfo@gov.ab.ca,false,1785000,1789999,1785017
+24647,GARE'S DRILLING,BOX 41,COWLEY,AB,CA,T0K 0P0,gwinfo@gov.ab.ca,false,1874700,1874799,1874702
+24648,FRASER WATER WELL TESTING LTD.,BOX 5535,LACOMBE,AB,CA,T4L 1X2,cjfraser@albertahighspeed.net,true,1285000,1289999,null
+24650,ERDMAN CONSTRUCTION,BOX 1620,CLARESHOLM,AB,CA,T0L 0T0,GWINFO@GOV.AB.CA,false,1275000,1279999,1275052
+24653,LARSGARD WATER WELL DRILLING,RR 3,ROCKY MOUNTAIN HOUSE,AB,CA,T4T 2A3,gwinfo@gov.ab.ca,true,1430000,1434999,1430261
+24654,CULVER RESOURCES INC.,BOX 1234,CLARESHOLM,AB,CA,T0L 0T0,GWINFO@GOV.AB.CA,false,1225000,1229999,null
+24657,GRASSLAND DRILLING INC.,BOX 1156,BROOKS,AB,CA,T1R 1B9,GWINFO@GOV.AB.CA,false,1330000,1334999,1330001
+24659,GERRITSEN DRILLING,BOX 187,ROCKYFORD,ALBERTA,CANADA,T0J 2R0,drilling@live.ca,true,1305000,1309999,1306026
+24660,HERTZ DRILLING INC.,BOX 879,CARSTAIRS,AB,CA,T0M 0N0,GWINFO@GOV.AB.CA,false,1355000,1359999,1355002
+24661,Lazy H Trail Company Ltd.,null,null,null,null,null,null,false,null,null,null
+24664,TIZZARD K. WATER WELL,BOX 1,LA COREY,AB,CA,T0A 2E0,gwinfo@gov.ab.ca,false,1750000,1754999,1750228
+24665,C.W. DRILLING LTD.,BOX 696,RIMBEY,AB,CA,T0C 2J0,GWINFO@GOV.AB.CA,false,1160000,1164999,1160001
+24669,905379 ALBERTA INC. (KENT W. WILLNESS),"302, 10440 156 ST",EDMONTON,AB,CA,T5P 2R5,GWINFO@GOV.AB.CA,false,1005000,1009999,1005001
+24671,Adventure Drilling,null,null,null,null,null,null,false,null,null,null
+24673,P. MACHIBRODA ENGINEERING LTD.,12114A - 163 STREET,EDMONTON,AB,CA,T5V 1H4,pmel.ab@machibroda.com,false,1567000,1569999,1567020
+24679,DRIFT EXPLORATION DRILLING,BOX 5155,HIGH RIVER,AB,CA,T1V 1M4,GWINFO@GOV.AB.CA,false,1260000,1264999,1260010
+24683,D.S. HOLDINGS,BOX 6093,INNISFAIL,AB,CA,T4G 1S7,GWINFO@GOV.AB.CA,false,1235000,1239999,1235005
+24684,WANGLER DRILLING LTD.,7938 CAMBIE RD,SALMON ARM,B.C.,CA,V1E 2Y6,gwinfo@gov.ab.ca,false,1775000,1779999,1775002
+24686,"SCHNETTLER, GORDON",P.O. BOX 208,CALMAR,AB,CA,T0C 0V0,gwinfo@gov.ab.ca,false,1675000,1679999,1675043
+24687,SODERGREN CONSULTING INC.,BOX 548,SEXSMITH,AB,CA,T0H 3C0,gwinfo@gov.ab.ca,false,1700000,1704999,1700000
+44444,RILEY'S COAL TH,null,null,null,null,null,null,false,null,null,null
+50012,FLITE DRLG SERVICES,null,null,null,null,null,null,false,null,null,null
+50019,NIELSON DRLG CO,null,null,null,null,null,null,false,null,null,null
+50025,WILLIAMS RICHARD,null,null,null,null,null,null,false,null,null,null
+50031,A B WW DRLG&PMPG,null,null,null,null,null,null,false,null,null,null
+50032,BERUBE ARMAND,null,null,null,null,null,null,false,null,null,null
+50049,REIS FRED WW SERVICE,null,null,null,null,null,null,false,null,null,null
+50054,SABADOS LOUIS,null,null,null,null,null,null,false,null,null,null
+77777,GULF OIL (CORE HOLE),null,null,null,null,null,null,false,null,null,null
+88877,A.R.C. COAL TEST,null,null,null,null,null,null,false,null,null,null
+88888,COAL EXPLORATION,null,null,null,null,null,null,false,null,null,null
+99901,STRUCTURAL TEST HOLE,null,null,null,null,null,null,false,null,null,null
+99903,OIL EXPLORATORY,null,null,null,null,null,null,false,null,null,null
+99999,OTHER,NOT APPLICABLE,N/A,N/A,N/A,N/A,gwinfo@gov.ab.ca,false,1931300,1931399,null
+10776276,3 DRILLING LTD.,2150 SOUTH HIWAY DR. SE ,REDCLIFF,AB,CA,T0J 2P0,GWINFO@GOV.AB.CA,false,1000000,1004999,1000002
+10776302,"ALBERTA AGRICULTURE, FOOD & RURAL DEVELOPMENT",6909-116 ST 3,EDMONTON,AB,CA,T6H 4P2,GWINFO@GOV.AB.CA,false,1040000,1044999,1040010
+10776530,ALL-STAR DRILLING LTD.,BOX 1706,STETTLER,AB,CA,T0C 2L0,allstardrilling@hotmail.ca,true,1075000,1079999,1075496
+10776538,ANDERSON WATER WELLS,BOX 6383,FORT ST. JOHN,BRITISH COLUMBIA,CA,V1J 4H8,GWINFO@GOV.AB.CA,false,1085000,1089999,1085047
+10776578,AQUA DRILLING SERVICES LTD.,BOX 53,THORSBY,AB,CA,T0C 2P0,GWINFO@GOV.AB.CA,false,1095000,1099999,1095054
+10776582,ARMSTRONG WATERWELL DRILLING LTD.,BOX 465,SEDGEWICK,AB,CA,T0B 4C0,armstrongwaterwell@gmail.com,true,1100000,1104999,1100108
+10776624,B&L LAKEVOLD DRILLING,BOX 702,PROVOST,AB,CA,T0B 3S0,GWINFO@GOV.AB.CA,true,1110000,1114999,1110188
+10776640,BAR K DRILLING LTD.,RR2,LEDUC,AB,CA,T9E 2X2,GWINFO@GOV.AB.CA,false,1120000,1124999,1120809
+10776681,"BIRKNESS, BRYAN",BOX 818,NANTON,AB,CA,T0L 1R0,GWINFO@GOV.AB.CA,false,1135000,1139999,1135000
+10776691,C.H. NELSON DRILLING LTD.,RR 5,CALGARY,AB,CA,T2P 2G6,GWINFO@GOV.AB.CA,false,1155000,1159999,1155018
+10776978,CHRIS'S WATERWELL SERVICING LTD.,P.O. BOX 67,KILLAM,AB,CA,T0B 2L0,GWINFO@GOV.AB.CA,true,1190000,1194999,1190417
+10780219,GARRITTY & BAKER DRILLING INC.,5715 56 Ave NW,EDMONTON,AB,CA,T6B 3G3,don@gbddrilling.com,false,1290000,1294999,1290003
+10780365,GEORGE LARSGARD WATER WELL DRILLING,"RR 2, STATION MAIN",ROCKY MOUNTAIN HOUSE,AB,CA,T4T 2A2,GWINFO@GOV.AB.CA,false,1295000,1299999,1295205
+10780610,GLEN JOHNSON WATER WELL DRILLING,RR 1,WINFIELD,AB,CA,T0C 2X0,GWINFO@GOV.AB.CA,true,1310000,1314999,1310027
+10781482,HENLINE DRILLING LTD.,RR 1,COUTTS,AB,CA,T0K 0N0,GWINFO@GOV.AB.CA,true,1345000,1349999,null
+10781485,HERON DRILLING (1987) LTD.,BOX 1687,MELFORT,SASK,CA,S0E 1A0,GWINFO@GOV.AB.CA,false,1350000,1354999,null
+10781492,HILL DRILLING LTD.,BOX 508,THORHILD,AB,CA,T0A 3J0,dnjkhill@telusplanet.net,true,2045000,2049999,1889687
+10781676,JODEN DRILLING & SERVICING LTD.,"129, 1182 SOUTHVIEW DR, SE",MEDICINE HAT,BA,CA,T1B 4L2,GWINFO@GOV.AB.CA,false,1395000,1399999,1395011
+10783314,SUMMERS DRILLING LTD.,BOX 3172,STONY PLAIN,AB,CA,T7Z 1L4,DAVE@SUMMERSDRILLING.COM,true,1715000,1719999,1717168
+10785220,MCALLISTER DRILLING INC.,BOX 1189,LLOYDMINSTER,AB,CA,S9V 1G1,george@mcallisterdrilling.ca,true,1500000,1504999,1503035
+10786787,"KRAMPS, DARCY",RR 1,CROOKED CREEK,AB,CA,T0H 0Y0,gwinfo@gov.ab.ca,false,1415000,1419999,1415012
+10786932,M.E. LAWSON WATER WELLS,5218 SILVERTHORN RD,OLDS,AB,CA,T4H 1B1,gwinfo@gov.ab.ca,false,1480000,1484999,1480054
+10786962,MJOLSNESS WATERWELLS,BOX 1041,CORONATION,AB,CA,T0C 1C0,jm1water@gmail.com,true,1535000,1539999,1535100
+10786982,Norm Blakeman's Drilling Ltd. ,BOX 129,ALBERTA BEACH,AB,CA,T0E 0A0,JOE@BLAKEMANDRILLING.COM,true,1560000,1564999,1560181
+10787008,PERFECTION DRILLING LTD.,BOX 575,BENTLEY,AB,CA,T0C 0J0,gwinfo@gov.ab.ca,false,1605000,1609999,1605000
+10787038,RENE ARTS WATERWELL LTD.,BOX 5658,WESTLOCK,AB,CA,T7P 2P6,RARTS@MCSNET.CA,true,1630000,1634999,1630397
+10787046,RON FRASER WATERWELL DRILLING LTD.,RR 1,WESTEROSE,AB,CA,T0C 2V0,gwinfo@gov.ab.ca,false,1645000,1649999,1645003
+10787068,SDS DRILLING,4025 - 96 AVE SE,CALGARY,AB,CA,T2G 4T7,gwinfo@gov.ab.ca,false,1680000,1684999,1680002
+10787175,WHITELINE OILFIELD RENTALS,"29, 57575 HWY 2",RED DEER,AB,CA,T4E 5A9,gwinfo@gov.ab.ca,false,1805000,1809999,1805000
+10787225,MID-WEST WATER WELLS LTD.,#2 10012 - 29A AVE,EDMONTON,AB,CA,T6N 1A9,gwinfo@gov.ab.ca,false,2020101,2020199,2020127
+10787888,CALIBRE DRILLING LTD.,BOX 4083,SPRUCE GROVE,ALBERTA,CANADA,T7X 3B3,randy.calibre@interbaun.ca,true,1165000,1169999,1166765
+10788108,HIGHWOOD DRILLING LTD.,"RR1, SITE 7, BOX 10",GRANDE PRAIRE,ALBERTA,CANADA,T8V 2Z8,gwinfo@gov.ab.ca,false,2015000,2019999,2015021
+10795266,UNKNOWN DRILLING CO 3,UNKNOWN,null,null,null,null,gwinfo@gov.ab.ca,false,9480229,9480230,9480230
+10795272,UNKNOWN DRILLING CO 4,EDMONTON,null,null,null,null,gwinfo@gov.ab.ca,false,9480235,9480999,9480295
+10797808,T-CAR WATER WELLS,1542-66 ST,EDSON,AB,CANADA,T7E 1S4,gwinfo@gov.ab.ca,false,2022000,2022499,2022188
+10800341,A&W DRILLING LTD.,BOX 225,CREMONA,AB,CA,T0M 0R0,wbleask@yahoo.ca,true,2022500,2022999,2022671
+10811238,BOART LONGYEAR ALBERTA LIMITED,4025-96 AVE SE,CALGARY,AB,CA,T2C 4T7,GWINFO@gov.ab.ca,false,2023000,2023100,2023000
+10811242,AARTESIAN SERVICES INC.,BOX 208,CALMAR,AB,CA,T0C OV0,info@aartesian.com,true,9591000,9595999,2023440
+10811882,LMC TRACKHOE SERVICES LTD.,BOX 41,MANNVILLE,AB,CA,T0B 2W0,gwinfo@gov.ab.ca,false,2000000,2004999,null
+10811883,T.D. DRILLING INC.,103 THISTLE BAY,STRATHMORE,AB,CA,T1P 1C6,gwinfo@gov.ab.ca,false,2005000,2009999,2005019
+10811886,SILVER SPUR WILDLIFE RANCH LTD.,BOX 1930,ST PAUL,AB,CA,T0A 3A0,gwinfo@gov.ab.ca,false,2010000,2014999,2010013
+10811889,BIG RIG WILL DIG,10233 WEDGEWOOD DRIVE,CHILLIWACK,B.C.,CA,V2P 6C1,GWINFO@gov.ab.ca,false,2023400,2023449,null
+10811892,DRILLFORCE INC.,"200, 358-58 AVE SW",CALGARY,AB,CA,T2M 2M5,patti.janisse@earthmaster.ab.ca,false,2023450,2023499,null
+10811895,WELL WATER WELLS & GEOTHERMAL DRILLING,"302, 10440-156 ST",EDMONTON,AB,CA,T5P 2R5,gwinfo@gov.ab.ca,false,2023550,2023599,null
+10811898,WELL DONE WATERWELLS INC.,1403,BLACK DIAMOND,AB,CA,T0L 0H0,welldonewaterwells@gmail.com,true,2066000,2069999,2066252
+10811903,DAN'S CABLE TOOL WATER WELL DRILLING & ENTERPRISES,A02 POLAR RIDGE TRAILER COURT,DRAYTON VALLEY,AB,CA,T7A 1N1,gwinfo@gov.ab.ca,false,9521000,9525999,2023730
+10811906,WEST COUNTRY OILFIELD SERVICES,BOX 6423,DRAYTON VALLEY,AB,CA,T7A 1R8,gwinfo@gov.ab.ca,false,2023700,2023749,null
+10811917,"TITAN DRILLING, DIVISION OF TITAN SURFACE CASING LTD.","1440, 510-5 ST SW",CALGARY,AB,CA,T2P 3S2,gwinfo@gov.ab.ca,false,2023750,2023799,null
+10811950,DALE FRASER,BOX 272,WILDWOOD,AB,CA,T0E 2M0,gwinfo@gov.ab.ca,false,2023800,2023849,2023803
+10822159,SCHMIDT DRILLING (2005) LTD. LP,"RR2, SITE 16, BOX 16",PONOKA,AB,CA,T4J 1R2,schmidtdrilling@telusplanet.net,false,2023301,2027000,2023334
+10880407,ACCURATE DRILLING,RR 2,GRANDE PRAIRIE,AB,CA,T8V 2Z9,gwinfo@gov.ab.ca,false,2027051,2027099,2027051
+10901479,THOMPSON DRILLING LTD,"15, 4775 Woodlane W.",WINDERMERE,BC,CA,V0B 2L0,thompsondrillingltd@cyberlink.ca,true,2028000,2028499,2028049
+10901522,OUTLAW DRILLING,BOX 21,MONARCH,AB,CA,T0L 1M0,dsmandel@shockware.com,true,2028500,2029499,2028640
+10943488,LOSNESS DRILLING (2005) ,BOX 145,LOUGHEED,AB,CA,T0B 2V0,losnessdrilling@gmail.com,true,2029500,2039499,2029952
+10948961,Aqua Water Well Drilling,BOX 698,DIDSBURY,AB,CA,T0M 0W0,rigsalive@live.ca,false,2039500,2039999,2039552
+11167772,MARTIN WATERWELLS LTD,247 - 6 AVE NW,AIRDRIE,AB,CA,T4B 2H9,gwinfo@gov.ab.ca,false,2056000,2056999,2056058
+11232043,LAZY H TRAIL COMPANY LTD.,BOX 1840,COCHRANE,AB,CA,T4C 1B7,horseandrider@lazyhtrailco.com,true,1450000,1454999,1450000
+11306464,UNKNOWN DRILLING COMP. 10,UNKNOWN,null,null,null,null,gwinfo@gov.ab.ca,false,2060305,2062299,2058795
+11310399,H.W. BROWN DRILLING LTD,GENERAL DELIVERY,DRAYTON VALLEY,AB,CA,null,gwinfo@gov.ab.ca,false,2059800,2059899,2059800
+11313382,MCALLISTER,CLARESHOLM,CLARESHOLM,AB,CA,null,gwinfo@gov.ab.ca,false,2060300,2060304,null
+11316402,BCEC DRILLING LTD.,BOX 842,BOW ISLAND,AB,CA,null,gwinfo@gov.ab.ca,true,9751000,9755999,2062447
+11316404,AKUNA DRILLING INC.,BOX 2133,STRATHMORE,AB,CA,T1P 1K1,gwinfo@gov.ab.ca,false,2062400,2062499,2062405
+11320987,BILL'S WATERWELL SERVICES LTD.,BOX 84,ALIX,AB,CA,T0C 0B0,drillerbill@xplornet.com,true,2063000,2063999,2063344
+11320989,CHILAKO DRILLING SERVICES LTD.,BOX 942,COALDALE,AB,CA,T1M 1M8,gwinfo@gov.ab.ca,true,2064000,2064999,null
+11320991,TREO DRILLING SERVICES L.P.,285160 KLEYSEN WAY SE,CALGARY,AB,CA,T2P 2G6,rschmidt@treodrilling.com,true,2065000,2065999,2065085
+11324903,CYCLONE DRILLING LTD.,548 BYRNE CRES. SW,EDMONTON,AB,CA,T6W 1E7,CHARLIEBUTZ@TELUS.NET,true,2070000,2074999,2070106
+11324938,FOUNDEX EXPLORATIONS LTD.,14613 - 64 AVENUE,SURREY,BC,CA,V3S 1X6,gwinfo@gov.ab.ca,true,2075000,2075999,2075022
+11325645,MYRAM DRILLING,BOX 146,CREMONA,AB,CA,T0M 0R0,ae@myrams.ca,true,2079000,2079999,2079138
+11331622,MURRAY'S WATER WELL DRILLING,BOX 1133,ST. PAUL,AB,CA,T0A 3A0,gwinfo@gov.ab.ca,false,2077000,2077999,2077017
+11331625,SWEENEY DRILLING,"BOX 111, SITE 1, R.R. 9",CALGARY,AB,CA,T2J 5G5,gwinfo@gov.ab.ca,false,2078000,2078999,null
+11331630,TCB DRILLING SERVICES,426 WEST RIVER ROAD,HINTON,AB,CA,T7V 1Z1,gwinfo@gov.ab.ca,false,2080000,2080999,2080010
+11331634,WILLY'S WATER WORKS,BOX 407,BLACK DIAMOND,AB,CA,T0L 0H0,gwinfo@gov.ab.ca,false,2081000,2081999,null
+11398160,BARRHEAD INDUSTRIAL SUPPLY LTD.,R.R. 2,BARRHEAD,AB,CA,T7N 1N3,gwinfo@gov.ab.ca,false,2082000,2082999,2082030
+11430573,DARCY'S DRILLING SERVICES LTD.,"BOX 4, SITE 12, R.R. 1",PONOKA,AB,CA,T4J 1R1,gwinfo@gov.ab.ca,true,9896000,9900999,2089851
+11438491,D&D WATER WELL DRILLING & SERVICING (2004) LTD.,4405 - 50 STREET,STONY PLAIN,AB,CA,T7Z 1L5,gwinfo@gov.ab.ca,false,2089000,2089499,2089014
+11547437,BLACK DOG DRILLING & ENV SERV. LTD.,BOX 9137,SYLVAN LAKE,AB,null,T4S 1S8,INFO@BLACKDOGDRILLING.COM,true,9871000,9875999,2086664
+11560392,CARBON MOUNTAIN DRILLING & WATER SERVICES LTD.,BOX 6383,FORT ST. JOHN,BC,AB,V1J 4H8,simon@carbondrilling.ca,true,2090100,2090499,2090170
+11576200,WILD ROSE WATER WELLS LTD.,BOX 4028,OLDS,AB,null,T4H 1P6,gwinfo@gov.ab.ca,true,2090500,2091499,2091125
+11576382,XL WATER WELL DRILLING LTD.,BOX 14,LACOREY,AB,null,T0A 2E0,XLWATERWELL@AIM.COM,true,2091500,2092499,2092012
+11577400,UNKNOWNDRILLINGCOMP11,UNKNOWN,null,null,null,null,gwinfo@gov.ab.ca,true,10121000,10125999,2097909
+11603356,MAHAR DRILLING LTD.,BOX 13,BLOOMSBURY,AB,CANADA,T0G 0G0,mahar_drilling@live.com,true,10106000,10110999,2097913
+11607729,WILD WEST DRILLING INC.,"BOX 9, SITE 12, R.R. 1",AIRDRIE,AB,CA,T4B 2A3,wildwestdrilling@gmail.com,true,2097500,2097999,2097839
+11630992,BLACKWATCH ENERGY SERVICES LTD.,6109 - 46 STREET,LEDUC,AB,CA,T9E 6T8,gwinfo@gov.ab.ca,false,2099000,2099999,2099031
+11631004,LOUSANA WATER WELLS LTD,GENERAL DELIVERY,LOUSANA,AB,CA,null,gwinfo@gov.ab.ca,false,2098011,2098049,null
+11631614,CANCORE DRILLING,"BAY1, 2200 S HIGHWAY DRIVE SE",REDCLIFF,AB,CA,T0J 2P0,gwinfo@gov.ab.ca,false,2086000,2086999,2086019
+11671985,WARRNIC SERVICES LTD.,4004 MACKENZIE AVENUE,DRAYTON VALLEY,AB,CA,T7A 1B1,gwinfo@gov.ab.ca,true,2100000,2100099,2100001
+11684383,GD WELL SERVICES,BOX 398,HYTHE,AB,CA,T0H 2C0,gwinfo@gov.ab.ca,true,10181000,10185999,2101320
+11692359,HI-RATE DRILLING COMPANY LTD.,BOX 1324,STETTLER,AB,null,null,gwinfo@gov.ab.ca,false,1365000,1369999,1365024
+12000001,BRAD SAVILLE ENTERPRISES LTD.,Box 2099,Valleyview,Alberta,CA,T0H 3N0,office@bradsavilleenterprises.com,true,9486000,9490999,9486502
+12000002,SAVILLE DRILLING SERVICES LTD.,BOX 636,VALLEYVIEW,AB,CA,T0H 3N0,null,true,9491000,9495999,9491251
+12000003,DAVE'S CONSULTING AND DRILLING,BOX 147,TORRINGTON,AB,CA,T0M 2B0,null,false,9496000,9500999,null
+12000004,BIG COUNTRY DRILLING LTD.,436 WEST RIVER ROAD,HINTON,AB,CA,T7V 1Z1,null,true,9501000,9505999,9501016
+12000005,BASSANI VENTURES INC.,BOX 3253,LEDUC,AB,CA,T9E 6M1,gwbassani@gmail.com,false,9506000,9510999,null
+12000006,GOOD EARTH DRILLING SERVICES LTD.,"SITE 12, BOX 17, R.R. 1",AIRDRIE,AB,CA,T4B 2A3,null,true,9511000,9515999,9511042
+12000007,ANDERSON WATER SERVICES LTD.,BOX 6099,FORT ST. JOHN,BC,CA,V1J 4H6,info@andersonwaterservices.ca,true,9516000,9520999,9516299
+12000008,BECKER EXPLORATION INC.,"BOX 80119, TOWERLANE RPO",AIRDRIE,AB,CA,T4B 2V8,null,false,9526000,9530999,null
+12000009,ADVANTAGE DRILLING LTD.,BOX 1319,BASSANO,AB,CA,T0J 0B0,null,false,9531000,9535999,9531000
+12000010,900231 ALBERTA LTD,BOX 358,NANTON,AB,CA,T0L 1R0,null,false,9536000,9540999,null
+12000011,ABCO INTERNATIONAL INC.,Box 5671,Lacombe,AB,CA,T4L 1X3,abcoinc@telus.net,false,9541000,9545999,9541010
+12000012,AQUACLEAR DRILLING INC.,912 15 ST SE,HIGH RIVER,AB,CA,T1V 1L6,null,true,9546000,9550999,9546490
+12000013,K5 CORP.,R.R. 1,WESTEROSE,AB,CA,T0C 2V0,k5corp@icloud.com,true,9551000,9555999,9551046
+12000014,INDUSTRIAL BACKHOES LTD.,102 1686 - 32 STREET SW,MEDICINE HAT,AB,CA,T1B 3N8,contactus@industrialbackhoe.com,true,9561000,9565999,9561000
+12000015,WILD BORE WATER WELLS LTD.,BOX 126,FAWCETT,AB,CA,T0G 0Y0,null,true,9566000,9570999,9566088
+12000016,JOHNSON'S WATER WELL DRILLING LTD.,BOX 7126,DRAYTON VALLEY,AB,CA,T7A 1S4,null,false,9571000,9575999,9571026
+12000017,WATERHOUSE DRILLING LTD.,10241 - 123 STREET,EDMONTON,AB,CA,T5N1N3,null,false,9576000,9580999,null
+12000018,DEEP CREEK DRILLING,BOX 1421,ATHABASCA,AB,CA,T9S 2B3,null,true,9581000,9585999,null
+12000019,J.R. DRILLING LTD.,P.O. BOX 436,CRANBROOK,BC,CA,V1C 4H9,null,true,9586000,9590999,null
+12000020,TITAN SPECIALTY DRILLING,"BOX 96, SITE 8, RR 1",STRATHMORE,AB,CA,T1P 1J6,null,false,9596000,9600999,null
+12000021,NEXEN INC.,801-7TH AVENUE SW,CALGARY,AB,CA,T2P 3P7,null,false,9601000,9605999,9601008
+12000022,CALMENA ENERGY SERVICES INC.,6109-46 STREET,LEDUC,AB,CA,T9E 6T8,null,false,9606000,9610999,null
+12000023,MEYER DRILLING LTD.,"BAY 1, 2200 SHIGHWAY DRIVE SE",REDCLIFF,AB,CA,T0J 2P0,null,true,9611000,9615999,9611054
+12000024,PREDATOR DRILLING,"211, 37428 RANGE ROAD 273",RED DEER COUNTY,AB,CA,T4E 0A1,null,true,9616000,9620999,9616004
+12000025,GORDON STICKEL,BOX 407,BLACK DIAMOND,AB,CA,T0L 0H0,null,false,9621000,9625999,null
+12000026,POSEIDON DRILLING LTD,6103 HAMILTON DRIVE,RED DEER,AB,CA,T4N 5N5,ASCHINDEL@SHAW.CA,true,9626000,9630999,9626135
+12000027,RUSTY IRON EQUITIES LTD,"BOX 28, SITE 9, RR 1",DEWINTON,AB,CA,T0L 0X0,BRAD@RUSTY-IRON.CA,false,9631000,9635999,9631000
+12000028,1277943 ALBERTA LTD.,10329 - 157 STREET,EDMONTON,AB,CA,T2P2V4,null,false,9636000,9640999,9636002
+12000029,FULL METAL DRILLING INC,5215 16TH AVENUE,EDSON,AB,CA,T7E 1H1,null,true,9641000,9645999,9641334
+12000030,WALT'S WATERWELL DRILLING,720044B RGE RD 70,GRANDE PRAIRIE,AB,CA,T8X 4K6,oshmachenko@gmail.com,true,9646000,9650999,9646568
+12000031,GROUNDFORCE GEO DRILLING SOLUTIONS INC.,"650, 910 - 7TH AVENUE SW",CALGARY,AB,CA,T2P 3N8,CPATERSON@GROUNDFORCEDRILLING.COM,false,9651000,9655999,9651031
+12000032,TERVITA DRILLING AND CORING SERVICES LTD,9919 SHEPPARD RD SE,CALGARY,AB,CA,T2C 3C5,SNEMETH@BECKDRILL.COM,false,9656000,9660999,9656023
+12000033,Tundra Environmental & Geotechnical Drilling Ltd. ,BOX 207,STETTLER,AB,CA,T0C 2L0,null,true,9666000,9670999,9666386
+12000034,J.E.D ANCHORS & ENVIRONMENTAL LTD,BOX 1325,PENHOLD,AB,CA,T0M 1R0,RUSS.POLLITT@JEDDRILLING.CA,false,9671000,9675999,null
+12000035,HARTL WATER WELL DRILLING & SERVICE LTD,54207 RANGE ROAD 275,STURGEON COUNTY,AB,CA,T8R 1Y9,JOE.HARTL88@GMAIL.COM,true,9676000,9680999,9676136
+12000036,NIEMANS DRILLING & SONS LTD.,BOX 5752,HIGH RIVER,AB,CA,T1V 1M6,CHAD@NIEMANSDRILLING.COM,true,9681000,9685999,9682239
+12000037,SON'S DRILLING LTD,R.R. 1,WESTEROSE,AB,CA,T0C 2V0,dale.klatt@gmail.com,true,9686000,9690999,9686046
+12000038,SPRING CREEK MOUNTAIN VILLAGE INC.,#1 SPRING CREEK GATE,CANMORE,AB,CA,T1W 0A7,FRANK@SPRINGCREEKMV.COM,true,9691000,9695999,9691005
+12000039,INTEGRITY DRILLING INC.,6634 HIGHWAY 97A,ENDERBY,BC,CA,V0E 1V3,INFO@INTEGRITYDRILLING.CA,false,9696000,9700999,null
+12000040,WARNKE DRILLING 2014 LTD,RR 1,FALUN,AB,CA,T0C 1H0,tylkeshawn@gmail.com,true,9701000,9705999,9701185
+12000041,GARFIELD BLAND CONSULTING,null,LETHBRIDGE,AB,CA,null,GARFIELDBLAND39@GMAIL.COM,true,9706000,9710999,9706238
+12000042,SAJAC OILFIELD SERVICES LTD.,null,null,null,null,null,null,false,9711000,9715999,9711048
+12000043,Aqua Waterwell & Geothermal Drilling ,BOX 49040,EDMONTON,AB,CA,T6E 5X0,rigsalive@live.ca,false,9716000,9720999,9716007
+12000044,1199189 ALBERTA INC,4719 50 AVENUE,WETASKIWIN,ALBERTA,CANADA,T9A 0R9,KMEYER@TELUSMAIL.NET,false,9721000,9725999,9721001
+12000045,BAR-K WATER WELL SERVICES LTD,RR2,LEDUC,ALBERTA,CANADA,T9E 2X2,KRBANKS1@TELUS.NET,false,9726000,9730999,9726003
+12000046,CAMFIELD GROUNDWATER SERVICES LTD.,314 12TH ST S,LETHBRIDGE,ALBERTA,null,T1J2R1,KEVIN@CAMDRIL.COM,true,9731000,9735999,9731177
+12000047,WELLBOYZ WATERWELL SERVICES LTD.,BOX 676,ST. PAUL,ALBERTA,CANADA,T0A 3A0,LEN@WELLBOYZ.CA,false,9736000,9740999,9736006
+12000048,180 WATER WELL DRILLING,102-116 CLEARVIEW AVENUE,RED DEER COUNTY,ALBERTA,CANADA,T4E 0A1,russ180drilling@telus.net,false,9741000,9745999,9741049
+12000049,DRILLER TRAINING,9820 106 ST,EDMONTON,ALBERTA,CANADA,T5K 2J6,GWINFO@GOV.AB.CA,false,9746000,9750999,9746007
+12000050,L&B WATER SERVICES LTD.,BOX 2503,STONY PLAIN,ALBERTA,CANADA,T7Z 1X9,LBWATER@XPLORNET.COM,true,9761000,9765999,9761011
+12000051,LEGACY DRILLING CORP.,BOX 1388,HANNA,ALBERTA,null,T0T 1P0,LEGACYDRILLINGCORP@GMAIL.COM,false,9766000,9770999,9766028
+12000052,CROSS BORDERS CONSULTING LTD.,BOX 509,PILOT BUTTE,SASKATCHEWAN,CANADA,S0G 3Z0,JARED.MILLS@CROSSBORDER.CA,true,9771000,9775999,9771007
+12000053,FOREFRONT DRILLING SOLUTIONS ,20860 95A AVENUE ,LANGLEY ,BC,CANADA,V1M 2C5,FOREFRONTDRILLING@GMAIL.COM,false,9776000,9780999,9776006
+12000055,BERGER HOLDINGS (NANTON) LTD.,BOX 822,NANTON,ALBERTA,CANADA,T0L 1R0,ARNE.HEATHER.BERGER@GMAIL.COM,false,9786000,9790999,null
+12000056,TERREX CONSTRUCTION LTD,"BOX 100, SITE 2, RR 2",OKOTOKS,ALBERTA,CANADA,T1S 1A2,terrexltd@gmail.com,true,9791000,9795999,9791001
+12000057,ALL SERVICE DRILLING INC.,107 KINGSVIEW ROAD SE ,AIRDRIE ,ALBERTA,CANADA,T4A 0A8,KBIEBER@ALLSERVICEDRILLING.COM,true,9796000,9800999,9796048
+12000058,CIRRUS ENVIRONMENTAL SERVICES INC.,"10, 1916 30 AVE NE",CALGARY ,ALBERTA,CANADA,T2E 7B2,DEREK_HASEGAWA@CIRRUSENVIRO.COM,true,9801000,9805999,null
+12000059,CORE DRILLING CORP,"UNIT 14, 314 EXPLORATION AVE SE",CALGARY ,ALBERTA,CANADA,T3S 0C1,DBRAKE@COREDRILLINGCORP.COM,true,9806000,9810999,null
+12000060,SPT DRILLING LTD.,43 PATTERSON CRESCENT,ST ALBERT,ALBERTA,CANADA,T8N 4T9,SPTSUPP@TELUS.NET,true,9811000,9815999,null
+12000061,WOLVERINE GROUP INC.,9515 62 AVE NW,EDMONTON,ALBERTA,CANADA,T6E 0E1,CHUCK@BORDERDRILLING.COM,false,9816000,9820999,null
+12000062,1819221 ALBERTA LIMITED ,103 THISTLE BAY ,STRATHMORE ,AB,CANADA ,T1P 1C6,FDCOCKX@SHAW.CA,false,9821000,9825999,9821001
+12000063,ALTAIR WATER AND DRILLING SERVICES INC.,"SITE 1, BOX 9, RR 4",RED DEER COUNTY,ALBERTA,CANADA,T4N 5E4,JEFFD@ALTAIRWATER.COM,false,9826000,9830999,9826424
+12000064,ACREAGE DEVELOPMENT SOLUTIONS LTD.,RR 1,MILLARVILLE,ALBERTA,CANADA ,T0L 1K0,CLAYTON@ADSLTD.CA,true,9831000,9835999,null
+12000065,ZEMLAK DRILLING INC.,BOX 41,VEGREVILLE,ALBERTA,CANADA,T9C 1R1,ZEMLAKDRILLING@MCSNET.CA,true,9836000,9840999,9836078
+12000066,KICKING HORSE WATER SERVICES,BOX 4039,GOLDEN,BC,CANADA,V0A 1H0,KICKINGHORSEWATER@GMAIL.COM,true,9841000,9845999,null
+12000067,GROUND SOURCE ENERGY LTD.,"BOX 28, SITE 1, RR 1",COCHRANE ,ALBERTA,CANADA,T4C 1A1,INFO@GROUNDSOURCEENERGY.COM,true,9846000,9850999,9846010
+12000068,RISLING SERVICES (MEDICINE HAT) LTD.,19 CARRY PLACE SE,MEDICINE HAT,ALBERTA,CANADA,T1B 3Y2,GRISLING@SHAW.CA,true,9851000,9855999,9851000
+12000069,CLEAR BLUE WATER SYSTEMS LTD. ,BOX 148,MONTNEY ,BC,CANADA,V0C 1Y0,CLEARBLUE@TELUS.NET,false,9856000,9860999,null
+12000070,Aqua Waterwell Drilling,BOX 49040,EDMONTON,ALBERTA,CANADA,T6E 5X0,RIGSALIVE@LIVE.CA,false,9861000,9865999,null
+12000071,BEAST DRILLING LTD. ,BOX 861,RED DEER,ALBERTA,CANADA,T4P 1A3,CRYSTAL@BEASTDRILLING.COM,false,9866000,9870999,9866028
+12000072,EHALT ACQUISITIONS INC.,1114 14 Street,Canmore,Alberta,Canada,T1W 1V7,KELDON.EHALT@GMAIL.COM,true,9876000,9880999,null
+12000073,CANADIAN QUALITY CONTROL INC. ,2924 PIPER ROAD,PRINCE GEORGE,BRITISH COLUMBIA ,CANADA,V2N 2H8,DONKUN@CANADIANQUALITYCONTROL.CA,true,9881000,9885999,null
+12000074,MO-CO SERVICES,449 MOUNTAIN STREET,HINTON,ALBERTA,CANADA,T7V 1K1,MO-CO@TELUS.NET,true,9886000,9890999,9886001
+12000075,M&M PUMPS INC.,243079 RGE RD 250,WHEATLAND COUNTY,ALBERTA,CANADA,T1P 0M8,SHANNON@MMDRILLING.CA,true,9901000,9905999,9901009
+12000076,M&M DRILLING INC.,243079 RGE RD 250,WHEATLAND COUNTY,ALBERTA,CANADA,T1P 0M8,vince@mmdrilling.ca,true,9906000,9910999,9906348
+12000077,L. PLATZ DRILLING,BOX 32,WINFIELD,ALBERTA,CANADA,T0C 2X0,LPLATZ53@GMAIL.COM,false,9911000,9915999,null
+12000078,STEELHEAD VENTURES LTD.,BOX 44,COCHRANE,ALBERTA,CANADA,T4C 1A4,SHANE@STEELHEADVENTURESLTD.COM,false,9916000,9920999,9916074
+12000079,EARTH DRILLING CO LTD.,4039 16 ST SE,CALGARY,ALBERTA,CANADA,T2G 3R8,JOHN@EARTHDRILLING.CA,true,9921000,9925999,9921034
+12000080,SUNAQUA INC. ,206 HERITAGE PLACE W,LETHBRIDGE ,ALBERTA,CANADA,T1K 6X9,CLINTON@SUNAQUA.CA,true,9926000,9930999,null
+12000081,RED DEER TRAINING,null,null,null,null,null,null,true,9931000,9935999,9931003
+12000082,KOMAT DRILLING LTD. ,1779 9TH AVENUE SW,MEDICINE HAT,ALBERTA,CANADA,T1A 8S2,INFO@KOMATDRILLING.COM,true,9936000,9940999,null
+12000083,BLAKEMAN'S DRILLING LTD ,BOX 129,ALBERTA BEACH,ALBERTA,CANADA,T0C 0A0,JOE@BLAKEMANDRILLING.COM ,true,9946000,9950999,9946060
+12000084,MYWATER DRILLING AND PUMP SERVICES ,BOX 142,CREMONA,ALBERTA,CANADA,T0M 0R0,info@mywaterdrilling.ca,true,9951000,9955999,9951327
+12000085,SUN-ALTA DRILLING LTD.,27206 TOWNSHIP ROAD 564,STURGEON COUNTY,ALBERTA,CANADA,T8R 2J3,SUNALTA@TELUSPLANET.NET,true,9956000,9960999,null
+12000086,MILK RIVER WATER WELL DRILLING,PO BOX 772,MILK RIVER,ALBERTA,CANADA,T0K 1M0,RIGRANCH@HOTMAIL.COM,true,9961000,9965999,9961039
+12000087,ROCKING P RANCHING LTD,RR 1,NANTON,ALBERTA,CANADA,T0L 1R0, JMBLADES7@GMAIL.COM,false,9966000,9970999,9966000
+12000088,A&H DRILLING LTD. ,48987 CHILLIWACK CENTRAL ROAD,CHILLIWACK ,BRISTISH COLUMBIA,CANADA,V2P 6H3,office@ahwelldrilling.ca,true,9971000,9975999,9971010
+12000089,FIELD DRILLING CONTRACTORS LTD,PO BOX 841,ALDERGROCE,BC,CANADA,V4W 2V1,INFO@FIELDDRILLING.CA,false,9976000,9980999,9976001
+12000090,OWEN'S DRILLING LTD.,PO BOX 730,CRANBROOK ,BC,CANADA,V9C 4J5,TIM@OWENSDRILLING.COM,true,9981000,9985999,9981005
+12000091,VXV FARMS,BOX 922,CLARESHOLM,AB,CANADA,T0L 0T0,GERALD@VXVFARMS.COM,false,9986000,9990999,null
+12000092,BAR P ENTERPRISE,PO BOX 1163,CLARESHOLM,ALBERTA,CANADA,T0L 0T0,STEVEPREACHUK@HOTMAIL.COM,false,9991000,9995999,null
+12000107,PRECISION DRILLING,null,null,null,null,null,null,true,10026000,10030999,10026004
+12000125,WHEATLAND COUNTY,"RR 1, HWY 1",STRATHMORE,AB,CANADA,T1P 1J6,ADMIN@WHEATLANDCOUNTY.CA,true,9996000,10000999,9996000
+12000126,1857269 ALBERTA LTD. O/A MAKO WELL SERVICES,BOX 191,NANTON,AB,CANADA,T0L 1RO,MLOREE@HARTFUNDSPC.COM,true,10001000,10005999,null
+12000127,ERNCO ENVIRONMENTAL DRILLING & CORING INC.,8027 EDGAR INDUSTRIAL DRIVE,RED DEER,AB,CANADA,T4P 3R2,JOSH.E@ERNCODRILL.COM,true,10006000,10010999,10006001
+12000128,LEGACY DRILLING LTD.,PO BOX 592,DELBURNE,AB,CANADA,T0M 0V0,LEGACYDRILLINGLTD@OUTLOOK.COM,true,10011000,10015999,10011508
+12000129,TRAVIS DRILLING LTD.,"RR 1, SITE 6, COMP 7",ONOWAY,AB,CA,T0E 1V0,TRAVISDRILLINGLTD@GMAIL.COM,true,10031000,10035999,10031023
+12000130,1808844 ALBERTA LTD.,"1, 5211 45 Ave",VERMILION,AB,CA,T9X 0A5,AACHIL@HOTMAIL.COM,true,10036000,10040999,10036004
+12000131,MORTON’S WATER WELL DRILLING,"#1, 5211 45 AVE",VERMILION,AB,CA,T9X 0A5,DMORTONSDRILLING@GMAIL.COM,true,10041000,10045999,10041098
+12000132,STONE RIVER WATERWELLS,83 WOODHAVEN DRIVE,SPRUCE GROVE,AB,CA,T7X 1M9,CHADVDH@LIVE.COM,true,10046000,10050999,10046073
+12000133,LOUSANA WATER WELLS SERVICING LTD.,RR 2 ,LOUSANA,AB,CA,TOM 1K0,LOUSANAWATERWELLS@GMAIL.COM,true,10051000,10055999,10051017
+12000134,MORTON'S WATER WELL SERVICES LTD.,"1, 5211 45 AVE ",VERMILION,AB,CA,T9X 0A5,DARALAMORTON@HOTMAIL.COM,true,10056000,10060999,10056004
+12000135,LETHBRIDGE COLLEGE,3000 COLLEGE DRIVE S,LETHBRIDGE,ALBERTA,CANADA,null,null,true,10076000,10080999,null
+12000136,GOLDEN RIDGE DEVELOPMENTS INC,252 CEDARDALE PLACE SW,CALGARY,ALBERTA,CANADA,T2W 5J2,ADMIN@GOLDENRIDGE.CA,true,10081000,10085999,10081000
+12000137,WILD DOG CONTRACTING LTD.,10229 RANGE ROAD 40,CYPRESS COUNTY,ALBERTA,CANADA,T0J 1V0,JOE@WILDDOGCONTRACTING.CA,true,10086000,10090999,10086001
+12000138,HYDROTECH WATER WELL & SEPTIC.,54207 RANGE ROAD 275,SURGEON COUNTY,ALBERTA,CANADA,T8R 1Y9,JOE@HYDROTECHSOLUTIONS.CA,true,10091000,10095999,10091041
+12000139,SUMMERS DRILLING INC.,BOX 3172,STONY PLAIN,AB,CA,T7Z 1L4,ADMIN@SUMMERSDRILLING.COM,true,10096000,10100999,10096965
+12000140,FORGED DRILLING COMPANY LTD.,BOX 509 ,BUTTE,SASKATCHEWAN,CANADA,S0G 3Z0,INVOICING@FORGEDDRILLING.COM,true,10111000,10115999,10111000
+12000141,HIDDEN VALLEY,222 HIDDEN SPRING MEW,CALGARY,AB,CA,T3A 5N3,RESUMERYAN1987@GMAIL.COM,true,10116000,10120999,null
+12000142,KEYSTONE DRILLING CORP,15 DEWITTS POND,ROCKY VIEW COUNTY,AB,CA,T4B 4S8,RANDY@KEYSTONEDRILLING.CA,true,10126000,10130999,10126009
+12000143,"ALBERTA AGRICULTURE, FORESTRY AND RURAL ECONOMIC DEVELOPMENT",null,null,null,null,null,JANELLE.VILLENEUVE@GOV.AB.CA,true,10131000,10135999,10131003
+12000144,BLACK DOG DRILLING INC.,29 MAHOGANY VIEW SE,CALGARY ,AB,CANADA,T3M 0T3,LIZ@BLACKDOGDRILLING.COM,true,10136000,10140999,10136348
+12000145,EVOLUTION DRILLING LTD.,BOX 973 ,BLACKFALDS,AB,CA,T0M 0J0,LYNDON_STINSON@YAHOO.COM,true,10141000,10145999,10141029
+12000146,WHITE LINE DRILLING,null,RED DEER,AB,CA,T4E 1A9,null,true,10146000,10150999,10146000
+12000147,FULL CIRCLE DRILLING LTD.,PO BOX 9137,SYLVAN LAKE,AB,CA,T4S 1S8,MWALTER@FULLCIRCLEDRILLING.COM,true,10151000,10155999,10151080
+12000148,ASSURED DRILLING LTD.,2315 N SERVICE ROAD W,SWIFT CURRENT,SK,CA,S9H 5L2,ASSUREDDRILLING@GMAIL.COM,true,10156000,10160999,10156006
+12000149,STRIDE MANAGEMENT SOLUTION INC.,null,null,null,null,null,null,true,10161000,10165999,10161037
+12000150,SHADOW RATHOLE DRILLING LTD.,11301 91 AVE,GRANDE PRAIRIE,ALBERTA,CANADA,T8V 5Z3,ADMIN@SHADOWRATHOLE.COM,true,10166000,10170999,10166002
+12000151,1893086 ALBERTA LTD O/A AQUA MULE,"PO BOX 24, SITE 18, RR 1",MILLARVILLE,ALBERTA,CANADA,T0L 1K0,ADMIN@AQUAMULE.COM,true,10171000,10175999,10171002
+12000152,FAST HOLE WATER WELL DRILLING SERVICES LTD ,PO BOX 506,RYCROFT,AB,CANADA,T0H 3A0,FASTHOLEDRILLING@GMAIL.COM,true,10186000,10190999,null
+12000153,D&L DRILLING LTD.,"PO BOX 17, SITE 2, RR2",DUFFIELD,AB,CANADA,T0E 0N0,DAN@DLDRILLING.COM,true,10191000,10195999,10191004
+12000154,HENLINE DRILLING,RR1 ,COUTTS,ALBERTA,CANADA,T0K 0N0,HENLINERANCH@GMAIL.COM,true,10196000,10200999,null

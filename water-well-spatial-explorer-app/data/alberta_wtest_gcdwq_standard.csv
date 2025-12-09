@@ -1,0 +1,24 @@
+GCDWQ_STANDARD_ID,PARAMETER_NAME,GCDWQ_MIN_VALUE,GCDWQ_MAX_VALUE,GCDWQ_VALUE_PRECISION,GCDWQ_UNITS,GCDWQ_OBJECTIVE_TYPE,GCDWQ_APPROVAL_YEAR,CREATE_TIMESTAMP,CREATE_USERID
+1,No Standard Defined,-999999999,999999999,0,No Standard Defined,No Standard Defined,1800,2011-10-20T10:31:40.677Z,BWWT_ADMIN
+2,Manganese,0,0.05,2,mg/L,Aesthetic Objective,1987,2011-10-20T10:31:40.707Z,BWWT_ADMIN
+3,Manganese (Total),0,0.05,2,mg/L,Aesthetic Objective,1987,2011-10-20T10:31:40.710Z,BWWT_ADMIN
+4,Iron,0,0.3,1,mg/L,Aesthetic Objective,2005,2011-10-20T10:31:40.710Z,BWWT_ADMIN
+5,Iron (Total),0,0.3,1,mg/L,Aesthetic Objective,2005,2011-10-20T10:31:40.710Z,BWWT_ADMIN
+6,Nitrite as Nitrogen,0,1,0,mg/L,Maximum Acceptable Concentration,1987,2011-10-20T10:31:40.710Z,BWWT_ADMIN
+7,Fluoride,0,1.5,1,mg/L,Maximum Acceptable Concentration,1996,2011-10-20T10:31:40.713Z,BWWT_ADMIN
+8,Nitrate as Nitrogen,0,10,0,mg/L,Maximum Acceptable Concentration,1987,2011-10-20T10:31:40.713Z,BWWT_ADMIN
+9,Nitrite + Nitrate as Nitrogen,0,10,0,mg/L,Maximum Acceptable Concentration,1987,2011-10-20T10:31:40.713Z,BWWT_ADMIN
+10,Colour,0,15,0,TCU,Aesthetic Objective,2005,2011-10-20T10:31:40.717Z,BWWT_ADMIN
+11,Temperature of sample upon receipt by lab,0,4,0,°C,CBM Standard,2006,2011-10-20T10:31:40.717Z,BWWT_ADMIN
+12,Sodium,0,200,0,mg/L,Aesthetic Objective,1992,2011-10-20T10:31:40.717Z,BWWT_ADMIN
+13,Chloride,0,250,0,mg/L,Aesthetic Objective,2005,2011-10-20T10:31:40.720Z,BWWT_ADMIN
+14,Sulphate,0,500,0,mg/L,Aesthetic Objective,1994,2011-10-20T10:31:40.720Z,BWWT_ADMIN
+15,Total Dissolved Solids,0,500,0,mg/L,Aesthetic Objective,1991,2011-10-20T10:31:40.000Z,BWWT_ADMIN
+16,Turbidity,0,0.3,1,NTU,Maximum Acceptable Concentration,2004,2011-10-20T10:31:40.720Z,BWWT_ADMIN
+17,pH,6.5,8.5,1,pH Units,Aesthetic Objective,1995,2011-10-20T10:31:40.723Z,BWWT_ADMIN
+18,Total Coliforms,0,0,0,CFU/100mL,Maximum Acceptable Concentration,2006,2011-10-20T10:31:40.723Z,BWWT_ADMIN
+19,Total Coliforms,0,0,0,MPN/100mL,Maximum Acceptable Concentration,2006,2011-10-20T10:31:40.727Z,BWWT_ADMIN
+20,Escherichia coli,0,0,0,CFU/100mL,Maximum Acceptable Concentration,2006,2011-10-20T10:31:40.727Z,BWWT_ADMIN
+21,Escherichia coli,0,0,0,MPN/100mL,Maximum Acceptable Concentration,2006,2011-10-20T10:31:40.727Z,BWWT_ADMIN
+22,Fecal Coliforms,0,0,0,CFU/100mL,Maximum Acceptable Concentration,2006,2011-10-20T10:31:40.730Z,BWWT_ADMIN
+23,Fecal Coliforms,0,0,0,MPN/100mL,Maximum Acceptable Concentration,2006,2011-10-20T10:31:40.730Z,BWWT_ADMIN
