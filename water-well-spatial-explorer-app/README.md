@@ -1,6 +1,6 @@
 # Alberta Water Well Spatial Explorer
 
-An interactive web application for subsurface data related to drilled water wells in Alberta.
+An interactive web application for subsurface data related to drilled water wells in Alberta. Packaged with Databricks Asset Bundles for quick deployment.
 
 ## Overview
 
