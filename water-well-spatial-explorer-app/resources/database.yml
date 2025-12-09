@@ -1,0 +1,24 @@
+resources:
+  database_instances:
+    alberta-water-well-explorer-instance:
+      name: alberta-water-well-explorer-instance
+      capacity: CU_1
+  synced_database_tables:
+    alberta-wdrill-location-lithology-synced-table:
+      name: ${var.catalog}.${var.schema}.alberta_wdrill_combined_location_lithology_postgres
+      database_instance_name: ${resources.database_instances.alberta-water-well-explorer-instance.name}
+      logical_database_name: alberta-water-well-app-database
+      spec:
+        source_table_full_name: ${var.catalog}.${var.schema}.alberta_wdrill_combined_location_lithology
+        scheduling_policy: SNAPSHOT
+        primary_key_columns:
+          - id
+    alberta-wdrill-wells-synced-table:
+      name: ${var.catalog}.${var.schema}.alberta_wdrill_wells_postgres
+      database_instance_name: ${resources.database_instances.alberta-water-well-explorer-instance.name}
+      logical_database_name: alberta-water-well-app-database
+      spec:
+        source_table_full_name: ${var.catalog}.${var.schema}.alberta_wdrill_wells
+        scheduling_policy: SNAPSHOT
+        primary_key_columns:
+          - Well_ID

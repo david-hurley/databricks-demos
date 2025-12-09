@@ -1,0 +1,18 @@
+# databricks.yml
+
+bundle:
+  name: alberta-water-well-explorer
+
+include:
+  - resources/*.yml
+
+variables:
+  catalog:
+    default: users
+  schema:
+    default: david_hurley
+
+targets:
+  dev:
+    default: true
+    mode: development

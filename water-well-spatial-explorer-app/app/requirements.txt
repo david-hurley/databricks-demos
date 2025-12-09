@@ -1,0 +1,8 @@
+dash
+dash-leaflet
+databricks-sdk
+psycopg[binary]
+psycopg-pool
+pandas
+plotly
+python-dotenv

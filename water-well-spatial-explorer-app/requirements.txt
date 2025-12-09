@@ -1,8 +1,0 @@
-dash>=2.14.0
-dash-leaflet>=1.0.15
-databricks-sdk>=0.18.0
-psycopg[binary]>=3.1.0
-psycopg-pool>=3.1.0
-pandas>=2.0.0
-plotly>=5.18.0
-
