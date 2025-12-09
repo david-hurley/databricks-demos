@@ -10,6 +10,7 @@ import time
 # for local development
 load_dotenv(dotenv_path="../.env") 
 
+# if you are using something other than the DEFAULT profile in the Databricks CLI, you need to pass profile='your-profile-name'
 workspace_client = WorkspaceClient()
 postgres_password = None
 last_password_refresh = 0
