@@ -1,7 +1,15 @@
-# databricks.yml
-
 bundle:
   name: alberta-water-well-explorer
+
+sync:
+  exclude:
+    - data/
+    - setup/
+    - .gitignore
+    - .env
+    - pyproject.toml
+    - uv.lock
+    - README.md
 
 include:
   - resources/*.yml
