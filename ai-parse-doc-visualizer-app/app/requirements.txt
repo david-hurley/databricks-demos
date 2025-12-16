@@ -1,0 +1,9 @@
+dash==3.3.0
+dash-bootstrap-components==2.0.4
+dash-ag-grid==32.3.2
+databricks-sdk==0.73.0
+python-dotenv==1.2.1
+pandas==2.2.3
+databricks-sql-connector==4.2.2
+databricks-sdk==0.73.0
+pillow==12.0.0

@@ -1,0 +1,11 @@
+command: ["python", "app.py"]
+
+env:
+  - name: CATALOG
+    value: 'users'
+  - name: SCHEMA
+    value: 'david_hurley'
+  - name: TABLE
+    value: 'ai_parse_results'
+  - name: "SQL_WAREHOUSE_ID"
+    valueFrom: "sql-warehouse"
