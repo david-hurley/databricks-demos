@@ -1,159 +1,42 @@
 # AI Parse Document Visualizer App
 
-A Databricks application for visualizing and exploring documents processed with the `ai_parse_document()` function. This app provides an interactive interface to view parsed document results with bounding boxes, element details, and multi-page navigation.
+A Databricks application for visualizing and exploring documents processed with the `ai_parse_document()` function. This app provides an interactive interface to view parsed document results with bounding boxes, element details, and multi-page navigation. Supported document types are PDF, JPG, PNG, DOC, DOCX, PPT, and PPTX, see the [docs](https://docs.databricks.com/aws/en/sql/language-manual/functions/ai_parse_document) for details.
 
-## Features
-
-- **Document Grid View**: Browse all parsed documents from your Unity Catalog table
-- **Interactive Visualization**: View documents with highlighted bounding boxes for detected elements
-- **Element Details**: Hover over bounding boxes to see detailed element information
-- **Multi-Page Support**: Navigate through multi-page documents with Previous/Next buttons and page dropdown
-- **Search & Filter**: Search documents by filename or path
-- **Real-time Refresh**: Reload data from your table with the refresh button
-
-## Prerequisites
-
-- Databricks workspace with Unity Catalog enabled
-- SQL Warehouse for querying parsed document results
-- Unity Catalog volume for storing documents
-- Documents to parse (PDF, JPG, PNG, DOC, DOCX, PPT, PPTX)
+<img width="1612" height="755" alt="image" src="https://github.com/user-attachments/assets/80572dd1-d0fd-49fa-8531-c36ca6047d9b" />
 
 ## Setup Instructions
 
-### 1. Create a new volume in your Unity Catalog and add 2 empty directories named "input" and "output" 
+**1. Create a new volume in your Unity Catalog and add 2 empty directories named "input" and "output" - upload a few documents to "input"**
 
 
-Upload a few documents to the `input/` directory to get started.
+<img width="906" height="409" alt="image" src="https://github.com/user-attachments/assets/08f4814c-fd54-497c-8e46-a94edf63236b" />
 
-### 2. Create Databricks App
 
-1. In your Databricks workspace, create a new **Custom App**
-2. Under **Configure**, add the following resources:
-   - **SQL Warehouse**: Select an active SQL warehouse
-   - **UC Volume**: Select the volume you created in Step 1
-3. Leave the app empty for now - we'll deploy the files later
+**2. Create a new Custom App in Databricks Apps - under "Configure" and "Add Resources" give the app "CAN USE" permission on a SQL warehouse and "CAN READ" permission on the UC Volume created in Step 1**
 
-### 3. Clone Repository
 
-1. In your Databricks workspace, select **Create** and choose **Git Folder**
-2. Clone the repository: `https://github.com/david-hurley/databricks-demos.git`
+<img width="636" height="409" alt="image" src="https://github.com/user-attachments/assets/af72dd3f-7f07-4614-964f-316087dffa79" />
 
-### 4. Run Setup Notebook
 
-1. Navigate to the cloned folder: `databricks-demos/ai-parse-doc-visualizer-app/`
-2. Open the setup notebook: `setup/ai_parse_visualizer_app_backend.ipynb`
-3. Fill in the required configuration:
-   - Catalog name
-   - Schema name
-   - Volume name
-   - Results table name
-4. Run the notebook - this will:
-   - Create the results table
-   - Parse all documents in the input directory
-   - Store results in the Unity Catalog table
+**3. In your Databricks Workspace select "Create" and choose "Git Folder" - paste "https://github.com/david-hurley/databricks-demos.git" as the URL**
 
-**Note**: Processing time depends on the number and size of documents. A 50-page document may take more than 1 minute to process.
 
-### 5. Grant App Permissions
+**4. In the new folder, navigate to "ai-parse-doc-visualizer-app" and open the "ai_parse_visualizer_app_backend.ipynb" notebook. Fill in the catalog, schema, and volume from Step 1 and add a results table name - run the notebook. This may take several minutes depending on number of files and length**
 
-1. Go to your Databricks app (created in Step 2)
-2. Copy the **App ID** from the right pane
-3. Navigate to your results table (the table name you specified in the setup notebook)
-4. Select **Permissions**
-5. Grant **SELECT** permission to the App ID
 
-### 6. Update App Configuration
+**5. In the same folder, open the "app.yaml" file and update the catalog, schema, and table value to match what you used in Step 4**
 
-1. In the same `ai-parse-doc-visualizer-app` folder, navigate to the `app/` subfolder
-2. Open `app.yaml`
-3. Update the following values to match your setup from Step 1:
-   - `catalog`: Your catalog name
-   - `schema`: Your schema name
-   - `table`: Your results table name
 
-### 7. Deploy the App
+<img width="315" height="334" alt="image" src="https://github.com/user-attachments/assets/fd5421df-c324-4cb9-920d-3767d179904d" />
 
-1. Go back to your Databricks app (created in Step 2)
-2. Click **Deploy**
-3. Navigate to `databricks-demos/ai-parse-doc-visualizer-app/app/` folder
-4. Select the `app` subfolder for deployment
 
-### 8. Configure and Launch
+**6. Now open the App you created in Step 2 and select "Deploy" and point to the "ai-parse-doc-visualizer-app" folder in your workspace**
 
-1. Open your deployed app
-2. Update the configuration fields:
-   - **Catalog**: Your catalog name from Step 1
-   - **Schema**: Your schema name from Step 1
-   - **Table**: Your results table name from Step 4
-3. Click **Refresh** to load your parsed documents
-4. Select any document to view its visualization
 
-## Environment Variables
+**7. After Step 4 has completed - copy the App Id from the App overview page. Open the newly created results table in your schema and select "Permissions". Grant the App Id "SELECT" permission**
 
-Create a `.env` file in the `app/` directory for local development:
 
-```env
-CATALOG=your_catalog
-SCHEMA=your_schema
-TABLE=your_results_table
-SQL_WAREHOUSE_ID=your_warehouse_id
-```
+<img width="720" height="254" alt="image" src="https://github.com/user-attachments/assets/bd99d915-833b-48fb-8aed-287202fa08a0" />
 
-See `.env-example` for reference.
 
-## Application Structure
-
-```
-ai-parse-doc-visualizer-app/
-├── app/
-│   ├── app.py                    # Main Dash application
-│   ├── app_layout.py             # UI layout components
-│   ├── databricks_utils.py       # Database utilities
-│   ├── document_renderer.py      # Document visualization logic
-│   ├── requirements.txt          # Python dependencies
-│   └── assets/                   # Static assets
-├── setup/
-│   └── ai_parse_visualizer_app_backend.ipynb  # Setup notebook
-├── databricks.yml                # Databricks bundle config
-└── README.md
-```
-
-## Usage
-
-### Viewing Documents
-
-1. Select a document from the grid on the left
-2. The document will appear on the right with colored bounding boxes
-3. Hover over any bounding box to see element details (type, content, confidence)
-4. Use navigation controls to browse multi-page documents
-
-### Searching Documents
-
-Use the search bar to filter documents by filename or volume path.
-
-### Refreshing Data
-
-Click the **↻ Refresh** button to reload the latest data from your table.
-
-## Supported Document Types
-
-- PDF (`.pdf`)
-- Images: JPG/JPEG (`.jpg`, `.jpeg`), PNG (`.png`)
-- Microsoft Word (`.doc`, `.docx`)
-- Microsoft PowerPoint (`.ppt`, `.pptx`)
-
-## Technology Stack
-
-- **Frontend**: Dash (Plotly) with Dash Bootstrap Components
-- **Backend**: Databricks SQL Warehouse
-- **Storage**: Unity Catalog (tables and volumes)
-- **AI Function**: `ai_parse_document()` for document processing
-
-## Demo Repository
-
-This app is part of the Databricks Demos repository: https://github.com/david-hurley/databricks-demos
-
-## License
-
-See the main repository for license information.
-
+**8. Refresh the App page - you should now see a list of the documents you uploaded and be able to visualize how well `ai_parse_document()` performed**
