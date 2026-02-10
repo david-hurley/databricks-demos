@@ -1,0 +1,54 @@
+bundle:
+  name: h3-vessel-activity
+
+workspace:
+  root_path: ~/.bundle/${bundle.name}/${workspace.current_user.short_name}
+
+resources:
+  apps:
+    h3_vessel_activity_app:
+      name: h3-vessel-activity
+      description: "H3 Vessel Activity Visualization - Maritime Intelligence Dashboard"
+      
+      source_code_path: .
+      resources: 
+        - name: lakebase
+          database:
+            database_name: users
+            instance_name: yyc-data-meet
+            permission: CAN_CONNECT_AND_CREATE
+      
+      config:
+        command:
+          - "python"
+          - "app.py"
+        
+        env:
+          - name: PGHOST
+            value: "instance-6924fe4e-f240-46f0-876d-69ff7f6e5c84.database.azuredatabricks.net"
+          - name: PGDATABASE
+            value: "users"
+          - name: PGPORT
+            value: "5432"
+          - name: PGSSLMODE
+            value: "require"
+          - name: INSTANCE_NAME
+            value: "yyc-data-meet"
+
+targets:
+  dev:
+    mode: development
+    workspace:
+      host: https://adb-984752964297111.11.azuredatabricks.net
+    # Run as current user (not service principal)
+    run_as:
+      user_name: david.hurley@databricks.com
+  
+  prod:
+    mode: production
+    workspace:
+      host: https://adb-984752964297111.11.azuredatabricks.net
+    
+    run_as:
+      user_name: david.hurley@databricks.com
+

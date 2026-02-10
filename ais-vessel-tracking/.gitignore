@@ -1,0 +1,26 @@
+.venv/
+__pycache__/
+*.pyc
+*.py[cod]
+*$py.class
+*.so
+.Python
+uv.lock
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Databricks
+.databricks/
+
+# Test files
+test_*.py
+*_test.py
+check_*.py
+find_*.py
+list_*.py
