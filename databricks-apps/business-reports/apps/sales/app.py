@@ -4,12 +4,15 @@ import re
 from pathlib import Path
 
 from databricks.sdk import WorkspaceClient
+from databricks.sdk.core import Config
 from databricks.sdk.service.sql import StatementState
 from flask import Flask, abort, jsonify, render_template, request
 
 APP_DIR = Path(__file__).parent
 ORG = os.environ.get("APP_ORG", "unknown")
 WAREHOUSE_ID = os.environ.get("WAREHOUSE_ID", "0709f445a3d3d88a")
+# Host must be explicit so the SDK Config doesn't pick up the app SP's OAuth
+DATABRICKS_HOST = os.environ.get("DATABRICKS_HOST", "").rstrip("/")
 STATUS_CATALOG = os.environ.get("STATUS_CATALOG", "classic_stable_been2c_catalog")
 STATUS_SCHEMA = os.environ.get("STATUS_SCHEMA", "business_reports")
 STATUS_TABLE = f"`{STATUS_CATALOG}`.`{STATUS_SCHEMA}`.`report_status`"
@@ -32,8 +35,13 @@ def obo_token() -> str:
 
 
 def get_client(token: str) -> WorkspaceClient:
-    """Return a WorkspaceClient scoped to the OBO token."""
-    return WorkspaceClient(token=token)
+    """Return a WorkspaceClient scoped to the OBO token.
+
+    Build Config explicitly so the SDK does not discover the app SP's ambient
+    OAuth credentials and raise 'more than one authorization method' error.
+    """
+    cfg = Config(host=DATABRICKS_HOST, token=token)
+    return WorkspaceClient(config=cfg)
 
 
 def parse_named_blocks(sql_text: str) -> dict:
