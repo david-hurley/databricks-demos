@@ -3,13 +3,13 @@ import os
 import re
 from pathlib import Path
 
-from databricks import sql as dbsql
+from databricks.sdk import WorkspaceClient
+from databricks.sdk.service.sql import StatementState
 from flask import Flask, abort, jsonify, render_template, request
 
 APP_DIR = Path(__file__).parent
 ORG = os.environ.get("APP_ORG", "unknown")
-HOST = os.environ.get("DATABRICKS_HOST", "").rstrip("/").replace("https://", "")
-WAREHOUSE_HTTP_PATH = os.environ.get("DATABRICKS_WAREHOUSE_HTTP_PATH", "")
+WAREHOUSE_ID = os.environ.get("WAREHOUSE_ID", "0709f445a3d3d88a")
 STATUS_CATALOG = os.environ.get("STATUS_CATALOG", "classic_stable_been2c_catalog")
 STATUS_SCHEMA = os.environ.get("STATUS_SCHEMA", "business_reports")
 STATUS_TABLE = f"`{STATUS_CATALOG}`.`{STATUS_SCHEMA}`.`report_status`"
@@ -31,12 +31,9 @@ def obo_token() -> str:
     )
 
 
-def get_connection(token: str):
-    return dbsql.connect(
-        server_hostname=HOST,
-        http_path=WAREHOUSE_HTTP_PATH,
-        access_token=token,
-    )
+def get_client(token: str) -> WorkspaceClient:
+    """Return a WorkspaceClient scoped to the OBO token."""
+    return WorkspaceClient(token=token)
 
 
 def parse_named_blocks(sql_text: str) -> dict:
@@ -62,22 +59,39 @@ def parse_named_blocks(sql_text: str) -> dict:
 
 
 def run_named_queries(slug: str, token: str) -> dict:
-    """Execute every named query for a report slug; return {name: [row_dict, ...]}."""
+    """Execute every named query for a report slug using the SDK Statement Execution API."""
     query_file = APP_DIR / "queries" / f"{slug}.sql"
     if not query_file.exists():
         return {}
 
     blocks = parse_named_blocks(query_file.read_text())
     results: dict = {}
+    w = get_client(token)
 
-    with get_connection(token) as conn:
-        with conn.cursor() as cur:
-            for name, query in blocks.items():
-                if not query:
-                    continue
-                cur.execute(query)
-                cols = [d[0] for d in cur.description]
-                results[name] = [dict(zip(cols, row)) for row in cur.fetchall()]
+    for name, query in blocks.items():
+        if not query:
+            continue
+        try:
+            resp = w.statement_execution.execute_statement(
+                statement=query,
+                warehouse_id=WAREHOUSE_ID,
+                wait_timeout="30s",
+            )
+            if resp.status and resp.status.state == StatementState.SUCCEEDED:
+                if resp.result and resp.result.data_array:
+                    cols = [col.name for col in resp.manifest.schema.columns]
+                    results[name] = [
+                        dict(zip(cols, row)) for row in resp.result.data_array
+                    ]
+                else:
+                    results[name] = []
+            else:
+                err = resp.status.error.message if resp.status and resp.status.error else "unknown"
+                app.logger.error("Query %s/%s failed: %s", slug, name, err)
+                results[name] = []
+        except Exception as e:
+            app.logger.error("Query %s/%s exception: %s", slug, name, e)
+            results[name] = []
 
     return results
 
@@ -90,33 +104,45 @@ def load_manifest() -> dict:
 
 
 def _safe_slug(slug: str) -> str:
-    """Reject slugs that could be used for injection."""
     if not re.fullmatch(r"[a-z0-9_-]+", slug):
         abort(400)
     return slug
 
 
 # ---------------------------------------------------------------------------
-# Status helpers
+# Status helpers  (also use SDK Statement Execution)
 # ---------------------------------------------------------------------------
 
+def _exec_sql(token: str, statement: str) -> list:
+    """Run a single SQL statement via the SDK; return list of row dicts."""
+    w = get_client(token)
+    resp = w.statement_execution.execute_statement(
+        statement=statement,
+        warehouse_id=WAREHOUSE_ID,
+        wait_timeout="30s",
+    )
+    if resp.status and resp.status.state == StatementState.SUCCEEDED:
+        if resp.result and resp.result.data_array:
+            cols = [col.name for col in resp.manifest.schema.columns]
+            return [dict(zip(cols, row)) for row in resp.result.data_array]
+    return []
+
+
 def fetch_statuses(token: str) -> dict:
-    """Return {slug: {status, updated_at, updated_by}} for this org."""
     try:
-        with get_connection(token) as conn:
-            with conn.cursor() as cur:
-                cur.execute(
-                    f"SELECT slug, status, updated_at, updated_by "
-                    f"FROM {STATUS_TABLE} WHERE app_org = '{ORG}'"
-                )
-                return {
-                    row[0]: {
-                        "status": row[1],
-                        "updated_at": str(row[2]) if row[2] else "",
-                        "updated_by": row[3] or "",
-                    }
-                    for row in cur.fetchall()
-                }
+        rows = _exec_sql(
+            token,
+            f"SELECT slug, status, updated_at, updated_by "
+            f"FROM {STATUS_TABLE} WHERE app_org = '{ORG}'"
+        )
+        return {
+            r["slug"]: {
+                "status": r["status"],
+                "updated_at": str(r.get("updated_at", "")),
+                "updated_by": r.get("updated_by", "") or "",
+            }
+            for r in rows
+        }
     except Exception:
         return {}
 
@@ -126,18 +152,17 @@ def lazy_seed_statuses(slugs: list, token: str) -> None:
     if not slugs:
         return
     try:
-        with get_connection(token) as conn:
-            with conn.cursor() as cur:
-                for slug in slugs:
-                    cur.execute(
-                        f"""MERGE INTO {STATUS_TABLE} AS t
-                        USING (SELECT '{ORG}' AS app_org, '{slug}' AS slug) AS s
-                        ON t.app_org = s.app_org AND t.slug = s.slug
-                        WHEN NOT MATCHED THEN
-                          INSERT (app_org, slug, status, updated_at, updated_by)
-                          VALUES ('{ORG}', '{slug}', 'draft',
-                                  current_timestamp(), current_user())"""
-                    )
+        for slug in slugs:
+            _exec_sql(
+                token,
+                f"""MERGE INTO {STATUS_TABLE} AS t
+                USING (SELECT '{ORG}' AS app_org, '{slug}' AS slug) AS s
+                ON t.app_org = s.app_org AND t.slug = s.slug
+                WHEN NOT MATCHED THEN
+                  INSERT (app_org, slug, status, updated_at, updated_by)
+                  VALUES ('{ORG}', '{slug}', 'draft',
+                          current_timestamp(), current_user())"""
+            )
     except Exception:
         pass
 
@@ -178,8 +203,8 @@ def report(slug: str):
         statuses = fetch_statuses(token)
 
     status_info = statuses.get(slug, {"status": "draft", "updated_at": "", "updated_by": ""})
-
     report_meta = next((r for r in manifest["reports"] if r["slug"] == slug), {})
+
     return render_template(
         f"reports/{slug}.html",
         data=data,
@@ -212,21 +237,20 @@ def set_status(slug: str):
 
     token = obo_token()
     try:
-        with get_connection(token) as conn:
-            with conn.cursor() as cur:
-                cur.execute(
-                    f"""MERGE INTO {STATUS_TABLE} AS t
-                    USING (SELECT '{ORG}' AS app_org, '{slug}' AS slug) AS s
-                    ON t.app_org = s.app_org AND t.slug = s.slug
-                    WHEN MATCHED THEN
-                      UPDATE SET status = '{new_status}',
-                                 updated_at = current_timestamp(),
-                                 updated_by = current_user()
-                    WHEN NOT MATCHED THEN
-                      INSERT (app_org, slug, status, updated_at, updated_by)
-                      VALUES ('{ORG}', '{slug}', '{new_status}',
-                              current_timestamp(), current_user())"""
-                )
+        _exec_sql(
+            token,
+            f"""MERGE INTO {STATUS_TABLE} AS t
+            USING (SELECT '{ORG}' AS app_org, '{slug}' AS slug) AS s
+            ON t.app_org = s.app_org AND t.slug = s.slug
+            WHEN MATCHED THEN
+              UPDATE SET status = '{new_status}',
+                         updated_at = current_timestamp(),
+                         updated_by = current_user()
+            WHEN NOT MATCHED THEN
+              INSERT (app_org, slug, status, updated_at, updated_by)
+              VALUES ('{ORG}', '{slug}', '{new_status}',
+                      current_timestamp(), current_user())"""
+        )
         return jsonify({"ok": True, "status": new_status})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
