@@ -7,10 +7,8 @@ oauth:
 env:
   - name: APP_ORG
     value: "finance"
-  - name: DATABRICKS_SERVER_HOSTNAME
-    value: "fevm-classic-stable-been2c.cloud.databricks.com"
-  - name: DATABRICKS_HTTP_PATH
-    value: "/sql/1.0/warehouses/0709f445a3d3d88a"
+  - name: DATABRICKS_WAREHOUSE_ID
+    valueFrom: sql-warehouse
   - name: STATUS_CATALOG
     value: "classic_stable_been2c_catalog"
   - name: STATUS_SCHEMA
