@@ -3,49 +3,64 @@ import os
 import re
 from pathlib import Path
 
-from databricks.sdk import WorkspaceClient
+from databricks import sql as dbsql
 from databricks.sdk.core import Config
-from databricks.sdk.service.sql import StatementState
 from flask import Flask, abort, jsonify, render_template, request
 
 APP_DIR = Path(__file__).parent
 ORG = os.environ.get("APP_ORG", "unknown")
 WAREHOUSE_ID = os.environ.get("WAREHOUSE_ID", "0709f445a3d3d88a")
-# Host must be explicit so the SDK Config doesn't pick up the app SP's OAuth
-DATABRICKS_HOST = os.environ.get("DATABRICKS_HOST", "").rstrip("/")
 STATUS_CATALOG = os.environ.get("STATUS_CATALOG", "classic_stable_been2c_catalog")
 STATUS_SCHEMA = os.environ.get("STATUS_SCHEMA", "business_reports")
 STATUS_TABLE = f"`{STATUS_CATALOG}`.`{STATUS_SCHEMA}`.`report_status`"
 
 VALID_STATUSES = {"draft", "not_reviewed", "reviewed"}
 
+# Build the HTTP path for the SQL warehouse
+WAREHOUSE_HTTP_PATH = f"/sql/1.0/warehouses/{WAREHOUSE_ID}"
+
+# Ambient Config uses the app SP credentials (for status reads/writes)
+_SP_CFG = Config()
+
 app = Flask(__name__)
 
 
 # ---------------------------------------------------------------------------
-# Helpers
+# Connection helpers
 # ---------------------------------------------------------------------------
 
-def obo_token() -> str:
-    """Return the user's OBO token injected by Databricks Apps, or fallback to env."""
+def _obo_token() -> str:
+    """User OBO token injected by Databricks Apps, with env fallback for local dev."""
     return (
         request.headers.get("X-Forwarded-Access-Token")
         or os.environ.get("DATABRICKS_TOKEN", "")
     )
 
 
-def get_client(token: str) -> WorkspaceClient:
-    """Return a WorkspaceClient scoped to the OBO token.
+def _obo_conn(token: str):
+    """SQL connection using the user's OBO token (user-level read authorization)."""
+    return dbsql.connect(
+        server_hostname=_SP_CFG.host,
+        http_path=WAREHOUSE_HTTP_PATH,
+        access_token=token,
+    )
 
-    Build Config explicitly so the SDK does not discover the app SP's ambient
-    OAuth credentials and raise 'more than one authorization method' error.
-    """
-    cfg = Config(host=DATABRICKS_HOST, token=token)
-    return WorkspaceClient(config=cfg)
 
+def _sp_conn():
+    """SQL connection using the app service principal (for status metadata writes)."""
+    return dbsql.connect(
+        server_hostname=_SP_CFG.host,
+        http_path=WAREHOUSE_HTTP_PATH,
+        credentials_provider=lambda: _SP_CFG.authenticate,
+    )
+
+
+# ---------------------------------------------------------------------------
+# SQL helpers
+# ---------------------------------------------------------------------------
 
 def parse_named_blocks(sql_text: str) -> dict:
-    """Split a SQL file into a dict of {name: query} on '-- name: <id>' markers."""
+    """Split a SQL file into {name: query} on '-- name: <id>' markers."""
     blocks: dict = {}
     current_name: str | None = None
     current_lines: list = []
@@ -67,41 +82,39 @@ def parse_named_blocks(sql_text: str) -> dict:
 
 
 def run_named_queries(slug: str, token: str) -> dict:
-    """Execute every named query for a report slug using the SDK Statement Execution API."""
+    """Execute every named query in queries/<slug>.sql with the user's OBO token."""
     query_file = APP_DIR / "queries" / f"{slug}.sql"
     if not query_file.exists():
         return {}
 
     blocks = parse_named_blocks(query_file.read_text())
     results: dict = {}
-    w = get_client(token)
 
-    for name, query in blocks.items():
-        if not query:
-            continue
-        try:
-            resp = w.statement_execution.execute_statement(
-                statement=query,
-                warehouse_id=WAREHOUSE_ID,
-                wait_timeout="30s",
-            )
-            if resp.status and resp.status.state == StatementState.SUCCEEDED:
-                if resp.result and resp.result.data_array:
-                    cols = [col.name for col in resp.manifest.schema.columns]
-                    results[name] = [
-                        dict(zip(cols, row)) for row in resp.result.data_array
-                    ]
-                else:
+    with _obo_conn(token) as conn:
+        with conn.cursor() as cur:
+            for name, query in blocks.items():
+                if not query:
+                    continue
+                try:
+                    cur.execute(query)
+                    cols = [d[0] for d in cur.description]
+                    results[name] = [dict(zip(cols, row)) for row in cur.fetchall()]
+                except Exception as e:
+                    app.logger.error("Query %s/%s failed: %s", slug, name, e)
                     results[name] = []
-            else:
-                err = resp.status.error.message if resp.status and resp.status.error else "unknown"
-                app.logger.error("Query %s/%s failed: %s", slug, name, err)
-                results[name] = []
-        except Exception as e:
-            app.logger.error("Query %s/%s exception: %s", slug, name, e)
-            results[name] = []
 
     return results
+
+
+def _sp_exec(statement: str) -> list:
+    """Run a SQL statement using the app SP (for status table operations)."""
+    with _sp_conn() as conn:
+        with conn.cursor() as cur:
+            cur.execute(statement)
+            if cur.description:
+                cols = [d[0] for d in cur.description]
+                return [dict(zip(cols, row)) for row in cur.fetchall()]
+    return []
 
 
 def load_manifest() -> dict:
@@ -118,28 +131,12 @@ def _safe_slug(slug: str) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Status helpers  (also use SDK Statement Execution)
+# Status helpers  (use app SP so status writes always succeed)
 # ---------------------------------------------------------------------------
 
-def _exec_sql(token: str, statement: str) -> list:
-    """Run a single SQL statement via the SDK; return list of row dicts."""
-    w = get_client(token)
-    resp = w.statement_execution.execute_statement(
-        statement=statement,
-        warehouse_id=WAREHOUSE_ID,
-        wait_timeout="30s",
-    )
-    if resp.status and resp.status.state == StatementState.SUCCEEDED:
-        if resp.result and resp.result.data_array:
-            cols = [col.name for col in resp.manifest.schema.columns]
-            return [dict(zip(cols, row)) for row in resp.result.data_array]
-    return []
-
-
-def fetch_statuses(token: str) -> dict:
+def fetch_statuses() -> dict:
     try:
-        rows = _exec_sql(
-            token,
+        rows = _sp_exec(
             f"SELECT slug, status, updated_at, updated_by "
             f"FROM {STATUS_TABLE} WHERE app_org = '{ORG}'"
         )
@@ -151,18 +148,16 @@ def fetch_statuses(token: str) -> dict:
             }
             for r in rows
         }
-    except Exception:
+    except Exception as e:
+        app.logger.warning("fetch_statuses failed: %s", e)
         return {}
 
 
-def lazy_seed_statuses(slugs: list, token: str) -> None:
+def lazy_seed_statuses(slugs: list) -> None:
     """INSERT 'draft' rows for any slug not yet in the status table. Best-effort."""
-    if not slugs:
-        return
-    try:
-        for slug in slugs:
-            _exec_sql(
-                token,
+    for slug in slugs:
+        try:
+            _sp_exec(
                 f"""MERGE INTO {STATUS_TABLE} AS t
                 USING (SELECT '{ORG}' AS app_org, '{slug}' AS slug) AS s
                 ON t.app_org = s.app_org AND t.slug = s.slug
@@ -171,8 +166,8 @@ def lazy_seed_statuses(slugs: list, token: str) -> None:
                   VALUES ('{ORG}', '{slug}', 'draft',
                           current_timestamp(), current_user())"""
             )
-    except Exception:
-        pass
+        except Exception as e:
+            app.logger.warning("lazy_seed_statuses(%s) failed: %s", slug, e)
 
 
 # ---------------------------------------------------------------------------
@@ -181,15 +176,14 @@ def lazy_seed_statuses(slugs: list, token: str) -> None:
 
 @app.route("/")
 def index():
-    token = obo_token()
     manifest = load_manifest()
     reports = manifest.get("reports", [])
-    statuses = fetch_statuses(token)
+    statuses = fetch_statuses()
 
     missing = [r["slug"] for r in reports if r["slug"] not in statuses]
     if missing:
-        lazy_seed_statuses(missing, token)
-        statuses = fetch_statuses(token)
+        lazy_seed_statuses(missing)
+        statuses = fetch_statuses()
 
     return render_template("index.html", reports=reports, statuses=statuses, org=ORG)
 
@@ -202,13 +196,13 @@ def report(slug: str):
     if slug not in known_slugs:
         abort(404)
 
-    token = obo_token()
+    token = _obo_token()
     data = run_named_queries(slug, token)
 
-    statuses = fetch_statuses(token)
+    statuses = fetch_statuses()
     if slug not in statuses:
-        lazy_seed_statuses([slug], token)
-        statuses = fetch_statuses(token)
+        lazy_seed_statuses([slug])
+        statuses = fetch_statuses()
 
     status_info = statuses.get(slug, {"status": "draft", "updated_at": "", "updated_by": ""})
     report_meta = next((r for r in manifest["reports"] if r["slug"] == slug), {})
@@ -228,7 +222,7 @@ def api_query(slug: str, name: str):
     slug = _safe_slug(slug)
     if not re.fullmatch(r"\w+", name):
         abort(400)
-    token = obo_token()
+    token = _obo_token()
     results = run_named_queries(slug, token)
     if name not in results:
         abort(404)
@@ -243,10 +237,8 @@ def set_status(slug: str):
     if new_status not in VALID_STATUSES:
         return jsonify({"error": f"status must be one of {sorted(VALID_STATUSES)}"}), 400
 
-    token = obo_token()
     try:
-        _exec_sql(
-            token,
+        _sp_exec(
             f"""MERGE INTO {STATUS_TABLE} AS t
             USING (SELECT '{ORG}' AS app_org, '{slug}' AS slug) AS s
             ON t.app_org = s.app_org AND t.slug = s.slug

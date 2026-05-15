@@ -7,8 +7,6 @@ oauth:
 env:
   - name: APP_ORG
     value: "finance"
-  - name: DATABRICKS_HOST
-    value: "https://fevm-classic-stable-been2c.cloud.databricks.com"
   - name: WAREHOUSE_ID
     value: "0709f445a3d3d88a"
   - name: STATUS_CATALOG
