@@ -212,9 +212,24 @@ def set_status(slug: str):
     return jsonify({"slug": slug, "status": new_status, "ok": True})
 
 
+def _decode_jwt_claims(token: str) -> dict:
+    """Decode JWT claims (payload only, no verification) for diagnostics."""
+    try:
+        import base64
+        parts = token.split(".")
+        if len(parts) != 3:
+            return {"error": "not a JWT"}
+        padded = parts[1] + "=" * (4 - len(parts[1]) % 4)
+        payload = base64.urlsafe_b64decode(padded)
+        return json.loads(payload)
+    except Exception as e:
+        return {"error": str(e)}
+
+
 @app.route("/debug/obo")
 def debug_obo():
     token = user_token()
+    claims = _decode_jwt_claims(token) if token else {}
     diag = {
         "host": cfg.host,
         "http_path": HTTP_PATH,
@@ -222,6 +237,10 @@ def debug_obo():
         "header_present": bool(token),
         "header_len": len(token),
         "user_api_scopes_env": os.environ.get("DATABRICKS_USER_API_SCOPES"),
+        "token_scope": claims.get("scope"),
+        "token_sub": claims.get("sub"),
+        "token_client_id": claims.get("client_id"),
+        "token_aud": claims.get("aud"),
     }
     try:
         with user_conn() as c:
