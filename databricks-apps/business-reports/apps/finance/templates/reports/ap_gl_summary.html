@@ -1,0 +1,215 @@
+{% extends "_base.html" %}
+
+{% block title %}AP & GL Summary{% endblock %}
+
+{% block sidebar %}
+<nav class="sidebar">
+  <div class="sidebar-section">Finance Reports</div>
+  <a href="/reports/ap_gl_summary" class="active">AP &amp; GL Summary</a>
+</nav>
+{% endblock %}
+
+{% block content %}
+{% set kpi = data.kpis[0] if data.kpis else {} %}
+
+<div class="page-header" style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+  <div>
+    <h1>Accounts Payable &amp; General Ledger Summary</h1>
+    <div class="meta">Live data · Unity Catalog · Updated on page load</div>
+  </div>
+  <div class="status-control">
+    <label>Review status</label>
+    <select id="status-select">
+      <option value="draft"        {% if status.status == 'draft' %}selected{% endif %}>Draft</option>
+      <option value="not_reviewed" {% if status.status == 'not_reviewed' %}selected{% endif %}>Not Reviewed</option>
+      <option value="reviewed"     {% if status.status == 'reviewed' %}selected{% endif %}>Reviewed</option>
+    </select>
+    <button class="save-btn" onclick="saveStatus()">Save</button>
+    <span class="saved-msg" id="saved-msg">✓ Saved</span>
+  </div>
+</div>
+
+<!-- KPI row -->
+<div class="kpi-row">
+  <div class="kpi">
+    <div class="label">Overdue AP</div>
+    <div class="value">${{ "{:,.0f}".format(kpi.overdue_total or 0) }}</div>
+    <div class="delta neg">{{ kpi.overdue_count or 0 }} invoices</div>
+  </div>
+  <div class="kpi">
+    <div class="label">Open AP</div>
+    <div class="value">${{ "{:,.0f}".format(kpi.open_total or 0) }}</div>
+  </div>
+  <div class="kpi">
+    <div class="label">Approved (Pending)</div>
+    <div class="value">${{ "{:,.0f}".format(kpi.approved_total or 0) }}</div>
+  </div>
+  <div class="kpi">
+    <div class="label">Total Paid</div>
+    <div class="value">${{ "{:,.0f}".format(kpi.paid_total or 0) }}</div>
+    <div class="delta pos">Cleared</div>
+  </div>
+  <div class="kpi">
+    <div class="label">Avg Invoice</div>
+    <div class="value">${{ "{:,.0f}".format(kpi.avg_invoice_amount or 0) }}</div>
+    <div class="delta">{{ kpi.total_invoices or 0 }} total</div>
+  </div>
+</div>
+
+<!-- Charts row -->
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;">
+  <div class="card">
+    <h2>AP by Status</h2>
+    <div class="chart-wrap">
+      <canvas id="apStatusChart"></canvas>
+    </div>
+  </div>
+  <div class="card">
+    <h2>GL Monthly Activity (Last 12 Months)</h2>
+    <div class="chart-wrap">
+      <canvas id="glTrendChart"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- Monthly AP trend -->
+<div class="card" style="margin-bottom:20px;">
+  <h2>AP Monthly Trend</h2>
+  <div class="chart-wrap">
+    <canvas id="apTrendChart"></canvas>
+  </div>
+</div>
+
+<!-- Overdue invoices table -->
+<div class="card">
+  <h2>Overdue Invoices (Top 25 by Days Overdue)</h2>
+  {% if data.overdue_invoices %}
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Invoice ID</th>
+        <th>Vendor</th>
+        <th>Invoice Date</th>
+        <th>Due Date</th>
+        <th>Amount</th>
+        <th>Days Overdue</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in data.overdue_invoices %}
+      <tr>
+        <td>{{ row.invoice_id }}</td>
+        <td>{{ row.vendor_name }}</td>
+        <td>{{ row.invoice_date }}</td>
+        <td style="color:#DC2626;font-weight:500;">{{ row.due_date }}</td>
+        <td>${{ "{:,.2f}".format(row.amount) }}</td>
+        <td>
+          <span style="background:#FEE2E2;color:#991B1B;padding:2px 8px;border-radius:10px;font-size:.78rem;font-weight:600;">
+            {{ row.days_overdue }}d
+          </span>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p style="color:var(--muted);font-size:.88rem;">No overdue invoices — great work!</p>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const BRAND  = "#1B3A4B";
+  const ACCENT = "#FF6B35";
+  const COLORS = ["#1B3A4B","#2C5F77","#FF6B35","#22C55E","#F59E0B","#8B5CF6"];
+
+  // AP by Status doughnut
+  (function() {
+    const rows   = {{ data.ap_by_status | tojson }};
+    const labels = rows.map(r => r.status.charAt(0).toUpperCase() + r.status.slice(1));
+    const values = rows.map(r => r.total_amount);
+    const statusColors = { overdue:"#DC2626", open:"#F59E0B", approved:"#3B82F6", paid:"#22C55E" };
+    new Chart(document.getElementById("apStatusChart"), {
+      type: "doughnut",
+      data: {
+        labels,
+        datasets: [{ data: values, backgroundColor: rows.map(r => statusColors[r.status] || ACCENT), borderWidth: 2 }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { position: "right" },
+          tooltip: { callbacks: { label: ctx => " $" + ctx.parsed.toLocaleString() } }
+        }
+      }
+    });
+  })();
+
+  // GL Monthly Activity bar
+  (function() {
+    const rows   = {{ data.gl_monthly_activity | tojson }};
+    const labels = rows.map(r => r.period).reverse();
+    const values = rows.map(r => r.total_activity).reverse();
+    new Chart(document.getElementById("glTrendChart"), {
+      type: "bar",
+      data: {
+        labels,
+        datasets: [{ label: "GL Activity ($)", data: values, backgroundColor: BRAND + "CC", borderRadius: 4 }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { ticks: { callback: v => "$" + (v/1000).toFixed(0) + "k" } }
+        }
+      }
+    });
+  })();
+
+  // AP Monthly Trend line
+  (function() {
+    const rows   = {{ data.ap_monthly_trend | tojson }};
+    const labels = rows.map(r => r.month).reverse();
+    const values = rows.map(r => r.total_amount).reverse();
+    new Chart(document.getElementById("apTrendChart"), {
+      type: "line",
+      data: {
+        labels,
+        datasets: [{
+          label: "AP Volume ($)",
+          data: values,
+          borderColor: ACCENT,
+          backgroundColor: ACCENT + "22",
+          tension: 0.35,
+          fill: true,
+          pointRadius: 4
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { ticks: { callback: v => "$" + (v/1000).toFixed(0) + "k" } }
+        }
+      }
+    });
+  })();
+
+  // Status save
+  function saveStatus() {
+    const s = document.getElementById("status-select").value;
+    fetch("/api/status/{{ slug }}", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ status: s })
+    })
+    .then(r => r.json())
+    .then(() => {
+      const msg = document.getElementById("saved-msg");
+      msg.style.display = "inline";
+      setTimeout(() => { msg.style.display = "none"; }, 2500);
+    });
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,11 @@
+command: ["python", "app.py"]
+
+env:
+  - name: APP_ORG
+    value: "hr"
+  - name: DATABRICKS_WAREHOUSE_HTTP_PATH
+    value: "/sql/1.0/warehouses/0709f445a3d3d88a"
+  - name: STATUS_CATALOG
+    value: "classic_stable_been2c_catalog"
+  - name: STATUS_SCHEMA
+    value: "business_reports"
