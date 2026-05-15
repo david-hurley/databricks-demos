@@ -97,12 +97,13 @@ def fetch_statuses(slugs: list[str]) -> dict:
     placeholders = ", ".join("?" * len(slugs))
     query = (
         f"SELECT slug, status, updated_at, updated_by "
-        f"FROM {STATUS_TABLE} WHERE slug IN ({placeholders})"
+        f"FROM {STATUS_TABLE} "
+        f"WHERE app_org = ? AND slug IN ({placeholders})"
     )
     try:
         with user_conn() as conn:
             with conn.cursor() as cur:
-                cur.execute(query, slugs)
+                cur.execute(query, [ORG] + slugs)
                 cols = [d[0] for d in cur.description]
                 return {row[0]: dict(zip(cols, row)) for row in cur.fetchall()}
     except Exception as e:
@@ -113,19 +114,20 @@ def fetch_statuses(slugs: list[str]) -> dict:
 def upsert_status(slug: str, new_status: str) -> None:
     query = f"""
         MERGE INTO {STATUS_TABLE} AS t
-        USING (SELECT ? AS slug, ? AS status, current_timestamp() AS updated_at,
+        USING (SELECT ? AS app_org, ? AS slug, ? AS status,
+                      current_timestamp() AS updated_at,
                       current_user() AS updated_by) AS s
-        ON t.slug = s.slug
+        ON t.app_org = s.app_org AND t.slug = s.slug
         WHEN MATCHED THEN UPDATE SET
             t.status = s.status,
             t.updated_at = s.updated_at,
             t.updated_by = s.updated_by
-        WHEN NOT MATCHED THEN INSERT (slug, status, updated_at, updated_by)
-            VALUES (s.slug, s.status, s.updated_at, s.updated_by)
+        WHEN NOT MATCHED THEN INSERT (app_org, slug, status, updated_at, updated_by)
+            VALUES (s.app_org, s.slug, s.status, s.updated_at, s.updated_by)
     """
     with user_conn() as conn:
         with conn.cursor() as cur:
-            cur.execute(query, [slug, new_status])
+            cur.execute(query, [ORG, slug, new_status])
 
 
 def load_manifest() -> dict:
