@@ -13,6 +13,7 @@ ORG = os.environ.get("APP_ORG", "unknown")
 STATUS_CATALOG = os.environ.get("STATUS_CATALOG", "classic_stable_been2c_catalog")
 STATUS_SCHEMA = os.environ.get("STATUS_SCHEMA", "business_reports")
 
+STATUS_TABLE = f"`{STATUS_CATALOG}`.`{STATUS_SCHEMA}`.`report_status`"
 VALID_STATUSES = {"draft", "not_reviewed", "reviewed"}
 
 # Canonical Databricks Apps pattern:
@@ -90,6 +91,43 @@ def run_named_queries(slug: str) -> dict:
     return results
 
 
+def fetch_statuses(slugs: list[str]) -> dict:
+    if not slugs:
+        return {}
+    placeholders = ", ".join("?" * len(slugs))
+    query = (
+        f"SELECT slug, status, updated_at, updated_by "
+        f"FROM {STATUS_TABLE} WHERE slug IN ({placeholders})"
+    )
+    try:
+        with user_conn() as conn:
+            with conn.cursor() as cur:
+                cur.execute(query, slugs)
+                cols = [d[0] for d in cur.description]
+                return {row[0]: dict(zip(cols, row)) for row in cur.fetchall()}
+    except Exception as e:
+        app.logger.warning("fetch_statuses failed: %s", e)
+        return {}
+
+
+def upsert_status(slug: str, new_status: str) -> None:
+    query = f"""
+        MERGE INTO {STATUS_TABLE} AS t
+        USING (SELECT ? AS slug, ? AS status, current_timestamp() AS updated_at,
+                      current_user() AS updated_by) AS s
+        ON t.slug = s.slug
+        WHEN MATCHED THEN UPDATE SET
+            t.status = s.status,
+            t.updated_at = s.updated_at,
+            t.updated_by = s.updated_by
+        WHEN NOT MATCHED THEN INSERT (slug, status, updated_at, updated_by)
+            VALUES (s.slug, s.status, s.updated_at, s.updated_by)
+    """
+    with user_conn() as conn:
+        with conn.cursor() as cur:
+            cur.execute(query, [slug, new_status])
+
+
 def load_manifest() -> dict:
     manifest_path = APP_DIR / "reports.json"
     if not manifest_path.exists():
@@ -111,8 +149,9 @@ def _safe_slug(slug: str) -> str:
 def index():
     manifest = load_manifest()
     reports = manifest.get("reports", [])
-    # Status parked — re-added once OBO is confirmed working
-    return render_template("index.html", reports=reports, statuses={}, org=ORG)
+    slugs = [r["slug"] for r in reports]
+    statuses = fetch_statuses(slugs)
+    return render_template("index.html", reports=reports, statuses=statuses, org=ORG)
 
 
 @app.route("/reports/<slug>")
@@ -125,12 +164,14 @@ def report(slug: str):
 
     data = run_named_queries(slug)
     report_meta = next((r for r in manifest["reports"] if r["slug"] == slug), {})
+    statuses = fetch_statuses([slug])
+    status = statuses.get(slug, {"status": "draft", "updated_at": "", "updated_by": ""})
 
     return render_template(
         f"reports/{slug}.html",
         data=data,
         slug=slug,
-        status={"status": "draft", "updated_at": "", "updated_by": ""},
+        status=status,
         report=report_meta,
         org=ORG,
     )
@@ -149,8 +190,24 @@ def api_query(slug: str, name: str):
 
 @app.route("/api/status/<slug>", methods=["POST"])
 def set_status(slug: str):
-    # Status writes parked until OBO is confirmed working end-to-end
-    return jsonify({"error": "status feature coming soon"}), 501
+    slug = _safe_slug(slug)
+    manifest = load_manifest()
+    known_slugs = {r["slug"] for r in manifest.get("reports", [])}
+    if slug not in known_slugs:
+        abort(404)
+
+    body = request.get_json(silent=True) or {}
+    new_status = body.get("status", "")
+    if new_status not in VALID_STATUSES:
+        return jsonify({"error": f"status must be one of {sorted(VALID_STATUSES)}"}), 400
+
+    try:
+        upsert_status(slug, new_status)
+    except Exception as e:
+        app.logger.error("upsert_status failed for %s: %s", slug, e)
+        return jsonify({"error": str(e)}), 500
+
+    return jsonify({"slug": slug, "status": new_status, "ok": True})
 
 
 @app.route("/debug/obo")
