@@ -9,17 +9,18 @@ from flask import Flask, abort, jsonify, render_template, request
 
 APP_DIR = Path(__file__).parent
 ORG = os.environ.get("APP_ORG", "unknown")
-WAREHOUSE_ID = os.environ.get("WAREHOUSE_ID", "0709f445a3d3d88a")
 STATUS_CATALOG = os.environ.get("STATUS_CATALOG", "classic_stable_been2c_catalog")
 STATUS_SCHEMA = os.environ.get("STATUS_SCHEMA", "business_reports")
 STATUS_TABLE = f"`{STATUS_CATALOG}`.`{STATUS_SCHEMA}`.`report_status`"
 
 VALID_STATUSES = {"draft", "not_reviewed", "reviewed"}
 
-# Build the HTTP path for the SQL warehouse
-WAREHOUSE_HTTP_PATH = f"/sql/1.0/warehouses/{WAREHOUSE_ID}"
+# Databricks Apps injects these two vars automatically when a warehouse resource
+# is configured — use them directly, no https:// stripping needed.
+HOSTNAME  = os.environ.get("DATABRICKS_SERVER_HOSTNAME", "")
+HTTP_PATH = os.environ.get("DATABRICKS_HTTP_PATH", "")
 
-# Ambient Config uses the app SP credentials (for status reads/writes)
+# Ambient Config for app SP credentials (status table reads/writes)
 _SP_CFG = Config()
 
 app = Flask(__name__)
@@ -37,25 +38,20 @@ def _obo_token() -> str:
     )
 
 
-def _hostname() -> str:
-    """Strip https:// prefix from Config host — required by the Thrift connector."""
-    return _SP_CFG.host.replace("https://", "").rstrip("/")
-
-
 def _obo_conn(token: str):
     """SQL connection using the user's OBO token (user-level read authorization)."""
     return dbsql.connect(
-        server_hostname=_hostname(),
-        http_path=WAREHOUSE_HTTP_PATH,
+        server_hostname=HOSTNAME,
+        http_path=HTTP_PATH,
         access_token=token,
     )
 
 
 def _sp_conn():
-    """SQL connection using the app service principal (for status metadata writes)."""
+    """SQL connection using the app SP (for status table reads/writes)."""
     return dbsql.connect(
-        server_hostname=_hostname(),
-        http_path=WAREHOUSE_HTTP_PATH,
+        server_hostname=HOSTNAME,
+        http_path=HTTP_PATH,
         credentials_provider=lambda: _SP_CFG.authenticate,
     )
 
