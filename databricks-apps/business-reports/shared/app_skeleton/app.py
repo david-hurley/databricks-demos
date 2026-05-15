@@ -37,10 +37,15 @@ def _obo_token() -> str:
     )
 
 
+def _hostname() -> str:
+    """Strip https:// prefix from Config host — required by the Thrift connector."""
+    return _SP_CFG.host.replace("https://", "").rstrip("/")
+
+
 def _obo_conn(token: str):
     """SQL connection using the user's OBO token (user-level read authorization)."""
     return dbsql.connect(
-        server_hostname=_SP_CFG.host,
+        server_hostname=_hostname(),
         http_path=WAREHOUSE_HTTP_PATH,
         access_token=token,
     )
@@ -49,7 +54,7 @@ def _obo_conn(token: str):
 def _sp_conn():
     """SQL connection using the app service principal (for status metadata writes)."""
     return dbsql.connect(
-        server_hostname=_SP_CFG.host,
+        server_hostname=_hostname(),
         http_path=WAREHOUSE_HTTP_PATH,
         credentials_provider=lambda: _SP_CFG.authenticate,
     )
