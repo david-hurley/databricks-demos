@@ -4,10 +4,9 @@ oauth:
   user_api_scopes:
     - sql
 
-
 env:
   - name: APP_ORG
-    value: "marketing"
+    value: "finance"                      # override per org
   - name: DATABRICKS_WAREHOUSE_HTTP_PATH
     value: "/sql/1.0/warehouses/0709f445a3d3d88a"
   - name: STATUS_CATALOG
