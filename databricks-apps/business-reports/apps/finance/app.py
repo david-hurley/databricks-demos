@@ -10,7 +10,7 @@ from flask import Flask, abort, jsonify, render_template, request
 
 APP_DIR = Path(__file__).parent
 ORG = os.environ.get("APP_ORG", "unknown")
-STATUS_CATALOG = os.environ.get("STATUS_CATALOG", "classic_stable_been2c_catalog")
+STATUS_CATALOG = os.environ.get("STATUS_CATALOG", "your_catalog")
 STATUS_SCHEMA = os.environ.get("STATUS_SCHEMA", "business_reports")
 
 STATUS_TABLE = f"`{STATUS_CATALOG}`.`{STATUS_SCHEMA}`.`report_status`"

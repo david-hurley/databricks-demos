@@ -8,8 +8,8 @@ env:
   - name: APP_ORG
     value: "finance"                      # override per org
   - name: DATABRICKS_WAREHOUSE_HTTP_PATH
-    value: "/sql/1.0/warehouses/0709f445a3d3d88a"
+    value: "/sql/1.0/warehouses/<warehouse-id>"
   - name: STATUS_CATALOG
-    value: "classic_stable_been2c_catalog"
+    value: "your_catalog"
   - name: STATUS_SCHEMA
     value: "business_reports"

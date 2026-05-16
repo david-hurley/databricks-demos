@@ -10,6 +10,6 @@ env:
   - name: DATABRICKS_WAREHOUSE_ID
     valueFrom: sql-warehouse
   - name: STATUS_CATALOG
-    value: "classic_stable_been2c_catalog"
+    value: "your_catalog"
   - name: STATUS_SCHEMA
     value: "business_reports"

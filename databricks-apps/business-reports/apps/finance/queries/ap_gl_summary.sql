@@ -7,14 +7,14 @@ SELECT
   COUNT(CASE WHEN status = 'overdue' THEN 1 END) AS overdue_count,
   COUNT(*) AS total_invoices,
   ROUND(AVG(amount), 2) AS avg_invoice_amount
-FROM classic_stable_been2c_catalog.finance_reporting_accounts_payable.invoices
+FROM your_catalog.finance_reporting_accounts_payable.invoices
 
 -- name: ap_by_status
 SELECT
   status,
   COUNT(*)                       AS invoice_count,
   ROUND(SUM(amount), 2)          AS total_amount
-FROM classic_stable_been2c_catalog.finance_reporting_accounts_payable.invoices
+FROM your_catalog.finance_reporting_accounts_payable.invoices
 GROUP BY status
 ORDER BY total_amount DESC
 
@@ -23,7 +23,7 @@ SELECT
   DATE_FORMAT(invoice_date, 'yyyy-MM')  AS month,
   COUNT(*)                               AS invoice_count,
   ROUND(SUM(amount), 2)                  AS total_amount
-FROM classic_stable_been2c_catalog.finance_reporting_accounts_payable.invoices
+FROM your_catalog.finance_reporting_accounts_payable.invoices
 GROUP BY month
 ORDER BY month DESC
 LIMIT 12
@@ -32,7 +32,7 @@ LIMIT 12
 SELECT
   period,
   ROUND(SUM(total_debit), 2)   AS total_activity
-FROM classic_stable_been2c_catalog.finance_reporting_general_ledger.monthly_trial_balance
+FROM your_catalog.finance_reporting_general_ledger.monthly_trial_balance
 GROUP BY period
 ORDER BY period DESC
 LIMIT 12
@@ -45,8 +45,8 @@ SELECT
   i.due_date,
   ROUND(i.amount, 2)  AS amount,
   DATEDIFF(current_date(), i.due_date) AS days_overdue
-FROM classic_stable_been2c_catalog.finance_reporting_accounts_payable.invoices i
-JOIN classic_stable_been2c_catalog.finance_reporting_accounts_payable.vendors v
+FROM your_catalog.finance_reporting_accounts_payable.invoices i
+JOIN your_catalog.finance_reporting_accounts_payable.vendors v
   ON i.vendor_id = v.vendor_id
 WHERE i.status = 'overdue'
 ORDER BY days_overdue DESC

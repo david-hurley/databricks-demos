@@ -1,4 +1,4 @@
-# Clio Analytics — Business Reports Apps
+# Business Reports Apps
 
 Live, OBO-authenticated HTML reports deployed as Databricks Apps for Finance, HR, Sales, and Marketing.
 
@@ -39,7 +39,7 @@ Every `GET /reports/<slug>` runs the named SQL blocks in `queries/<slug>.sql` us
 
 ### Report status
 
-Stored in `classic_stable_been2c_catalog.business_reports.report_status` (Delta table, OBO writes). Statuses: `draft`, `not_reviewed`, `reviewed`. Lazily seeded on first page view; editable via the status control on each report page.
+Stored in `<your-catalog>.business_reports.report_status` (Delta table, OBO writes). Statuses: `draft`, `not_reviewed`, `reviewed`. Editable via the status control on each report page.
 
 ## Deploying a new report
 
@@ -47,11 +47,11 @@ Use Claude with the `deploy-html-report` skill:
 
 > "Deploy this report to the Finance app"
 
-Claude will parameterize the HTML, write the SQL queries, update `reports.json`, commit, push, and run `databricks --profile fevm-classic-stable-been2c apps deploy reports-<org>`.
+Claude will parameterize the HTML, write the SQL queries, update `reports.json`, commit, push, and run `databricks --profile <your-workspace-profile> apps deploy reports-<org>`.
 
 ## Infrastructure
 
-- **Workspace**: `fevm-classic-stable-been2c.cloud.databricks.com`
-- **Warehouse**: `Serverless Starter Warehouse` (`0709f445a3d3d88a`)
-- **Status table**: `classic_stable_been2c_catalog.business_reports.report_status`
-- **Profile**: `fevm-classic-stable-been2c`
+- **Workspace**: `<your-workspace>.cloud.databricks.com`
+- **Warehouse**: Configure via `sql-warehouse` resource binding in app definition
+- **Status table**: `<your-catalog>.business_reports.report_status`
+- **Profile**: Set your Databricks CLI profile in `~/.databrickscfg`
