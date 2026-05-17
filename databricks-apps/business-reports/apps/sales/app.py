@@ -253,6 +253,31 @@ def load_manifest() -> dict:
     return json.loads(manifest_path.read_text())
 
 
+def discover_static_reports() -> list[dict]:
+    """Scan static_reports/ and return a report-card entry for each .html file."""
+    static_dir = APP_DIR / "static_reports"
+    if not static_dir.exists():
+        return []
+    out = []
+    for f in sorted(static_dir.glob("*.html")):
+        slug = f.stem
+        if not re.fullmatch(r"[a-z0-9_-]+", slug):
+            continue
+        html = f.read_text(errors="ignore")
+        m = re.search(r"<title>(.*?)</title>", html, re.DOTALL | re.IGNORECASE)
+        title = m.group(1).strip() if m else slug.replace("_", " ").title()
+        out.append({"slug": slug, "title": title, "source": "static"})
+    return out
+
+
+def all_reports() -> list[dict]:
+    """Merge manifest reports + auto-discovered static reports. Manifest wins on collision."""
+    manifest_reports = load_manifest().get("reports", [])
+    manifest_slugs = {r["slug"] for r in manifest_reports}
+    static = [r for r in discover_static_reports() if r["slug"] not in manifest_slugs]
+    return manifest_reports + static
+
+
 def _safe_slug(slug: str) -> str:
     if not re.fullmatch(r"[a-z0-9_-]+", slug):
         abort(400)
@@ -265,8 +290,7 @@ def _safe_slug(slug: str) -> str:
 
 @app.route("/")
 def index():
-    manifest = load_manifest()
-    reports = manifest.get("reports", [])
+    reports = all_reports()
     slugs = [r["slug"] for r in reports]
     statuses = fetch_statuses(slugs)
     return render_template("index.html", reports=reports, statuses=statuses, org=ORG)
@@ -276,25 +300,36 @@ def index():
 def report(slug: str):
     slug = _safe_slug(slug)
 
-    # Static HTML reports uploaded directly by analysts take precedence.
-    # Flask parses the embedded SQL, runs it with OBO, and injects window.__REPORT_DATA__
-    # so the report's JS renders live UC data while keeping the same HTML/CSS structure.
+    # Static HTML reports uploaded directly by analysts are wrapped in the full
+    # app shell (_static_wrapper.html extends _base.html) so they get the topbar,
+    # sidebar, and footer. Live data is passed via live_data (injected as
+    # window.__REPORT_DATA__ inside the wrapper's {% block head %}).
     static_path = APP_DIR / "static_reports" / f"{slug}.html"
     if static_path.exists():
         html = static_path.read_text()
+
+        # Extract title for the browser tab and topbar.
+        m_title = re.search(r"<title>(.*?)</title>", html, re.DOTALL | re.IGNORECASE)
+        title = m_title.group(1).strip() if m_title else slug.replace("_", " ").title()
+
+        # Extract body content — drop the standalone <head>/<style> since _base.html
+        # already provides the same CSS. Chart.js is loaded by _base.html too.
+        m_body = re.search(r"<body[^>]*>(.*?)</body>", html, re.DOTALL | re.IGNORECASE)
+        body_html = m_body.group(1) if m_body else html
+
+        # Run embedded SQL with OBO only if there are named queries.
         queries = parse_report_queries(html)
-        # Only hydrate when the HTML actually declares queries. Otherwise leave
-        # window.__REPORT_DATA__ undefined so the in-page STATIC_DATA fallback
-        # still renders something useful instead of an empty {}.
-        if queries:
-            live_data = run_query_dict(slug, queries)
-            inject = (
-                "<script>"
-                f"window.__REPORT_DATA__ = {json.dumps(live_data, default=str)};"
-                "</script>"
-            )
-            html = html.replace("</head>", inject + "\n</head>", 1)
-        return html, 200, {"Content-Type": "text/html; charset=utf-8"}
+        live_data = run_query_dict(slug, queries) if queries else {}
+
+        return render_template(
+            "_static_wrapper.html",
+            title=title,
+            body_html=body_html,
+            live_data=live_data,
+            active_slug=slug,
+            all_reports=all_reports(),
+            org=ORG,
+        )
 
     manifest = load_manifest()
     known_slugs = {r["slug"] for r in manifest.get("reports", [])}
