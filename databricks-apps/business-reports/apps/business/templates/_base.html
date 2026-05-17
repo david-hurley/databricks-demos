@@ -274,6 +274,12 @@
   {% block sidebar %}{% endblock %}
 
   <main class="main">
+    {% if conn_failed is defined and conn_failed %}
+    <div style="background:#FEF3C7;border:1px solid #F59E0B;border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:.85rem;color:#92400E;display:flex;align-items:center;gap:10px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <span><strong>Live data unavailable.</strong> Your session may not have SQL access — try <a href="javascript:location.reload()" style="color:#92400E;font-weight:600">refreshing</a> or opening in a new incognito window to re-authenticate.</span>
+    </div>
+    {% endif %}
     {% block content %}{% endblock %}
   </main>
 </div>

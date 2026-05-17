@@ -17,7 +17,7 @@ env:
   - name: DATABRICKS_WAREHOUSE_ID
     valueFrom: sql-warehouse
   - name: STATUS_CATALOG
-    value: "classic_stable_been2c_catalog"
+    value: "REPLACE_WITH_YOUR_CATALOG"
   - name: STATUS_SCHEMA
     value: "business_reports"
   - name: QUERY_CACHE_TTL_SECONDS

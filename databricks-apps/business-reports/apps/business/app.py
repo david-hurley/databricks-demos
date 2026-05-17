@@ -150,6 +150,11 @@ def run_query_dict(slug: str, queries: dict) -> dict:
     Each query is validated to be a read-only SELECT (or CTE) before execution.
     Any non-SELECT statement is logged and skipped — static analyst HTML must
     never be able to mutate Unity Catalog data.
+
+    Returns {} (empty dict) on connection failure so callers can fall back to
+    STATIC_DATA rather than returning a 500. Only caches results when the
+    connection succeeded AND at least one query returned rows, so a bad OBO token
+    never poisons the cache for subsequent valid requests.
     """
     cache_key = f"static_queries:{slug}"
     cached = _cache.get(cache_key)
@@ -157,27 +162,33 @@ def run_query_dict(slug: str, queries: dict) -> dict:
         return cached
 
     results: dict = {}
-    with user_conn() as conn:
-        with conn.cursor() as cur:
-            for name, query in queries.items():
-                if not query:
-                    continue
-                if not is_select_only(query):
-                    app.logger.warning(
-                        "Rejected non-SELECT query in static report %s/%s", slug, name
-                    )
-                    results[name] = []
-                    continue
-                try:
-                    cur.execute(query)
-                    cols = [d[0] for d in cur.description]
-                    results[name] = [dict(zip(cols, row)) for row in cur.fetchall()]
-                except Exception as e:
-                    app.logger.error("Static query %s/%s failed: %s", slug, name, e)
-                    results[name] = []
+    try:
+        with user_conn() as conn:
+            with conn.cursor() as cur:
+                for name, query in queries.items():
+                    if not query:
+                        continue
+                    if not is_select_only(query):
+                        app.logger.warning(
+                            "Rejected non-SELECT query in static report %s/%s", slug, name
+                        )
+                        continue
+                    try:
+                        cur.execute(query)
+                        cols = [d[0] for d in cur.description]
+                        results[name] = [dict(zip(cols, row)) for row in cur.fetchall()]
+                    except Exception as e:
+                        app.logger.error("Static query %s/%s failed: %s", slug, name, e)
+    except Exception as e:
+        app.logger.warning("OBO connection failed for static report %s — serving static data: %s", slug, e)
+        return {}
 
-    _cache.set(cache_key, results, _CACHE_TTL)
-    return results
+    # Only cache and inject when at least one query returned rows. An all-empty
+    # result (e.g. failed queries) should not override STATIC_DATA in the browser.
+    if any(v for v in results.values()):
+        _cache.set(cache_key, results, _CACHE_TTL)
+        return results
+    return {}
 
 
 def run_named_queries(slug: str) -> dict:
@@ -193,18 +204,22 @@ def run_named_queries(slug: str) -> dict:
     blocks = parse_named_blocks(query_file.read_text())
     results: dict = {}
 
-    with user_conn() as conn:
-        with conn.cursor() as cur:
-            for name, query in blocks.items():
-                if not query:
-                    continue
-                try:
-                    cur.execute(query)
-                    cols = [d[0] for d in cur.description]
-                    results[name] = [dict(zip(cols, row)) for row in cur.fetchall()]
-                except Exception as e:
-                    app.logger.error("Query %s/%s failed: %s", slug, name, e)
-                    results[name] = []
+    try:
+        with user_conn() as conn:
+            with conn.cursor() as cur:
+                for name, query in blocks.items():
+                    if not query:
+                        continue
+                    try:
+                        cur.execute(query)
+                        cols = [d[0] for d in cur.description]
+                        results[name] = [dict(zip(cols, row)) for row in cur.fetchall()]
+                    except Exception as e:
+                        app.logger.error("Query %s/%s failed: %s", slug, name, e)
+                        results[name] = []
+    except Exception as e:
+        app.logger.warning("OBO connection failed for %s: %s", slug, e)
+        return {}
 
     _cache.set(cache_key, results, _CACHE_TTL)
     return results
@@ -383,6 +398,8 @@ def report(slug: str):
         # Run embedded SQL with OBO only if there are named queries.
         queries = parse_report_queries(html)
         live_data = run_query_dict(slug, queries) if queries else {}
+        # run_query_dict returns {} on connection failure; track so the banner shows.
+        conn_failed = bool(queries) and not live_data
 
         m_tags = re.search(
             r'<meta\s[^>]*name=["\']tags["\'][^>]*content=["\']([^"\']*)["\']',
@@ -401,6 +418,7 @@ def report(slug: str):
             title=title,
             body_html=body_html,
             live_data=live_data,
+            conn_failed=conn_failed,
             active_slug=slug,
             all_reports=all_reports(),
             tags=tags,
@@ -414,6 +432,7 @@ def report(slug: str):
         abort(404)
 
     data = run_named_queries(slug)
+    conn_failed = not data  # empty dict means OBO connection failed
     report_meta = next((r for r in manifest["reports"] if r["slug"] == slug), {})
     statuses = fetch_statuses([slug])
     status = statuses.get(slug, {"status": "draft", "updated_at": "", "updated_by": ""})
@@ -421,6 +440,7 @@ def report(slug: str):
     return render_template(
         f"reports/{slug}.html",
         data=data,
+        conn_failed=conn_failed,
         slug=slug,
         status=status,
         report=report_meta,
