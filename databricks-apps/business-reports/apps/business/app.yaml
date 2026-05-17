@@ -4,6 +4,13 @@ oauth:
   user_api_scopes:
     - sql
 
+resources:
+  - name: sql-warehouse
+    description: "Shared analytics warehouse"
+    sql_warehouse:
+      id: "0709f445a3d3d88a"
+      permission: "CAN_USE"
+
 env:
   - name: APP_ORG
     value: "business"
