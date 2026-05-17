@@ -80,7 +80,7 @@
   {% for r in reports %}
   {% set tags = r.tags if r.tags is defined else [] %}
   <a href="/reports/{{ r.slug }}" style="text-decoration:none;color:inherit;"
-     data-tags="{{ tags | tojson }}">
+     data-tags='{{ tags | tojson }}'>
     <div class="card" style="transition:box-shadow .15s,transform .15s;cursor:pointer;height:100%;"
          onmouseover="this.style.boxShadow='0 4px 14px rgba(0,0,0,.1)';this.style.transform='translateY(-1px)'"
          onmouseout="this.style.boxShadow='';this.style.transform=''">
