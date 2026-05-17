@@ -16,7 +16,7 @@
 {% block content %}
 <div class="page-header">
   <h1>{{ org | title }} Reports</h1>
-  <div class="meta">Live data from Databricks Unity Catalog · {{ reports | length }} report{{ 's' if reports | length != 1 }}</div>
+  <div class="meta">{{ reports | length }} report{{ 's' if reports | length != 1 }}</div>
 </div>
 
 {% if not reports %}
@@ -30,8 +30,6 @@
 {% else %}
 <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;">
   {% for r in reports %}
-  {% set s = statuses.get(r.slug, {}) %}
-  {% set s_val = s.get('status', 'draft') %}
   <a href="/reports/{{ r.slug }}" style="text-decoration:none;color:inherit;">
     <div class="card" style="transition:box-shadow .15s,transform .15s;cursor:pointer;"
          onmouseover="this.style.boxShadow='0 4px 14px rgba(0,0,0,.1)';this.style.transform='translateY(-1px)'"
@@ -43,7 +41,8 @@
           <div style="font-size:.82rem;color:var(--muted);margin-bottom:8px;">{{ r.description }}</div>
           {% endif %}
         </div>
-        <span class="badge {{ s_val }}">{{ s_val | replace('_', ' ') }}</span>
+        {# Badge is populated async by JS below — starts hidden #}
+        <span class="badge" data-slug="{{ r.slug }}" style="display:none"></span>
       </div>
       <div style="font-size:.75rem;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;">
         {% if r.owner %}
@@ -57,13 +56,38 @@
         {% if r.updated_at %}
         <span>Updated {{ r.updated_at[:10] }}</span>
         {% endif %}
-        {% if s.updated_by %}
-        <span>Reviewed by {{ s.updated_by.split('@')[0] }}</span>
-        {% endif %}
+        <span data-reviewed-by="{{ r.slug }}" style="display:none"></span>
       </div>
     </div>
   </a>
   {% endfor %}
 </div>
 {% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Load status badges async so the home page renders instantly with no SQL.
+fetch('/api/statuses')
+  .then(r => r.json())
+  .then(statuses => {
+    document.querySelectorAll('[data-slug]').forEach(el => {
+      const slug = el.dataset.slug;
+      const s = statuses[slug];
+      if (!s) return;
+      const val = s.status || 'draft';
+      el.className = 'badge ' + val;
+      el.textContent = val.replace('_', ' ');
+      el.style.display = '';
+      if (s.updated_by) {
+        const rb = document.querySelector('[data-reviewed-by="' + slug + '"]');
+        if (rb) {
+          rb.textContent = 'Reviewed by ' + s.updated_by.split('@')[0];
+          rb.style.display = '';
+        }
+      }
+    });
+  })
+  .catch(() => {}); // badges remain hidden if statuses can't be fetched
+</script>
 {% endblock %}

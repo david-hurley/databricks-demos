@@ -65,6 +65,13 @@ class _TTLCache:
             self._store.clear()
             return count
 
+    def clear_prefix(self, prefix: str) -> int:
+        with self._lock:
+            keys = [k for k in self._store if k.startswith(prefix)]
+            for k in keys:
+                del self._store[k]
+            return len(keys)
+
     def stats(self) -> dict:
         with self._lock:
             now = time.monotonic()
@@ -254,7 +261,11 @@ def load_manifest() -> dict:
 
 
 def discover_static_reports() -> list[dict]:
-    """Scan static_reports/ and return a report-card entry for each .html file."""
+    """Scan static_reports/ and return a report-card entry for each .html file.
+
+    Extracts title, description, author, and updated_at from the HTML so cards
+    on the home page show consistent metadata alongside manifest-based reports.
+    """
     static_dir = APP_DIR / "static_reports"
     if not static_dir.exists():
         return []
@@ -264,9 +275,39 @@ def discover_static_reports() -> list[dict]:
         if not re.fullmatch(r"[a-z0-9_-]+", slug):
             continue
         html = f.read_text(errors="ignore")
-        m = re.search(r"<title>(.*?)</title>", html, re.DOTALL | re.IGNORECASE)
-        title = m.group(1).strip() if m else slug.replace("_", " ").title()
-        out.append({"slug": slug, "title": title, "source": "static"})
+
+        m_title = re.search(r"<title>(.*?)</title>", html, re.DOTALL | re.IGNORECASE)
+        title = m_title.group(1).strip() if m_title else slug.replace("_", " ").title()
+
+        m_desc = re.search(
+            r'<meta\s[^>]*name=["\']description["\'][^>]*content=["\']([^"\']*)["\']',
+            html, re.IGNORECASE
+        ) or re.search(
+            r'<meta\s[^>]*content=["\']([^"\']*)["\'][^>]*name=["\']description["\']',
+            html, re.IGNORECASE
+        )
+        description = m_desc.group(1).strip() if m_desc else ""
+
+        m_author = re.search(
+            r'<meta\s[^>]*name=["\']author["\'][^>]*content=["\']([^"\']*)["\']',
+            html, re.IGNORECASE
+        ) or re.search(
+            r'<meta\s[^>]*content=["\']([^"\']*)["\'][^>]*name=["\']author["\']',
+            html, re.IGNORECASE
+        )
+        owner = m_author.group(1).strip() if m_author else ""
+
+        import datetime
+        updated_at = datetime.date.fromtimestamp(f.stat().st_mtime).isoformat()
+
+        out.append({
+            "slug": slug,
+            "title": title,
+            "description": description,
+            "owner": owner,
+            "updated_at": updated_at,
+            "source": "static",
+        })
     return out
 
 
@@ -291,9 +332,17 @@ def _safe_slug(slug: str) -> str:
 @app.route("/")
 def index():
     reports = all_reports()
+    # No SQL on the home page — status badges are loaded asynchronously by the
+    # browser after the page renders, keeping the first load instant.
+    return render_template("index.html", reports=reports, org=ORG)
+
+
+@app.route("/api/statuses")
+def api_statuses():
+    """Return status rows for all reports in this org. Called async by the home page."""
+    reports = all_reports()
     slugs = [r["slug"] for r in reports]
-    statuses = fetch_statuses(slugs)
-    return render_template("index.html", reports=reports, statuses=statuses, org=ORG)
+    return jsonify(fetch_statuses(slugs))
 
 
 @app.route("/reports/<slug>")
@@ -389,6 +438,10 @@ def set_status(slug: str):
     except Exception as e:
         app.logger.error("upsert_status failed for %s: %s", slug, e)
         return jsonify({"error": str(e)}), 500
+
+    # Invalidate all cached status entries for this org so the next
+    # home page load and report load pick up the new value immediately.
+    _cache.clear_prefix(f"statuses:{ORG}:")
 
     return jsonify({"slug": slug, "status": new_status, "ok": True})
 
