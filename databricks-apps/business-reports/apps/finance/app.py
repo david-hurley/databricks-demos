@@ -124,8 +124,22 @@ def parse_report_queries(html: str) -> dict:
     return parse_named_blocks(m.group(1))
 
 
+# Static reports embedded by analysts are only ever allowed to run read-only
+# SELECT / WITH (CTE) queries. Any other statement is rejected before execution.
+_SELECT_ONLY_RE = re.compile(r"^\s*(?:--[^\n]*\n|\s)*(SELECT|WITH)\b", re.IGNORECASE)
+
+
+def is_select_only(query: str) -> bool:
+    return bool(_SELECT_ONLY_RE.match(query or ""))
+
+
 def run_query_dict(slug: str, queries: dict) -> dict:
-    """Run an arbitrary dict of {name: sql} using the OBO connection. Cached by slug."""
+    """Run an arbitrary dict of {name: sql} using the OBO connection. Cached by slug.
+
+    Each query is validated to be a read-only SELECT (or CTE) before execution.
+    Any non-SELECT statement is logged and skipped — static analyst HTML must
+    never be able to mutate Unity Catalog data.
+    """
     cache_key = f"static_queries:{slug}"
     cached = _cache.get(cache_key)
     if cached is not None:
@@ -136,6 +150,12 @@ def run_query_dict(slug: str, queries: dict) -> dict:
         with conn.cursor() as cur:
             for name, query in queries.items():
                 if not query:
+                    continue
+                if not is_select_only(query):
+                    app.logger.warning(
+                        "Rejected non-SELECT query in static report %s/%s", slug, name
+                    )
+                    results[name] = []
                     continue
                 try:
                     cur.execute(query)
@@ -263,13 +283,17 @@ def report(slug: str):
     if static_path.exists():
         html = static_path.read_text()
         queries = parse_report_queries(html)
-        live_data = run_query_dict(slug, queries) if queries else {}
-        inject = (
-            "<script>"
-            f"window.__REPORT_DATA__ = {json.dumps(live_data, default=str)};"
-            "</script>"
-        )
-        html = html.replace("</head>", inject + "\n</head>", 1)
+        # Only hydrate when the HTML actually declares queries. Otherwise leave
+        # window.__REPORT_DATA__ undefined so the in-page STATIC_DATA fallback
+        # still renders something useful instead of an empty {}.
+        if queries:
+            live_data = run_query_dict(slug, queries)
+            inject = (
+                "<script>"
+                f"window.__REPORT_DATA__ = {json.dumps(live_data, default=str)};"
+                "</script>"
+            )
+            html = html.replace("</head>", inject + "\n</head>", 1)
         return html, 200, {"Content-Type": "text/html; charset=utf-8"}
 
     manifest = load_manifest()
