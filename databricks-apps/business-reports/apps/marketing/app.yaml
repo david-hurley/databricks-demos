@@ -13,3 +13,6 @@ env:
     value: "your_catalog"
   - name: STATUS_SCHEMA
     value: "business_reports"
+
+  - name: QUERY_CACHE_TTL_SECONDS
+    value: "60"

@@ -1,6 +1,8 @@
 import json
 import os
 import re
+import threading
+import time
 import traceback
 from pathlib import Path
 
@@ -23,7 +25,54 @@ cfg = Config()
 WAREHOUSE_ID = os.environ.get("DATABRICKS_WAREHOUSE_ID", "")
 HTTP_PATH = f"/sql/1.0/warehouses/{WAREHOUSE_ID}"
 
+# TTL for cached query results. Set QUERY_CACHE_TTL_SECONDS=0 in app.yaml to disable.
+_CACHE_TTL = int(os.environ.get("QUERY_CACHE_TTL_SECONDS", "60"))
+
 app = Flask(__name__)
+
+
+# ---------------------------------------------------------------------------
+# In-memory TTL cache
+# ---------------------------------------------------------------------------
+
+class _TTLCache:
+    """Thread-safe in-memory cache with per-entry TTL."""
+
+    def __init__(self) -> None:
+        self._store: dict = {}
+        self._lock = threading.Lock()
+
+    def get(self, key: str):
+        with self._lock:
+            entry = self._store.get(key)
+            if entry is None:
+                return None
+            value, expires_at = entry
+            if time.monotonic() > expires_at:
+                del self._store[key]
+                return None
+            return value
+
+    def set(self, key: str, value, ttl: int) -> None:
+        if ttl <= 0:
+            return
+        with self._lock:
+            self._store[key] = (value, time.monotonic() + ttl)
+
+    def clear(self) -> int:
+        with self._lock:
+            count = len(self._store)
+            self._store.clear()
+            return count
+
+    def stats(self) -> dict:
+        with self._lock:
+            now = time.monotonic()
+            live = {k: v for k, (v, exp) in self._store.items() if exp > now}
+            return {"entries": len(live), "keys": list(live.keys()), "ttl_seconds": _CACHE_TTL}
+
+
+_cache = _TTLCache()
 
 
 # ---------------------------------------------------------------------------
@@ -68,6 +117,11 @@ def parse_named_blocks(sql_text: str) -> dict:
 
 
 def run_named_queries(slug: str) -> dict:
+    cache_key = f"queries:{slug}"
+    cached = _cache.get(cache_key)
+    if cached is not None:
+        return cached
+
     query_file = APP_DIR / "queries" / f"{slug}.sql"
     if not query_file.exists():
         return {}
@@ -88,12 +142,19 @@ def run_named_queries(slug: str) -> dict:
                     app.logger.error("Query %s/%s failed: %s", slug, name, e)
                     results[name] = []
 
+    _cache.set(cache_key, results, _CACHE_TTL)
     return results
 
 
 def fetch_statuses(slugs: list[str]) -> dict:
     if not slugs:
         return {}
+
+    cache_key = f"statuses:{ORG}:{','.join(sorted(slugs))}"
+    cached = _cache.get(cache_key)
+    if cached is not None:
+        return cached
+
     placeholders = ", ".join("?" * len(slugs))
     query = (
         f"SELECT slug, status, updated_at, updated_by "
@@ -105,7 +166,9 @@ def fetch_statuses(slugs: list[str]) -> dict:
             with conn.cursor() as cur:
                 cur.execute(query, [ORG] + slugs)
                 cols = [d[0] for d in cur.description]
-                return {row[0]: dict(zip(cols, row)) for row in cur.fetchall()}
+                result = {row[0]: dict(zip(cols, row)) for row in cur.fetchall()}
+        _cache.set(cache_key, result, _CACHE_TTL)
+        return result
     except Exception as e:
         app.logger.warning("fetch_statuses failed: %s", e)
         return {}
@@ -190,6 +253,12 @@ def api_query(slug: str, name: str):
     return jsonify(results[name])
 
 
+@app.route("/api/cache/clear", methods=["POST"])
+def clear_cache():
+    count = _cache.clear()
+    return jsonify({"cleared": count, "ok": True})
+
+
 @app.route("/api/status/<slug>", methods=["POST"])
 def set_status(slug: str):
     slug = _safe_slug(slug)
@@ -241,6 +310,7 @@ def debug_obo():
         "token_sub": claims.get("sub"),
         "token_client_id": claims.get("client_id"),
         "token_aud": claims.get("aud"),
+        "cache": _cache.stats(),
     }
     try:
         with user_conn() as c:
