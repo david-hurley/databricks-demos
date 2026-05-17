@@ -1,0 +1,14 @@
+{
+  "reports": [
+    {
+      "id": "f1a2b3c4-d5e6-7890-abcd-ef1234567890",
+      "slug": "ap_gl_summary",
+      "title": "AP & GL Summary",
+      "description": "Accounts Payable status breakdown, overdue invoices, and General Ledger monthly activity.",
+      "owner": "owner@company.com",
+      "created_at": "2026-05-15",
+      "updated_at": "2026-05-15",
+      "tags": ["finance"]
+    }
+  ]
+}
