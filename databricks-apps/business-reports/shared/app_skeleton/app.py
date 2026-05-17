@@ -22,6 +22,10 @@ VALID_STATUSES = {"draft", "not_reviewed", "reviewed"}
 #   Config() reads host from the runtime environment automatically.
 #   DATABRICKS_WAREHOUSE_ID is injected via valueFrom: sql-warehouse resource binding.
 cfg = Config()
+# cfg.host includes the scheme (e.g. "https://hostname"); the SQL connector
+# needs only the bare hostname.
+_raw_host = cfg.host or ""
+SERVER_HOSTNAME = _raw_host.removeprefix("https://").removeprefix("http://").rstrip("/")
 WAREHOUSE_ID = os.environ.get("DATABRICKS_WAREHOUSE_ID", "")
 HTTP_PATH = f"/sql/1.0/warehouses/{WAREHOUSE_ID}"
 
@@ -92,7 +96,7 @@ def user_token() -> str:
 
 def user_conn():
     return sql.connect(
-        server_hostname=cfg.host,
+        server_hostname=SERVER_HOSTNAME,
         http_path=HTTP_PATH,
         access_token=user_token(),
     )
