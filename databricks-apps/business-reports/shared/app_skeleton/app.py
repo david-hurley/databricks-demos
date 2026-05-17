@@ -222,6 +222,12 @@ def index():
 @app.route("/reports/<slug>")
 def report(slug: str):
     slug = _safe_slug(slug)
+
+    # Static HTML reports uploaded directly by analysts take precedence.
+    static_path = APP_DIR / "static_reports" / f"{slug}.html"
+    if static_path.exists():
+        return static_path.read_text(), 200, {"Content-Type": "text/html; charset=utf-8"}
+
     manifest = load_manifest()
     known_slugs = {r["slug"] for r in manifest.get("reports", [])}
     if slug not in known_slugs:
