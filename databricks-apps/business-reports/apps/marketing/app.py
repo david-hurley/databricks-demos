@@ -116,6 +116,39 @@ def parse_named_blocks(sql_text: str) -> dict:
     return blocks
 
 
+def parse_report_queries(html: str) -> dict:
+    """Extract named SQL blocks from a <!--REPORT QUERIES ... --> comment in HTML."""
+    m = re.search(r"<!--REPORT QUERIES\n(.*?)-->", html, re.DOTALL)
+    if not m:
+        return {}
+    return parse_named_blocks(m.group(1))
+
+
+def run_query_dict(slug: str, queries: dict) -> dict:
+    """Run an arbitrary dict of {name: sql} using the OBO connection. Cached by slug."""
+    cache_key = f"static_queries:{slug}"
+    cached = _cache.get(cache_key)
+    if cached is not None:
+        return cached
+
+    results: dict = {}
+    with user_conn() as conn:
+        with conn.cursor() as cur:
+            for name, query in queries.items():
+                if not query:
+                    continue
+                try:
+                    cur.execute(query)
+                    cols = [d[0] for d in cur.description]
+                    results[name] = [dict(zip(cols, row)) for row in cur.fetchall()]
+                except Exception as e:
+                    app.logger.error("Static query %s/%s failed: %s", slug, name, e)
+                    results[name] = []
+
+    _cache.set(cache_key, results, _CACHE_TTL)
+    return results
+
+
 def run_named_queries(slug: str) -> dict:
     cache_key = f"queries:{slug}"
     cached = _cache.get(cache_key)
@@ -224,9 +257,20 @@ def report(slug: str):
     slug = _safe_slug(slug)
 
     # Static HTML reports uploaded directly by analysts take precedence.
+    # Flask parses the embedded SQL, runs it with OBO, and injects window.__REPORT_DATA__
+    # so the report's JS renders live UC data while keeping the same HTML/CSS structure.
     static_path = APP_DIR / "static_reports" / f"{slug}.html"
     if static_path.exists():
-        return static_path.read_text(), 200, {"Content-Type": "text/html; charset=utf-8"}
+        html = static_path.read_text()
+        queries = parse_report_queries(html)
+        live_data = run_query_dict(slug, queries) if queries else {}
+        inject = (
+            "<script>"
+            f"window.__REPORT_DATA__ = {json.dumps(live_data, default=str)};"
+            "</script>"
+        )
+        html = html.replace("</head>", inject + "\n</head>", 1)
+        return html, 200, {"Content-Type": "text/html; charset=utf-8"}
 
     manifest = load_manifest()
     known_slugs = {r["slug"] for r in manifest.get("reports", [])}
