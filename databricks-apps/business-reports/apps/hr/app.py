@@ -321,6 +321,9 @@ def report(slug: str):
         queries = parse_report_queries(html)
         live_data = run_query_dict(slug, queries) if queries else {}
 
+        statuses = fetch_statuses([slug])
+        status = statuses.get(slug, {"status": "draft", "updated_at": "", "updated_by": ""})
+
         return render_template(
             "_static_wrapper.html",
             title=title,
@@ -328,6 +331,7 @@ def report(slug: str):
             live_data=live_data,
             active_slug=slug,
             all_reports=all_reports(),
+            status=status,
             org=ORG,
         )
 
@@ -371,8 +375,7 @@ def clear_cache():
 @app.route("/api/status/<slug>", methods=["POST"])
 def set_status(slug: str):
     slug = _safe_slug(slug)
-    manifest = load_manifest()
-    known_slugs = {r["slug"] for r in manifest.get("reports", [])}
+    known_slugs = {r["slug"] for r in all_reports()}
     if slug not in known_slugs:
         abort(404)
 

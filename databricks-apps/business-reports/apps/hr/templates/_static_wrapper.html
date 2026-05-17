@@ -20,5 +20,37 @@
 {% endblock %}
 
 {% block content %}
+<div style="display:flex;justify-content:flex-end;margin-bottom:16px;">
+  <div class="status-control">
+    <label>Review status</label>
+    <select id="status-select">
+      <option value="draft"        {% if status.status == 'draft' %}selected{% endif %}>Draft</option>
+      <option value="not_reviewed" {% if status.status == 'not_reviewed' %}selected{% endif %}>Not Reviewed</option>
+      <option value="reviewed"     {% if status.status == 'reviewed' %}selected{% endif %}>Reviewed</option>
+    </select>
+    <button class="save-btn" onclick="saveStatus()">Save</button>
+    <span class="saved-msg" id="saved-msg">&#10003; Saved</span>
+  </div>
+</div>
+
 {{ body_html | safe }}
+{% endblock %}
+
+{% block scripts %}
+<script>
+function saveStatus() {
+  const s = document.getElementById("status-select").value;
+  fetch("/api/status/{{ active_slug }}", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ status: s })
+  })
+  .then(r => r.json())
+  .then(() => {
+    const msg = document.getElementById("saved-msg");
+    msg.style.display = "inline";
+    setTimeout(() => { msg.style.display = "none"; }, 2500);
+  });
+}
+</script>
 {% endblock %}
